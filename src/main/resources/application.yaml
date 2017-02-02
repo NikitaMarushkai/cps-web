@@ -3,3 +3,12 @@ server:
   port: 8080
   context-path: /
   display-name: CPS Belgium Parts-On-Line
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://83.166.243.50:5432/CPS
+    username: postgres
+    password: postgres
+  freemarker:
+    cache: false

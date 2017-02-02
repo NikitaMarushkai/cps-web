@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Agricultural, construction parts on-line, CPS Belgium</title>
@@ -11,177 +11,250 @@
         .jumbotron {
             margin-bottom: 0;
         }
+
         .navbar {
             border-radius: 0;
-            background-image: -moz-linear-gradient( 90deg, rgb(16,21,17) 0%, rgb(9,109,16) 100%);
-            background-image: -webkit-linear-gradient( 90deg, rgb(16,21,17) 0%, rgb(9,109,16) 100%);
-            background-image: -ms-linear-gradient( 90deg, rgb(16,21,17) 0%, rgb(9,109,16) 100%);
+            background-image: -moz-linear-gradient(90deg, rgb(16, 21, 17) 0%, rgb(9, 109, 16) 100%);
+            background-image: -webkit-linear-gradient(90deg, rgb(16, 21, 17) 0%, rgb(9, 109, 16) 100%);
+            background-image: -ms-linear-gradient(90deg, rgb(16, 21, 17) 0%, rgb(9, 109, 16) 100%);
         }
+
         .navbar-brand {
             height: 80px;
             display: flex;
             align-items: center;
         }
-        .navbar-brand>img {
+
+        .navbar-brand > img {
             padding: 7px 14px;
         }
-        .nav >li >a {
+
+        .nav > li > a {
             padding-top: 30px;
             padding-bottom: 30px;
         }
+
         .navbar-toggle {
             padding: 10px;
             margin: 25px 15px 25px 0;
         }
-        .logo-span{
+
+        .logo-span {
             font-size: 70px;
             font-family: 'Mongolian Baiti';
         }
-        @media only screen and (max-width : 768px){
+
+        @media only screen and (max-width: 768px) {
             .navbar-brand {
                 padding: 0px;
                 position: absolute;
             }
-            .navbar-brand>img {
+
+            .navbar-brand > img {
                 height: 100%;
                 width: auto;
                 padding: 7px 14px;
             }
-            .logo-span{
+
+            .logo-span {
                 display: none;
             }
         }
 
-        #main-slider{
+        #main-slider {
             margin-top: -20px;
         }
-        h2{
+
+        h2 {
             margin: 0;
             color: #666;
             padding-top: 90px;
             font-size: 52px;
             font-family: "trebuchet ms", sans-serif;
         }
-        .item{
+
+        .item {
             background: #333;
             text-align: center;
             height: 500px !important;
         }
-        .carousel{
+
+        .carousel {
             margin-top: 20px;
         }
-        #header-info-container{
+
+        #header-info-container {
             padding-top: 40px;
         }
-        #header-info-container h1{
-            color: #57a43c;
+
+        #header-info-container h1 {
+            color: #b43832;
             font-weight: bold;
             font-family: "Myriad Pro";
         }
-        #header-info-container p{
+
+        #header-info-container p {
             font-family: "Myriad Pro";
             color: #77737a;
             font-weight: bold;
             padding: 5px 0px;
         }
-        #image-cont img{
-            width: 466px;
-            height: 323px;
-            -webkit-box-shadow: 14px 42px 96px -1px rgba(81,102,70,0.93);
-            -moz-box-shadow: 14px 42px 96px -1px rgba(81,102,70,0.93);
-            box-shadow: 14px 42px 96px -1px rgba(81,102,70,0.93);
-        }
-        #image-cont .row .col-sm-4{
-            margin: 30px 10px 0 0;
+
+        #image-cont .row .col-sm-4 {
+            margin: 30px 0 0 0;
         }
 
+        #image-cont .btn-danger {
+            width: 120px;
+            margin-left: 33%;
+        }
 
+        .morph {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+
+        .morph:hover {
+            border-radius: 50%;
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+
+        .pic {
+            overflow: hidden;
+            -webkit-box-shadow: 14px 42px 96px -1px rgba(81, 102, 70, 0.93);
+            -moz-box-shadow: 14px 42px 96px -1px rgba(81, 102, 70, 0.93);
+            box-shadow: 14px 42px 96px -1px rgba(81, 102, 70, 0.93);
+            /*border: 3px solid black;*/
+            border-radius: 10px;
+        }
+
+        #image-cont h3 {
+            color: #b43832;
+            text-align: center;
+            font-family: "Myriad Pro";
+            font-weight: bold;
+        }
+
+        #image-cont p {
+            font-family: "Myriad Pro";
+            text-align: center;
+            color: #8e8696;
+            font-size: medium;
+        }
+
+        .footer {
+            background-image: -moz-linear-gradient(90deg, rgb(0, 0, 1) 0%, rgb(255, 255, 255) 100%);
+            background-image: -webkit-linear-gradient(90deg, rgb(0, 0, 1) 0%, rgb(255, 255, 255) 100%);
+            background-image: -ms-linear-gradient(90deg, rgb(0, 0, 1) 0%, rgb(255, 255, 255) 100%);
+            box-shadow: 0px 11px 37.41px 5.59px rgba(0, 0, 0, 0.15);
+            margin-top: 30px;
+        }
+
+        .footer-offers {
+            background: url('/images/footer_background.png') center top no-repeat;
+            background-size: cover;
+        }
+
+        .footer-contacts {
+            background-image: -moz-linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(0, 0, 1) 100%);
+            background-image: -webkit-linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(0, 0, 1) 100%);
+            background-image: -ms-linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(0, 0, 1) 100%);
+        }
     </style>
 </head>
 <body>
 
-<div class="jumbotron">
-    <div class="container text-center">
-        <h1>Online Store</h1>
-        <p>Mission, Vision and Values</p>
+<header>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Online Store</h1>
+            <p>Mission, Vision and Values</p>
+        </div>
     </div>
-</div>
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">
-                <img style="width: 130px;" src="/images/logo.png" alt="CPS Parts online"/><span class="logo-span">CPS Belgium</span>
-            </a>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img style="width: 130px;" src="/images/logo.png" alt="CPS Parts online"/><span class="logo-span">CPS Belgium</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Catalogue</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Special Offers</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a>Choose your language</a></li>
+                    <li><a href="/?lang=ru"><span class="flag-icon flag-icon-ru"></span></a></li>
+                    <li><a href="/?lang=en"><span class="flag-icon flag-icon-gb"></span></a></li>
+                    <li><a href="/?lang=fr"><span class="flag-icon flag-icon-fr"></span></a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Special Offers</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a>Choose your language</a></li>
-                <li><a href="/?lang=ru"><span class="flag-icon flag-icon-ru"></span></a></li>
-                <li><a href="/?lang=en"><span class="flag-icon flag-icon-gb"></span></a></li>
-                <li><a href="/?lang=fr"><span class="flag-icon flag-icon-fr"></span></a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Карусель -->
-<div id="main-slider" class="carousel slide" data-interval="5000" data-ride="carousel">
-    <!-- Индикаторы для карусели -->
-    <ol class="carousel-indicators">
-        <!-- Перейти к 0 слайду карусели с помощью соответствующего индекса data-slide-to="0" -->
-        <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-        <!-- Перейти к 1 слайду карусели с помощью соответствующего индекса data-slide-to="1" -->
-        <li data-target="#main-slider" data-slide-to="1"></li>
-        <!-- Перейти к 2 слайду карусели с помощью соответствующего индекса data-slide-to="2" -->
-        <li data-target="#main-slider" data-slide-to="2"></li>
-    </ol>
-    <!-- Слайды карусели -->
-    <div class="carousel-inner">
-        <!-- Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда -->
-        <div class="active item">
-            <h2>Слайд №1</h2>
-            <div class="carousel-caption">
-                <h3>Заголовок 1 слайда</h3>
-                <p>Текст (описание) 1 слайда...</p>
+    <!-- Карусель -->
+    <div id="main-slider" class="carousel slide" data-interval="5000" data-ride="carousel">
+        <!-- Индикаторы для карусели -->
+        <ol class="carousel-indicators">
+            <!-- Перейти к 0 слайду карусели с помощью соответствующего индекса data-slide-to="0" -->
+            <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+            <!-- Перейти к 1 слайду карусели с помощью соответствующего индекса data-slide-to="1" -->
+            <li data-target="#main-slider" data-slide-to="1"></li>
+            <!-- Перейти к 2 слайду карусели с помощью соответствующего индекса data-slide-to="2" -->
+            <li data-target="#main-slider" data-slide-to="2"></li>
+        </ol>
+        <!-- Слайды карусели -->
+        <div class="carousel-inner">
+            <!-- Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда -->
+            <div class="active item">
+                <h2>Слайд №1</h2>
+                <div class="carousel-caption">
+                    <h3>Заголовок 1 слайда</h3>
+                    <p>Текст (описание) 1 слайда...</p>
+                </div>
+            </div>
+            <!-- Слайд №2 -->
+            <div class="item">
+                <h2>Slide 2</h2>
+                <div class="carousel-caption">
+                    <h3>Second slide label</h3>
+                    <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
+                </div>
+            </div>
+            <!-- Слайд №3 -->
+            <div class="item">
+                <h2>Slide 3</h2>
+                <div class="carousel-caption">
+                    <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
             </div>
         </div>
-        <!-- Слайд №2 -->
-        <div class="item">
-            <h2>Slide 2</h2>
-            <div class="carousel-caption">
-                <h3>Second slide label</h3>
-                <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
-            </div>
-        </div>
-        <!-- Слайд №3 -->
-        <div class="item">
-            <h2>Slide 3</h2>
-            <div class="carousel-caption">
-                <h3>Third slide label</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </div>
-        </div>
+        <!-- Навигация для карусели -->
+        <!-- Кнопка, осуществляющая переход на предыдущий слайд с помощью атрибута data-slide="prev" -->
+        <a class="carousel-control left" href="#main-slider" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <!-- Кнопка, осуществляющая переход на следующий слайд с помощью атрибута data-slide="next" -->
+        <a class="carousel-control right" href="#main-slider" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
     </div>
-    <!-- Навигация для карусели -->
-    <!-- Кнопка, осуществляющая переход на предыдущий слайд с помощью атрибута data-slide="prev" -->
-    <a class="carousel-control left" href="#main-slider" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <!-- Кнопка, осуществляющая переход на следующий слайд с помощью атрибута data-slide="next" -->
-    <a class="carousel-control right" href="#main-slider" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-</div>
+</header>
 <div class="container" id="header-info-container">
     <div class="row">
         <div class="col-sm-12">
@@ -197,19 +270,160 @@
 <div class="container" id="image-cont">
     <div class="row">
         <div class="col-sm-4">
-            <img src="/images/test_image.jpg" class="img-responsive" alt="tractor"/>
+            <div class="morph pic">
+                <a href="#"><img src="/images/test_image.jpg" class="img-responsive"
+                                 alt="tractor"/></a>
+            </div>
+            <h3>Header 1</h3>
+            <p>The one you'll like The one you'll like</p>
+            <a href="#" class="btn btn-danger">Find out</a>
         </div>
         <div class="col-sm-4">
-            <img src="/images/test_image.jpg" class="img-responsive" alt="tractor"/>
+            <div class="morph pic">
+                <a href="#"><img src="/images/test_image.jpg" class="img-responsive"
+                                 alt="tractor"/></a>
+            </div>
+            <h3>Header 1</h3>
+            <p>The one you'll like The one you'll like</p>
+            <a href="#" class="btn btn-danger">Find out</a>
+        </div>
+        <div class="col-sm-4">
+            <div class="morph pic">
+                <a href="#"><img src="/images/test_image.jpg" class="img-responsive"
+                                 alt="tractor"/></a>
+            </div>
+            <h3>Header 1</h3>
+            <p>The one you'll like The one you'll like The one you'll like</p>
+            <a href="#" class="btn btn-danger">Find out</a>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <img src="/images/test_image.jpg" class="img-responsive"/>
+            <div class="morph pic">
+                <a href="#"><img src="/images/test_image.jpg" class="img-responsive"
+                                 alt="tractor"/></a>
+            </div>
+            <h3>Header 1</h3>
+            <p>The one you'll like The one you'll like The one you'll like The one you'll like</p>
+            <a href="#" class="btn btn-danger">Find out</a>
+        </div>
+        <div class="col-sm-4">
+            <div class="morph pic">
+                <a href="#"><img src="/images/test_image.jpg" class="img-responsive"
+                                 alt="tractor"/></a>
+            </div>
+            <h3>Header 1</h3>
+            <p>The one you'll like The one you'll like The one you'll like The one you'll like</p>
+            <a href="#" class="btn btn-danger">Find out</a>
+        </div>
+        <div class="col-sm-4">
+            <div class="morph pic">
+                <a href="#"><img src="/images/test_image.jpg" class="img-responsive"
+                                 alt="tractor"/></a>
+            </div>
+            <h3>Header 1</h3>
+            <p>The one you'll like</p>
+            <a href="#" class="btn btn-danger">Find out</a>
         </div>
     </div>
 </div>
 
+<!--/*@thymesVar id="products" type="com.belgium.cps.web.marushkai.entities.Product"*/-->
+<footer th:object="${products}">
+    <div class="footer">
+        <div class="footer-offers">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>New offers</h2>
+                        <div class="items">
+                            <div class="row">
+                                <div th:each="item, stat : ${products}" class="col-sm-4">
+                                    <div class="product">
+                                        <img th:src="${item.image}" th:alt="${item.imageDescr}" class="img-responsive"/>
+                                        <h4 th:text="${item.header}"></h4>
+                                        <p th:text="${item.description}"></p>
+                                        <h3 th:text="${item.price}"></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-links">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4>Quick links</h4>
+                    <p><a href="#">Home</a></p>
+                    <p><a href="#">Catalogue</a></p>
+                    <p><a href="#">About us</a></p>
+                    <p><a href="#">Special offers</a></p>
+                    <p><a href="#">Contacts</a></p>
+                    <p><a href="#">Location</a></p>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Our partners</h4>
+                    <p><a href="#">New Holland</a></p>
+                    <p><a href="#">Fiat</a></p>
+                    <p><a href="#">CASE-IH</a></p>
+                    <p><a href="#">STEYR</a></p>
+                    <p><a href="#">FORD</a></p>
+                    <p><a href="#">FLEXI-COIL</a></p>
+                    <p><a href="#">JOHN DEER</a></p>
+                    <p><a href="#">STEIGER</a></p>
+                    <p><a href="#">Orenstein and Koppl</a></p>
+                    <p><a href="#">IVECO</a></p>
+                    <p><a href="#">FPT</a></p>
+                    <p><a href="#">PERKINS</a></p>
+                    <p><a href="#">Cummins</a></p>
+                    <p><a href="#">Caterpillar</a></p>
+                    <p><a href="#">Komatsu</a></p>
+                    <p><a href="#">ISUZU</a></p>
+                    <p><a href="#">IVECO</a></p>
+                </div>
+                <div class="col-sm-6">
+                    <h4>Contact us</h4>
+                    <p>
+                        Gaydon Farm,
+                        <br/>
+                        Kineton Road,
+                        <br/>
+                        Gaydon,
+                        <br/>
+                        Warwick
+                        <br/>
+                        CV35 0EP
+                    </p>
+                    <p>
+                        Tel: 01926 640 637
+                        <br/>
+                        Fax: 01926 642 992
+                        <br/>
+                        Email: sales@ellismachinery.co.uk
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-contacts">
+        <div class="container">
+            <div class="row">
+                <br/>
+                <br/>
+                <div class="col-sm-12">
+                    © CPS Belgium 2017 • All Rights Reserved •
+                </div>
+                <div class="col-sm-12">
+                    Design: unlimited54321@mail.ru
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

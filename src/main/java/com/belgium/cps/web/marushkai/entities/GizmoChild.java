@@ -1,4 +1,4 @@
-package com.belgium.cps.web.marushkai;
+package com.belgium.cps.web.marushkai.entities;
 
 import lombok.Getter;
 import lombok.Setter;

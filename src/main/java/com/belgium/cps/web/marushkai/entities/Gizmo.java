@@ -1,7 +1,4 @@
-package com.belgium.cps.web.marushkai;
-
-import lombok.Getter;
-import lombok.Setter;
+package com.belgium.cps.web.marushkai.entities;
 
 import java.util.ArrayList;
 import java.util.List;
