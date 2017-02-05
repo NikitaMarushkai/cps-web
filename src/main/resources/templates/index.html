@@ -83,6 +83,28 @@
             margin-top: 20px;
         }
 
+        .carousel-caption-content {
+            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
+            bottom: 20px;
+            display: inline-block;
+            padding: 15px 20px 15px 20px;
+            position: absolute;
+            right: -18%;
+            text-align: center;
+            width: auto;
+            overflow: auto;
+        }
+
+        .carousel-caption-content .p{
+            color: #b12723;
+            font-family: "Myriad Pro";
+            font-size: 14px;
+            text-transform: uppercase;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
         #header-info-container {
             padding-top: 40px;
         }
@@ -162,10 +184,69 @@
             background-size: cover;
         }
 
+        .footer-offers h2 {
+            margin-top: -50px;
+            margin-left: -50px;
+            padding-bottom: 20px;
+            color: #b43832;
+            font-family: "Myriad Pro";
+            font-weight: bold;
+        }
+
+        .footer-offers h4 {
+            text-align: center;
+            font-family: "Myriad Pro";
+            font-weight: bold;
+            color: white;
+        }
+
+        .footer-offers p {
+            text-align: center;
+            font-family: "Myriad Pro";
+            color: white;
+        }
+
+        .footer-offers h3 {
+            text-align: center;
+            font-family: "Myriad Pro";
+            color: white;
+            padding-bottom: 40px;
+        }
+
+        .footer-links {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .footer-links h4, p, a {
+            color: white;
+        }
+
+        .footer-links h4 {
+            font-family: "Myriad Pro";
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-links h5 {
+            font-family: "Myriad Pro";
+            font-weight: bold;
+            color: white;
+            font-size: 20px;
+        }
+
         .footer-contacts {
             background-image: -moz-linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(0, 0, 1) 100%);
             background-image: -webkit-linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(0, 0, 1) 100%);
             background-image: -ms-linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(0, 0, 1) 100%);
+        }
+
+        .footer-contacts span{
+            color: #636067;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -220,27 +301,48 @@
         <!-- Слайды карусели -->
         <div class="carousel-inner">
             <!-- Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда -->
-            <div class="active item">
-                <h2>Слайд №1</h2>
+            <div class="active item"
+                 style="background: url('/images/CASE_1121F_wheel_loader_high.jpg') no-repeat center center; background-size: cover;">
                 <div class="carousel-caption">
-                    <h3>Заголовок 1 слайда</h3>
-                    <p>Текст (описание) 1 слайда...</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="carousel-caption-content">
+                                    <span class="p">Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Слайд №2 -->
-            <div class="item">
-                <h2>Slide 2</h2>
+            <div class="item"
+                 style="background: url('/images/CASE_1121F_wheel_loader_high.jpg') no-repeat center center; background-size: cover;">
                 <div class="carousel-caption">
-                    <h3>Second slide label</h3>
-                    <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="carousel-caption-content">
+                                    <span class="p">Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Слайд №3 -->
-            <div class="item">
-                <h2>Slide 3</h2>
+            <div class="item"
+                 style="background: url('/images/CASE_1121F_wheel_loader_high.jpg') no-repeat center center; background-size: cover;">
                 <div class="carousel-caption">
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="carousel-caption-content">
+                                    <span class="p">Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -340,10 +442,11 @@
                             <div class="row">
                                 <div th:each="item, stat : ${products}" class="col-sm-4">
                                     <div class="product">
-                                        <img th:src="${item.image}" th:alt="${item.imageDescr}" class="img-responsive"/>
+                                        <img th:src="${item.image}" th:alt="${item.imageDescr}"
+                                             class="img-responsive img-thumbnail"/>
                                         <h4 th:text="${item.header}"></h4>
                                         <p th:text="${item.description}"></p>
-                                        <h3 th:text="${item.price}"></h3>
+                                        <h3 th:text="'€' + ${item.price}"></h3>
                                     </div>
                                 </div>
                             </div>
@@ -385,7 +488,16 @@
                     <p><a href="#">ISUZU</a></p>
                     <p><a href="#">IVECO</a></p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
+                    <h4>Our news</h4>
+                    <div class="footer-news">
+                        <img src="/images/test_image.jpg" class="img-responsive" alt="news"/>
+                    </div>
+                    <h5>New arrivals of something!</h5>
+                    <p style="font-size: small;">News contentNews contentNews contentNews contentNews contentNews
+                        contentNews contentNews contentNews content</p>
+                </div>
+                <div class="col-sm-3">
                     <h4>Contact us</h4>
                     <p>
                         Gaydon Farm,
@@ -415,10 +527,10 @@
                 <br/>
                 <br/>
                 <div class="col-sm-12">
-                    © CPS Belgium 2017 • All Rights Reserved •
+                    <span>© CPS Belgium 2017 • All Rights Reserved</span>
                 </div>
                 <div class="col-sm-12">
-                    Design: unlimited54321@mail.ru
+                    <span>Design: unlimited54321@mail.ru</span>
                 </div>
             </div>
         </div>
