@@ -12,6 +12,11 @@
             margin-bottom: 0;
         }
 
+        .jumbotron p{
+            font-family: "Myriad Pro";
+            color: #5d5d5a;
+        }
+
         .navbar {
             border-radius: 0;
             background-image: -moz-linear-gradient(90deg, rgb(16, 21, 17) 0%, rgb(9, 109, 16) 100%);
@@ -59,24 +64,21 @@
             .logo-span {
                 display: none;
             }
+            .item{
+                background: #333;
+                text-align: center;
+                max-height: 200px;
+            }
         }
 
         #main-slider {
             margin-top: -20px;
         }
 
-        h2 {
-            margin: 0;
-            color: #666;
-            padding-top: 90px;
-            font-size: 52px;
-            font-family: "trebuchet ms", sans-serif;
-        }
-
         .item {
             background: #333;
             text-align: center;
-            height: 500px !important;
+            height: 600px !important;
         }
 
         .carousel {
@@ -84,8 +86,8 @@
         }
 
         .carousel-caption-content {
-            background: #ffffff;
-            background: rgba(255, 255, 255, 0.9);
+            /*background: #ffffff;*/
+            /*background: rgba(255, 255, 255, 0.9);*/
             bottom: 20px;
             display: inline-block;
             padding: 15px 20px 15px 20px;
@@ -96,15 +98,25 @@
             overflow: auto;
         }
 
-        .carousel-caption-content .p{
-            color: #b12723;
-            font-family: "Myriad Pro";
-            font-size: 14px;
-            text-transform: uppercase;
-            text-shadow: none;
-            font-weight: bold;
-        }
+        /*.carousel-caption-content .p{*/
+            /*color: #b12723;*/
+            /*font-family: "Myriad Pro";*/
+            /*font-size: 14px;*/
+            /*text-transform: uppercase;*/
+            /*text-shadow: none;*/
+            /*font-weight: bold;*/
+            /**/
+            /**/
+        /*}*/
 
+        .p{
+            font-family: Verdana, sans-serif;
+            line-height: 1em;
+            color: #947894;
+            font-weight:bold;
+            font-size: 30px;
+            text-shadow:0px 0px 0 rgb(114,86,114),1px -1px 0 rgb(109,81,109),2px -2px 0 rgb(103,75,103),3px -3px 0 rgb(97,69,97),4px -4px 0 rgb(92,64,92),5px -5px 0 rgb(86,58,86),6px -6px 0 rgb(80,52,80),7px -7px 0 rgb(75,47,75),8px -8px 0 rgb(69,41,69),9px -9px 0 rgb(63,35,63),10px -10px 0 rgb(58,30,58),11px -11px 0 rgb(52,24,52), 12px -12px 0 rgb(46,18,46),13px -13px 12px rgba(0,0,0,0.75),13px -13px 1px rgba(0,0,0,0.5),0px 0px 12px rgba(0,0,0,.2);
+        }
         #header-info-container {
             padding-top: 40px;
         }
@@ -185,8 +197,7 @@
         }
 
         .footer-offers h2 {
-            margin-top: -50px;
-            margin-left: -50px;
+            font-size: 52px;
             padding-bottom: 20px;
             color: #b43832;
             font-family: "Myriad Pro";
@@ -255,8 +266,8 @@
 <header>
     <div class="jumbotron">
         <div class="container text-center">
-            <h1>Online Store</h1>
-            <p>Mission, Vision and Values</p>
+            <h1>CPS BELGIUM sprl</h1>
+            <p>Agriculture and construction spare parts you need</p>
         </div>
     </div>
 
@@ -269,7 +280,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <img style="width: 130px;" src="/images/logo.png" alt="CPS Parts online"/><span class="logo-span">CPS Belgium</span>
+                    <img style="width: 160px;" src="/images/logos/company_logo/SmallLogo.jpg" alt="CPS Belgium sprl. Company that cares"/>
+                    <span class="logo-span">PREMIER PARTS VENDOR</span>
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
@@ -278,10 +290,13 @@
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Special Offers</a></li>
                     <li><a href="#">Contacts</a></li>
-                    <li><a>Choose your language</a></li>
-                    <li><a href="/?lang=ru"><span class="flag-icon flag-icon-ru"></span></a></li>
-                    <li><a href="/?lang=en"><span class="flag-icon flag-icon-gb"></span></a></li>
-                    <li><a href="/?lang=fr"><span class="flag-icon flag-icon-fr"></span></a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Choose your language <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/?lang=ru"><span class="flag-icon flag-icon-ru"></span> Russian</a></li>
+                            <li><a href="/?lang=en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
+                            <li><a href="/?lang=fr"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
