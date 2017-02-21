@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Hello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
+    <link href="/css/main_page.css" rel="stylesheet"/>
+
+    <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+    <link rel="stylesheet" type="text/css" href="/libs/engine1/style.css"/>
+    <script type="text/javascript" src="/libs/engine1/jquery.js"></script>
+    <!-- End WOWSlider.com HEAD section -->
+    <style type="text/css">
+        body {
+            position: relative;
+        }
+        ul.nav-pills {
+            top: 100px;
+            position: fixed;
+        }
+        textarea:focus, input:focus, .uneditable-input:focus {
+            border-color: rgba(229, 103, 23, 0.8) !important;
+            box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6) !important;
+            outline: 0 none !important;
+        }
+        #scroll {
+            position: fixed;
+            z-index: 10000;
+        }
+        .wrapper {
+            min-height: 900px;
+        }
+        .nav-pills li.active > a {
+            background: rgba(161, 5, 0, 0.83);
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="scrollSpy" data-offset="20">
+<nav class="navbar navbar-inverse" th:include="index::main-nav"/>
+<div class="wrapper" id="general-info"
+     style="background: url('/images/backgrounds/new_holland_tractor/nh-t8t9-wallpaper-01-1280x960.jpg') center top no-repeat; background-size: 100% 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <span style="margin-left: -30px; color: white" class="glyphicon glyphicon-earphone"></span><span
+                    class="info-text"> 1-2345-234-32</span><br/>
+                <span style="color: white;" class="glyphicon glyphicon-envelope"></span><span
+                    class="info-text"> ourmail@mail.com</span>
+            </div>
+            <div class="col-sm-4">
+                <div class="hit-the-floor">New Holland Tractors</div>
+            </div>
+            <div class="col-sm-4">
+                <span style="color: white" class="glyphicon glyphicon-home"></span><span
+                    class="info-text"> Our address, blah blah blah</span>
+            </div>
+            <div class="col-sm-12">
+                <div class="logo">
+                    <h2>Very screaming shiny logo</h2>
+                </div>
+                <p id="devise">Order spare parts your machinery needs</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" id="description"
+     style="background: url('/images/backgrounds/new_holland_tractor/tuscany-428041_960_720.jpg') center top no-repeat; background-size: 100% 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="hit-the-floor">New Holland Agri spare parts</div>
+            </div>
+        </div>
+        <div class="row descriptions">
+            <div class="col-sm-6 text">
+                <img class="img-responsive"
+                     src="/images/backgrounds/new_holland_tractor/new-holland-tractors.452.339.0.1.t.png"/>
+            </div>
+            <div class="col-sm-6 backimg">
+                <p>Description for the brand product Description for the brand product Description for the
+                    brand
+                    product
+                    Description for the brand product Description for the brand product Description for the
+                    brand
+                    product
+                    Description for the brand product Description for the brand product Description for the
+                    brand
+                    product Description for the brand product Description for the brand product</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 text">
+                <img class="img-responsive"
+                     src="/images/backgrounds/new_holland_tractor/new-holland-tractors.452.339.0.1.t.png"/>
+            </div>
+            <div class="col-sm-6 backimg">
+                <div class="hit-the-floor" style="font-size: 30px; margin-top: 0; padding-bottom: 10px;">Supported models</div>
+                <ul class="articles">
+                    <li class="block-list">Model 1</li>
+                    <li class="block-list">Model 2</li>
+                    <li class="block-list">Model 3</li>
+                    <li class="block-list">Model 4</li>
+                    <li class="block-list">Model 5</li>
+                    <li class="block-list">Model 6</li>
+                    <li class="block-list">Model 1</li>
+                    <li class="block-list">Model 2</li>
+                    <li class="block-list">Model 3</li>
+                    <li class="block-list">Model 4</li>
+                    <li class="block-list">Model 5</li>
+                    <li class="block-list">Model 6</li>
+                    <li class="block-list">Model 1</li>
+                    <li class="block-list">Model 2</li>
+                    <li class="block-list">Model 3</li>
+                    <li class="block-list">Model 4</li>
+                    <li class="block-list">Model 5</li>
+                    <li class="block-list">Model 6</li>
+                    <li class="block-list">Model 1</li>
+                    <li class="block-list">Model 2</li>
+                    <li class="block-list">Model 3</li>
+                    <li class="block-list">Model 4</li>
+                    <li class="block-list">Model 5</li>
+                    <li class="block-list">Model 6</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" id="gallery"
+     style="background: url('/images/backgrounds/new_holland_tractor/new-holland-agriculture-smashes-the-current-guinness-world-records-title-for-most-wheat-harvested-within-eight-hours-with-the-cr1090-combine.png') center top no-repeat; background-size: 100% 100%;">
+    <div class="container">
+        <div class="row" id="gallery-1">
+            <div class="col-sm-12">
+                <div class="hit-the-floor">New Holland tractors photos</div>
+            </div>
+        </div>
+        <div class="row descriptions">
+            <div class="col-sm-6">
+                <!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
+                <div id="wowslider-container0">
+                    <div class="ws_images">
+                        <ul>
+                            <li><img src="/images/data1/images/slide1.jpg" alt="slide1" title="slide1"
+                                     id="wows0_0"/>
+                            </li>
+                            <li><img src="/images/data1/images/slide2.jpg" alt="slide2" title="slide2"
+                                     id="wows0_1"/>
+                            </li>
+                            <li><img src="/images/data1/images/slide3.jpg" alt="slide3" title="slide3"
+                                     id="wows0_2"/>
+                            </li>
+                            <li><img src="/images/data1/images/slide4.jpg" alt="slide4" title="slide4"
+                                     id="wows0_3"/>
+                            </li>
+                            <li><img src="/images/data1/images/slide5.jpg" alt="slide5" title="slide5"
+                                     id="wows0_4"/>
+                            </li>
+                            <li><img src="/images/data1/images/slide6.jpg" alt="slide6" title="slide6"
+                                     id="wows0_5"/>
+                            </li>
+                            <li><img src="/images/data1/images/slide7.jpg"
+                                     alt="cssslider" title="slide7" id="wows0_6"/>
+                            </li>
+                            <li><img src="/images/data1/images/slide8.jpg" alt="slide8" title="slide8"
+                                     id="wows0_7"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ws_bullets">
+                        <div>
+                            <a href="#" title="slide1"><span><img src="/images/data1/tooltips/slide1.jpg"
+                                                                  alt="slide1"/>1</span></a>
+                            <a href="#" title="slide2"><span><img src="/images/data1/tooltips/slide2.jpg"
+                                                                  alt="slide2"/>2</span></a>
+                            <a href="#" title="slide3"><span><img src="/images/data1/tooltips/slide3.jpg"
+                                                                  alt="slide3"/>3</span></a>
+                            <a href="#" title="slide4"><span><img src="/images/data1/tooltips/slide4.jpg"
+                                                                  alt="slide4"/>4</span></a>
+                            <a href="#" title="slide5"><span><img src="/images/data1/tooltips/slide5.jpg"
+                                                                  alt="slide5"/>5</span></a>
+                            <a href="#" title="slide6"><span><img src="/images/data1/tooltips/slide6.jpg"
+                                                                  alt="slide6"/>6</span></a>
+                            <a href="#" title="slide7"><span><img src="/images/data1/tooltips/slide7.jpg"
+                                                                  alt="slide7"/>7</span></a>
+                            <a href="#" title="slide8"><span><img src="/images/data1/tooltips/slide8.jpg"
+                                                                  alt="slide8"/>8</span></a>
+                        </div>
+                    </div>
+                    <div class="ws_script" style="position:absolute;left:-99%">
+                    </div>
+                    <div class="ws_shadow"></div>
+                </div>
+                <script type="text/javascript" src="/libs/engine1/wowslider.js"></script>
+                <script type="text/javascript" src="/libs/engine1/script.js"></script>
+                <!-- End WOWSlider.com BODY section -->
+            </div>
+            <div class="col-sm-6 backimg">
+                <p style="color: white;">Some text Some text Some textSome textSome textSome textSome text</p>
+            </div>
+        </div>
+        <hr/>
+        <div class="row" id="gallery-2">
+            <div class="col-sm-12">
+                <div class="hit-the-floor">New Holland Agriculture introduction</div>
+            </div>
+        </div>
+        <div class="row descriptions video">
+            <div class="col-sm-12">
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/d2-P_eWBru8"
+                        frameborder="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" id="contact"
+     style="background: url('/images/backgrounds/new_holland_tractor/nh-t9-wallpaper-02-1280x960.jpg') center top no-repeat; background-size: 100% 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="hit-the-floor" style="font-size: 30px;">If you have any questions or you want to order spare
+                    parts for New Holland Agriculture,
+                    feel
+                    free to
+                    contact us!
+                </div>
+            </div>
+        </div>
+        <div class="row descriptions">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <input type="text" class="form-control" id="name" placeholder="Name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <input type="email" class="form-control" id="email" placeholder="email"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <input type="text" class="form-control" id="city" placeholder="Subject"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                                    <textarea class="form-control" id="message" placeholder="Message"
+                                              rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <div class="col-sm-5 col-sm-offset-4">
+                            <button type="submit" class="btn btn-danger btn-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr/>
+        <div class="footer-cat-copyright" th:include="category::footer-copyright"/>
+    </div>
+</div>
+
+<div class="container" id="scroll">
+    <div class="row">
+        <nav class="col-sm-1" id="scrollSpy">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#general-info">General</a></li>
+                <li><a href="#description">Description</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gallery <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#gallery-1">Photos</a></li>
+                        <li><a href="#gallery-2">Videos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script src="/libs/jquery-3.1.1.min.js"></script>
+<script src="/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script>
+    $('body').scrollspy({target: '#scrollSpy'})
+</script>
+</body>
+</html>

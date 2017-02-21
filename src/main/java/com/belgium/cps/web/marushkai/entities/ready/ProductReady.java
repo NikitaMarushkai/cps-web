@@ -9,10 +9,10 @@ import lombok.Setter;
  */
 @Getter @Setter @AllArgsConstructor
 public class ProductReady {
-    int id;
-    String image;
-    String imageDescr;
-    String header;
-    String description;
-    int price;
+    private int id;
+    private String image;
+    private String imageDescr;
+    private String header;
+    private String description;
+    private int price;
 }

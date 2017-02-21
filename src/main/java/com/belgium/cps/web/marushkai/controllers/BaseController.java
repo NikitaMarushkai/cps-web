@@ -1,18 +1,23 @@
 package com.belgium.cps.web.marushkai.controllers;
 
+import com.belgium.cps.web.marushkai.entities.Category;
 import com.belgium.cps.web.marushkai.entities.Product;
+import com.belgium.cps.web.marushkai.entities.ready.CategoryReady;
 import com.belgium.cps.web.marushkai.entities.ready.ProductReady;
+import com.belgium.cps.web.marushkai.repositories.CategoryRepository;
 import com.belgium.cps.web.marushkai.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
@@ -25,6 +30,8 @@ public class BaseController {
 
     @Autowired
     ProductRepository productRepository;
+    @Autowired
+    CategoryRepository categoryRepository;
 
     //LocaleContextHolder
     @RequestMapping("/")
@@ -48,22 +55,23 @@ public class BaseController {
         model.addAttribute("products", products);
         return "index";
     }
-//    @RequestMapping("/")
-//    public String index(Model model){
-//        Gizmo gizmo = new Gizmo();
-//        gizmo.getChildren().add(new GizmoChild());
-//        model.addAttribute("gizmo", new Gizmo());
-//        return "hello";
-//    }
-//
-//    @RequestMapping("/save")
-//    public String save(Gizmo gizmo) {
-//        System.out.println(gizmo.getField1());
-//        System.out.println(gizmo.getField2());
-//        for(GizmoChild child : gizmo.getChildren()) {
-//            System.out.println(child.getChildField1());
-//            System.out.println(child.getChildField2());
-//        }
-//        return "redirect:/";
-//    }
+
+    @RequestMapping("/category/agriculture/")
+    public String getCategory(Model model){
+        ArrayList<CategoryReady> categories = new ArrayList<>();
+        String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
+        for (Category category : categoryRepository.findAll()){
+            categories.add(new CategoryReady(category.getId(), category.getLink(), category.getImglink(),
+                    category.getImgdescr(), category.getDescription(currLang), category.getHovertext()));
+        }
+        model.addAttribute("items", categories);
+        model.addAttribute("imagepath", "/images/backgrounds/agri_cat_bacground.jpg");
+        return "category";
+    }
+
+    @RequestMapping("/product/{type}")
+    public String getLp(@PathVariable String type, Model model){
+
+        return "landing-page";
+    }
 }

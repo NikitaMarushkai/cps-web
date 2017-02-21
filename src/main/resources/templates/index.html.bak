@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Agricultural, construction parts on-line, CPS Belgium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
+    <link href="/css/main_page.css" rel="stylesheet"/>
+    <style>
+        .hovereffect {
+            width: 100%;
+            height: 100%;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            cursor: default;
+        }
+
+        .hovereffect .overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            background-color: rgba(0, 0, 0, 0.5);
+            -webkit-transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
+            transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
+        }
+
+        .hovereffect img {
+            display: block;
+            position: relative;
+            -webkit-transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
+            transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
+        }
+
+        .hovereffect h2 {
+            text-transform: uppercase;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            font-size: 17px;
+            background: rgba(0, 0, 0, 0.6);
+            -webkit-transform: translatey(-100px);
+            -ms-transform: translatey(-100px);
+            transform: translatey(-100px);
+            -webkit-transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
+            transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
+            padding: 10px;
+        }
+
+        .hovereffect a.info {
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            color: #fff;
+            border: 1px solid #fff;
+            background-color: transparent;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            -webkit-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            margin: 50px 0 0;
+            padding: 7px 14px;
+        }
+
+        .hovereffect a.info:hover {
+            box-shadow: 0 0 5px #fff;
+        }
+
+        .hovereffect:hover img {
+            -ms-transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+        .hovereffect:hover .overlay {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+        .hovereffect:hover h2, .hovereffect:hover a.info {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            -ms-transform: translatey(0);
+            -webkit-transform: translatey(0);
+            transform: translatey(0);
+        }
+
+        .hovereffect:hover a.info {
+            -webkit-transition-delay: .2s;
+            transition-delay: .2s;
+        }
+    </style>
+
+    <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+    <link rel="stylesheet" type="text/css" href="/libs/engine0/style.css"/>
+    <script type="text/javascript" src="/libs/engine0/jquery.js"></script>
+    <!-- End WOWSlider.com HEAD section --></head>
+<body>
+
+<header>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>CPS BELGIUM sprl</h1>
+            <p>Agriculture and construction spare parts you need</p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-inverse" th:fragment="main-nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img style="width: 160px;" src="/images/logos/company_logo/SmallLogo.png"
+                         alt="CPS Belgium sprl. Company that cares"/>
+                    <span class="logo-span">PREMIER PARTS VENDOR</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Catalogue</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Special Offers</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Choose your language
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href=".?lang=ru"><span class="flag-icon flag-icon-ru"></span> Russian</a></li>
+                            <li><a href=".?lang=en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
+                            <li><a href=".?lang=fr"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <!--&lt;!&ndash; Карусель &ndash;&gt;-->
+	 <!--End WOWSlider.com BODY section <div id="main-slider" class="carousel slide" data-interval="5000" data-ride="carousel">-->
+    <!--&lt;!&ndash; Индикаторы для карусели &ndash;&gt;-->
+    <!--<ol class="carousel-indicators">-->
+    <!--&lt;!&ndash; Перейти к 0 слайду карусели с помощью соответствующего индекса data-slide-to="0" &ndash;&gt;-->
+    <!--<li data-target="#main-slider" data-slide-to="0" class="active"></li>-->
+    <!--&lt;!&ndash; Перейти к 1 слайду карусели с помощью соответствующего индекса data-slide-to="1" &ndash;&gt;-->
+    <!--<li data-target="#main-slider" data-slide-to="1"></li>-->
+    <!--&lt;!&ndash; Перейти к 2 слайду карусели с помощью соответствующего индекса data-slide-to="2" &ndash;&gt;-->
+    <!--<li data-target="#main-slider" data-slide-to="2"></li>-->
+    <!--</ol>-->
+    <!--&lt;!&ndash; Слайды карусели &ndash;&gt;-->
+    <!--<div class="carousel-inner">-->
+    <!--&lt;!&ndash; Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда &ndash;&gt;-->
+    <!--<div class="active item"-->
+    <!--style="background: url('/images/CASE_1121F_wheel_loader_high.jpg') no-repeat center center; background-size: cover;">-->
+    <!--<div class="carousel-caption">-->
+    <!--<div class="container">-->
+    <!--<div class="row">-->
+    <!--<div class="col-sm-12">-->
+    <!--<div class="carousel-caption-content">-->
+    <!--<span class="p">Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; Слайд №2 &ndash;&gt;-->
+    <!--<div class="item"-->
+    <!--style="background: url('/images/CASE_1121F_wheel_loader_high.jpg') no-repeat center center; background-size: cover;">-->
+    <!--<div class="carousel-caption">-->
+    <!--<div class="container">-->
+    <!--<div class="row">-->
+    <!--<div class="col-sm-12">-->
+    <!--<div class="carousel-caption-content">-->
+    <!--<span class="p">Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; Слайд №3 &ndash;&gt;-->
+    <!--<div class="item"-->
+    <!--style="background: url('/images/CASE_1121F_wheel_loader_high.jpg') no-repeat center center; background-size: cover;">-->
+    <!--<div class="carousel-caption">-->
+    <!--<div class="container">-->
+    <!--<div class="row">-->
+    <!--<div class="col-sm-12">-->
+    <!--<div class="carousel-caption-content">-->
+    <!--<span class="p">Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...Текст (описание) 1 слайда...</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; Навигация для карусели &ndash;&gt;-->
+    <!--&lt;!&ndash; Кнопка, осуществляющая переход на предыдущий слайд с помощью атрибута data-slide="prev" &ndash;&gt;-->
+    <!--<a class="carousel-control left" href="#main-slider" data-slide="prev">-->
+    <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+    <!--</a>-->
+    <!--&lt;!&ndash; Кнопка, осуществляющая переход на следующий слайд с помощью атрибута data-slide="next" &ndash;&gt;-->
+    <!--<a class="carousel-control right" href="#main-slider" data-slide="next">-->
+    <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+    <!--</a>-->
+    <!--</div>-->
+
+</header>
+<div class="wrapper">
+    <div class="background-image">
+        <div class="container" id="header-info-container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <h1>This is main header</h1>
+                    <p>And here is the valuable text And here is the valuable text And here is the valuable text
+                        And here is the valuable text And here is the valuable text And here is the valuable text
+                        And here is the valuable text And here is the valuable text And here is the valuable text</p>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="image-cont">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="hovereffect">
+                        <a href="/category/agriculture/"><img src="/images/test_image.jpg"
+                                                              class="img-responsive img-thumbnail"
+                                                              alt="agricultural parts"/></a>
+                        <div class="overlay">
+                            <h2>AGRICULTURE</h2>
+                            <a class="info" href="/category/agriculture/">FIND OUT</a>
+                        </div>
+                    </div>
+                    <h3>AGRICULTURE PARTS</h3>
+                    <p>Spare parts for New Holland, CASE-IH, STEYR, FORD, FIAT tractors, combines, FLEXI-COIL, John
+                        Deer, STEIGER</p>
+                    <a href="/category/agriculture/" class="btn btn-danger">Find out</a>
+                </div>
+                <div class="col-sm-4">
+                    <div class="hovereffect">
+                        <a href="/category/construction/"><img src="/images/test_image.jpg"
+                                                               class="img-responsive img-thumbnail"
+                                                               alt="construction parts"/></a>
+                        <div class="overlay">
+                            <h2>CONSTRUCTION</h2>
+                            <a class="info" href="/category/construction/">FIND OUT</a>
+                        </div>
+                    </div>
+                    <h3>CONSTRUCTION PARTS</h3>
+                    <p>The one you'll like The one you'll like</p>
+                    <a href="/category/construction/" class="btn btn-danger">Find out</a>
+                </div>
+                <div class="col-sm-4">
+                    <div class="hovereffect">
+                        <a href="/category/engines/"><img src="/images/test_image.jpg"
+                                                          class="img-responsive img-thumbnail"
+                                                          alt="engines"/></a>
+                        <div class="overlay">
+                            <h2>ENGINES</h2>
+                            <a class="info" href="/category/engines/">FIND OUT</a>
+                        </div>
+                    </div>
+                    <h3>Header 1</h3>
+                    <p>The one you'll like The one you'll like The one you'll like</p>
+                    <a href="/category/engines/" class="btn btn-danger">Find out</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="hovereffect">
+                        <a href="/category/transport/"><img src="/images/test_image.jpg"
+                                                            class="img-responsive img-thumbnail"
+                                                            alt="transport"/></a>
+                        <div class="overlay">
+                            <h2>TRANSPORT</h2>
+                            <a class="info" href="/category/transport/">FIND OUT</a>
+                        </div>
+                    </div>
+                    <h3>Header 1</h3>
+                    <p>The one you'll like The one you'll like The one you'll like The one you'll like</p>
+                    <a href="/category/transport/" class="btn btn-danger">Find out</a>
+                </div>
+                <div class="col-sm-4">
+                    <div class="hovereffect">
+                        <a href="/category/used/"><img src="/images/test_image.jpg" class="img-responsive img-thumbnail"
+                                                       alt="used machinery"/></a>
+                        <div class="overlay">
+                            <h2>USED MACHINES</h2>
+                            <a class="info" href="/category/used/">FIND OUT</a>
+                        </div>
+                    </div>
+                    <h3>Header 1</h3>
+                    <p>The one you'll like The one you'll like The one you'll like The one you'll like</p>
+                    <a href="/category/used/" class="btn btn-danger">Find out</a>
+                </div>
+                <div class="col-sm-4">
+                    <div class="hovereffect">
+                        <a href="/category/agri_implements/"><img src="/images/test_image.jpg"
+                                                                  class="img-responsive img-thumbnail"
+                                                                  alt="agricultural implements"/></a>
+                        <div class="overlay">
+                            <h2>AGRI IMPLEMENTS</h2>
+                            <a class="info" href="/category/agri_implements/">FIND OUT</a>
+                        </div>
+                    </div>
+                    <h3>Header 1</h3>
+                    <p>The one you'll like</p>
+                    <a href="/category/agri_implements/" class="btn btn-danger">Find out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--/*@thymesVar id="products" type="com.belgium.cps.web.marushkai.entities.Product"*/-->
+<footer th:object="${products}">
+    <div class="footer">
+        <div class="footer-offers">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>New offers</h2>
+                        <div class="items">
+                            <div class="row">
+                                <div th:each="item, stat : ${products}" class="col-sm-4">
+                                    <div class="product">
+                                        <img th:src="${item.image}" th:alt="${item.imageDescr}"
+                                             class="img-responsive img-thumbnail"/>
+                                        <h4 th:text="${item.header}"></h4>
+                                        <p th:text="${item.description}"></p>
+                                        <h3 th:text="'€' + ${item.price}"></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-links">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4>Quick links</h4>
+                    <p><a href="#">Home</a></p>
+                    <p><a href="#">Catalogue</a></p>
+                    <p><a href="#">About us</a></p>
+                    <p><a href="#">Special offers</a></p>
+                    <p><a href="#">Contacts</a></p>
+                    <p><a href="#">Location</a></p>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Our partners</h4>
+                    <p><a href="#">New Holland</a></p>
+                    <p><a href="#">Fiat</a></p>
+                    <p><a href="#">CASE-IH</a></p>
+                    <p><a href="#">STEYR</a></p>
+                    <p><a href="#">FORD</a></p>
+                    <p><a href="#">FLEXI-COIL</a></p>
+                    <p><a href="#">JOHN DEER</a></p>
+                    <p><a href="#">STEIGER</a></p>
+                    <p><a href="#">Orenstein and Koppl</a></p>
+                    <p><a href="#">IVECO</a></p>
+                    <p><a href="#">FPT</a></p>
+                    <p><a href="#">PERKINS</a></p>
+                    <p><a href="#">Cummins</a></p>
+                    <p><a href="#">Caterpillar</a></p>
+                    <p><a href="#">Komatsu</a></p>
+                    <p><a href="#">ISUZU</a></p>
+                    <p><a href="#">IVECO</a></p>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Our news</h4>
+                    <div class="footer-news">
+                        <img src="/images/test_image.jpg" class="img-responsive" alt="news"/>
+                    </div>
+                    <h5>New arrivals of something!</h5>
+                    <p style="font-size: small;">News contentNews contentNews contentNews contentNews contentNews
+                        contentNews contentNews contentNews content</p>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Contact us</h4>
+                    <p>
+                        Gaydon Farm,
+                        <br/>
+                        Kineton Road,
+                        <br/>
+                        Gaydon,
+                        <br/>
+                        Warwick
+                        <br/>
+                        CV35 0EP
+                    </p>
+                    <p>
+                        Tel: 01926 640 637
+                        <br/>
+                        Fax: 01926 642 992
+                        <br/>
+                        Email: sales@ellismachinery.co.uk
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-contacts" th:fragment="copyright">
+        <div class="container">
+            <div class="row">
+                <br/>
+                <br/>
+                <div class="col-sm-12">
+                    <span>© CPS Belgium 2017 • All Rights Reserved</span>
+                </div>
+                <div class="col-sm-12">
+                    <span>Design: unlimited54321@mail.ru</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
