@@ -2,6 +2,7 @@ package com.belgium.cps.web.marushkai.controllers;
 
 import com.belgium.cps.web.marushkai.entities.Category;
 import com.belgium.cps.web.marushkai.entities.Product;
+import com.belgium.cps.web.marushkai.entities.forms.ContactForm;
 import com.belgium.cps.web.marushkai.entities.ready.CategoryReady;
 import com.belgium.cps.web.marushkai.entities.ready.ProductReady;
 import com.belgium.cps.web.marushkai.repositories.CategoryRepository;
@@ -71,7 +72,7 @@ public class BaseController {
 
     @RequestMapping("/product/{type}")
     public String getLp(@PathVariable String type, Model model){
-
+        model.addAttribute("contactform", new ContactForm());
         return "landing-page";
     }
 }

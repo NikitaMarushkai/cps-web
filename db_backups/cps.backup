@@ -1,0 +1,466 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: CPS; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE "CPS" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
+
+
+ALTER DATABASE "CPS" OWNER TO postgres;
+
+\connect "CPS"
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: category; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE category (
+    id integer NOT NULL,
+    link text,
+    imglink text,
+    imgdescr text,
+    description_en text,
+    description_ru text,
+    description_fr text,
+    hovertext text
+);
+
+
+ALTER TABLE category OWNER TO postgres;
+
+--
+-- Name: category_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE category_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE category_id_seq OWNER TO postgres;
+
+--
+-- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE category_id_seq OWNED BY category.id;
+
+
+--
+-- Name: landingpages; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE landingpages (
+    id integer NOT NULL,
+    main_header_ru text,
+    main_header_en text,
+    main_header_fr text,
+    big_logo_ru text,
+    big_logo_en text,
+    big_logo_fr text,
+    logo_description_ru text,
+    logo_description_en text,
+    logo_description_fr text,
+    description_header_ru text,
+    description_header_en text,
+    description_header_fr text,
+    description_header_small_ru text,
+    description_header_small_en text,
+    description_header_small_fr text,
+    description_ru text,
+    description_en text,
+    description_fr text,
+    photo_header_ru text,
+    photo_header_en text,
+    photo_header_fr text,
+    photo_description_ru text,
+    photo_description_en text,
+    photo_description_fr text,
+    video_header_ru text,
+    video_header_en text,
+    video_header_fr text,
+    first_background text,
+    second_background text,
+    third_background text,
+    fourth_background text,
+    video_ref text,
+    descr_photo_1 text,
+    descr_photo_2 text
+);
+
+
+ALTER TABLE landingpages OWNER TO postgres;
+
+--
+-- Name: TABLE landingpages; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE landingpages IS 'All cps-be landing pages';
+
+
+--
+-- Name: landingpages_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE landingpages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE landingpages_id_seq OWNER TO postgres;
+
+--
+-- Name: landingpages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE landingpages_id_seq OWNED BY landingpages.id;
+
+
+--
+-- Name: models; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE models (
+    id integer NOT NULL,
+    model text,
+    page_id integer
+);
+
+
+ALTER TABLE models OWNER TO postgres;
+
+--
+-- Name: models_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE models_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE models_id_seq OWNER TO postgres;
+
+--
+-- Name: models_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE models_id_seq OWNED BY models.id;
+
+
+--
+-- Name: product; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE product (
+    id integer NOT NULL,
+    image text,
+    imagedescr_ru text,
+    imagedescr_en text,
+    imagedescr_fr text,
+    header_ru text,
+    header_en text,
+    header_fr text,
+    description_ru text,
+    description_en text,
+    description_fr text,
+    price integer
+);
+
+
+ALTER TABLE product OWNER TO postgres;
+
+--
+-- Name: product_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE product_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE product_id_seq OWNER TO postgres;
+
+--
+-- Name: product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE product_id_seq OWNED BY product.id;
+
+
+--
+-- Name: slider_photos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE slider_photos (
+    id integer NOT NULL,
+    photo text,
+    page_id integer
+);
+
+
+ALTER TABLE slider_photos OWNER TO postgres;
+
+--
+-- Name: slider_photos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE slider_photos_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE slider_photos_id_seq OWNER TO postgres;
+
+--
+-- Name: slider_photos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE slider_photos_id_seq OWNED BY slider_photos.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY category ALTER COLUMN id SET DEFAULT nextval('category_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY landingpages ALTER COLUMN id SET DEFAULT nextval('landingpages_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY models ALTER COLUMN id SET DEFAULT nextval('models_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY product ALTER COLUMN id SET DEFAULT nextval('product_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY slider_photos ALTER COLUMN id SET DEFAULT nextval('slider_photos_id_seq'::regclass);
+
+
+--
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) FROM stdin;
+1	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	NEW HOLLAND TRACTORS
+2	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	NEW HOLLAND COMBINES
+3	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	CASE-IH TRACTORS
+4	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	CASE-IH COMBINES
+5	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	STEYR TRACTORS
+6	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	FORD AGRI. TRACTORS
+7	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	FIAT-AGRI TRACTORS
+8	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	FLEXI-COIL 
+9	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	JOHN DEER-Non-Gen
+10	/product/new_holland_agri	/images/test_image.jpg	smthsmthsmthsmthsmthsmthsmth	Description	чтотчточчо	фывфывфывф	STEIGER
+\.
+
+
+--
+-- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('category_id_seq', 10, true);
+
+
+--
+-- Data for Name: landingpages; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY landingpages (id, main_header_ru, main_header_en, main_header_fr, big_logo_ru, big_logo_en, big_logo_fr, logo_description_ru, logo_description_en, logo_description_fr, description_header_ru, description_header_en, description_header_fr, description_header_small_ru, description_header_small_en, description_header_small_fr, description_ru, description_en, description_fr, photo_header_ru, photo_header_en, photo_header_fr, photo_description_ru, photo_description_en, photo_description_fr, video_header_ru, video_header_en, video_header_fr, first_background, second_background, third_background, fourth_background, video_ref, descr_photo_1, descr_photo_2) FROM stdin;
+\.
+
+
+--
+-- Name: landingpages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('landingpages_id_seq', 1, false);
+
+
+--
+-- Data for Name: models; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY models (id, model, page_id) FROM stdin;
+\.
+
+
+--
+-- Name: models_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('models_id_seq', 1, false);
+
+
+--
+-- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY product (id, image, imagedescr_ru, imagedescr_en, imagedescr_fr, header_ru, header_en, header_fr, description_ru, description_en, description_fr, price) FROM stdin;
+1	/images/test_image.jpg	Описание	description	descr	Заголовок	Header	Head	ОПИСАНИЕ	DESCRIPTION	DESC	100
+2	/images/test_image.jpg	Описание	description	descr	Заголовок	Header	Head	ОПИСАНИЕ	DESCRIPTION	DESC	100
+3	/images/test_image.jpg	Описание	description	descr	Заголовок	Header	Head	ОПИСАНИЕ	DESCRIPTION	DESC	100
+4	/images/test_image.jpg	Описание	description	descr	Заголовок	Header	Head	ОПИСАНИЕ	DESCRIPTION	DESC	100
+\.
+
+
+--
+-- Name: product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('product_id_seq', 4, true);
+
+
+--
+-- Data for Name: slider_photos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY slider_photos (id, photo, page_id) FROM stdin;
+\.
+
+
+--
+-- Name: slider_photos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('slider_photos_id_seq', 1, false);
+
+
+--
+-- Name: category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY category
+    ADD CONSTRAINT category_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: landingpages_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY landingpages
+    ADD CONSTRAINT landingpages_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: models_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY models
+    ADD CONSTRAINT models_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: product_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY product
+    ADD CONSTRAINT product_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: slider_photos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY slider_photos
+    ADD CONSTRAINT slider_photos_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: models_landingpages_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY models
+    ADD CONSTRAINT models_landingpages_id_fk FOREIGN KEY (page_id) REFERENCES landingpages(id);
+
+
+--
+-- Name: slider_photos_landingpages_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY slider_photos
+    ADD CONSTRAINT slider_photos_landingpages_id_fk FOREIGN KEY (page_id) REFERENCES landingpages(id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

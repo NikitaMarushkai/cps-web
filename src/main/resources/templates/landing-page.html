@@ -16,31 +16,42 @@
         body {
             position: relative;
         }
+
+        .form-group{
+            max-width: 100%;
+        }
         ul.nav-pills {
             top: 100px;
             position: fixed;
         }
+
         textarea:focus, input:focus, .uneditable-input:focus {
             border-color: rgba(229, 103, 23, 0.8) !important;
             box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6) !important;
             outline: 0 none !important;
         }
+
         #scroll {
             position: fixed;
             z-index: 10000;
         }
+
         .wrapper {
             min-height: 900px;
         }
+
         .nav-pills li.active > a {
             background: rgba(161, 5, 0, 0.83);
+        }
+        .form-group .col-sm-10{
+            left: 15px;
         }
     </style>
 </head>
 <body data-spy="scroll" data-target="scrollSpy" data-offset="20">
 <nav class="navbar navbar-inverse" th:include="index::main-nav"/>
 <div class="wrapper" id="general-info"
-     style="background: url('/images/backgrounds/new_holland_tractor/nh-t8t9-wallpaper-01-1280x960.jpg') center top no-repeat; background-size: 100% 100%;">
+     style="background: url('/images/backgrounds/new_holland_tractor/nh-t8t9-wallpaper-01-1280x960.jpg') center top no-repeat; background-size: 100% 100%">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
@@ -67,7 +78,7 @@
 </div>
 
 <div class="wrapper" id="description"
-     style="background: url('/images/backgrounds/new_holland_tractor/tuscany-428041_960_720.jpg') center top no-repeat; background-size: 100% 100%;">
+     style="background: url('/images/backgrounds/new_holland_tractor/tuscany-428041_960_720.jpg') center top no-repeat; background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -77,9 +88,11 @@
         <div class="row descriptions">
             <div class="col-sm-6 text">
                 <img class="img-responsive"
-                     src="/images/backgrounds/new_holland_tractor/new-holland-tractors.452.339.0.1.t.png"/>
+                     src="/images/NH_Tractor/1604-New_Holland-T6_180_Stage_IVB_A.jpg"/>
             </div>
             <div class="col-sm-6 backimg">
+                <div class="hit-the-floor" style="font-size: 30px; margin-top: 0; padding-bottom: 10px;">New Holland Agri description
+                </div>
                 <p>Description for the brand product Description for the brand product Description for the
                     brand
                     product
@@ -94,43 +107,47 @@
         <div class="row">
             <div class="col-sm-6 text">
                 <img class="img-responsive"
-                     src="/images/backgrounds/new_holland_tractor/new-holland-tractors.452.339.0.1.t.png"/>
+                     src="/images/NH_Tractor/parts`11.png"/>
             </div>
             <div class="col-sm-6 backimg">
-                <div class="hit-the-floor" style="font-size: 30px; margin-top: 0; padding-bottom: 10px;">Supported models</div>
-                <ul class="articles">
-                    <li class="block-list">Model 1</li>
-                    <li class="block-list">Model 2</li>
-                    <li class="block-list">Model 3</li>
-                    <li class="block-list">Model 4</li>
-                    <li class="block-list">Model 5</li>
-                    <li class="block-list">Model 6</li>
-                    <li class="block-list">Model 1</li>
-                    <li class="block-list">Model 2</li>
-                    <li class="block-list">Model 3</li>
-                    <li class="block-list">Model 4</li>
-                    <li class="block-list">Model 5</li>
-                    <li class="block-list">Model 6</li>
-                    <li class="block-list">Model 1</li>
-                    <li class="block-list">Model 2</li>
-                    <li class="block-list">Model 3</li>
-                    <li class="block-list">Model 4</li>
-                    <li class="block-list">Model 5</li>
-                    <li class="block-list">Model 6</li>
-                    <li class="block-list">Model 1</li>
-                    <li class="block-list">Model 2</li>
-                    <li class="block-list">Model 3</li>
-                    <li class="block-list">Model 4</li>
-                    <li class="block-list">Model 5</li>
-                    <li class="block-list">Model 6</li>
-                </ul>
+                <div class="hit-the-floor" style="font-size: 30px; margin-top: 0; padding-bottom: 10px;">Supported
+                    models
+                </div>
+                <div class="list">
+                    <ul class="articles">
+                        <li>Model 1</li>
+                        <li>Model 2</li>
+                        <li>Model 3</li>
+                        <li>Model 4</li>
+                        <li>Model 5</li>
+                        <li>Model 6</li>
+                        <li>Model 1</li>
+                        <li>Model 2</li>
+                        <li>Model 3</li>
+                        <li>Model 4</li>
+                        <li>Model 5</li>
+                        <li>Model 6</li>
+                        <li>Model 1</li>
+                        <li>Model 2</li>
+                        <li>Model 3</li>
+                        <li>Model 4</li>
+                        <li>Model 5</li>
+                        <li>Model 6</li>
+                        <li>Model 1</li>
+                        <li>Model 2</li>
+                        <li>Model 3</li>
+                        <li>Model 4</li>
+                        <li>Model 5</li>
+                        <li>Model 6</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <div class="wrapper" id="gallery"
-     style="background: url('/images/backgrounds/new_holland_tractor/new-holland-agriculture-smashes-the-current-guinness-world-records-title-for-most-wheat-harvested-within-eight-hours-with-the-cr1090-combine.png') center top no-repeat; background-size: 100% 100%;">
+     style="background: url('/images/backgrounds/new_holland_tractor/new-holland-agriculture-smashes-the-current-guinness-world-records-title-for-most-wheat-harvested-within-eight-hours-with-the-cr1090-combine.png') center top no-repeat; background-size: cover;">
     <div class="container">
         <div class="row" id="gallery-1">
             <div class="col-sm-12">
@@ -201,7 +218,7 @@
                 <p style="color: white;">Some text Some text Some textSome textSome textSome textSome text</p>
             </div>
         </div>
-        <hr/>
+        <hr style="margin-top: 60px;"/>
         <div class="row" id="gallery-2">
             <div class="col-sm-12">
                 <div class="hit-the-floor">New Holland Agriculture introduction</div>
@@ -218,11 +235,11 @@
 </div>
 
 <div class="wrapper" id="contact"
-     style="background: url('/images/backgrounds/new_holland_tractor/nh-t9-wallpaper-02-1280x960.jpg') center top no-repeat; background-size: 100% 100%;">
+     style="background: url('/images/backgrounds/new_holland_tractor/nh-t9-wallpaper-02-1280x960.jpg') center top no-repeat; background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="hit-the-floor" style="font-size: 30px;">If you have any questions or you want to order spare
+                <div class="hit-the-floor">If you have any questions or you want to order spare
                     parts for New Holland Agriculture,
                     feel
                     free to
@@ -231,25 +248,26 @@
             </div>
         </div>
         <div class="row descriptions">
-            <form class="form-horizontal">
+            <!--/*@thymesVar id="contactform" type="com.belgium.cps.web.marushkai.entities.forms.ContactForm"*/-->
+            <form action="#" th:action="@{/mail}" th:object="${contactform}" method="post" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-1">
-                        <input type="text" class="form-control" id="name" placeholder="Name"/>
+                        <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-1">
-                        <input type="email" class="form-control" id="email" placeholder="email"/>
+                        <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="email"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-1">
-                        <input type="text" class="form-control" id="city" placeholder="Subject"/>
+                        <input type="text" th:field="*{subject}" class="form-control" id="city" placeholder="Subject"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-1">
-                                    <textarea class="form-control" id="message" placeholder="Message"
+                                    <textarea th:field="*{message}" class="form-control" id="message" placeholder="Message"
                                               rows="6"></textarea>
                     </div>
                 </div>
@@ -262,7 +280,7 @@
                 </div>
             </form>
         </div>
-        <hr/>
+        <hr style="margin-bottom: 30px;"/>
         <div class="footer-cat-copyright" th:include="category::footer-copyright"/>
     </div>
 </div>

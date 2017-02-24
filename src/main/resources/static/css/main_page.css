@@ -442,6 +442,7 @@
     font-size: 20px;
     color: black;
     font-weight: bold;
+    text-align: center;
 }
 .backimg h3{
     font-family: Helvetica;
@@ -450,17 +451,25 @@
     font-weight: bold;
     text-align: center;
 }
-.block-list{
-    display: block;
-    width: 25%;
-    float: left;
-}
 .articles{
     list-style-image: url('/images/icons/gears-icon-png-11.png');
     font-family: Helvetica;
     font-size: 20px;
     color: black;
     font-weight: bold;
+}
+.list{
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+}
+#contact .hit-the-floor{
+    font-size: 30px;
+    padding-bottom: 35px;
+}
+#contact button{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 @media only screen and (max-width: 1450px){
     .nav > li > a {
@@ -480,9 +489,27 @@
     .col-sm-5{
         text-align: center;
     }
+    .logo{
+        max-width: 90%;
+    }
     .logo h2 {
-        font-size: 40px;
+        font-size: 30px;
         margin-top: -20px;
+    }
+    .backimg{
+        margin-top: 35px;
+    }
+    .hit-the-floor{
+        font-size: 30px;
+    }
+    #contact .hit-the-floor{
+        font-size: 25px;
+    }
+    #header-info-container h1{
+        font-size: 40px;
+    }
+    .articles{
+        font-size: 15px;
     }
 }
 @media only screen and (max-width: 1350px) {
@@ -496,7 +523,9 @@
         width: auto;
         padding: 7px 14px;
     }
-
+    .logo{
+        max-width: 80%;
+    }
     .logo-span {
         display: none;
     }
