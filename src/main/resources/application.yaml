@@ -10,8 +10,9 @@ spring:
     url: jdbc:postgresql://83.166.243.50:5432/CPS
     username: postgres
     password: postgres
-  freemarker:
+  thymeleaf:
     cache: false
+    mode: LEGACYHTML5
   mail:
     host: smtp.gmail.com
     username: testcps24@gmail.com

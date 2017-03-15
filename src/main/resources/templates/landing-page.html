@@ -2,7 +2,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title th:text="${title}">Hello</title>
+    <!--/*@thymesVar id="title" type="com.belgium.cps.web.marushkai.entities.ready.LandingPageReady.title"*/-->
+    <title th:text="${title}"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
@@ -17,9 +18,10 @@
             position: relative;
         }
 
-        .form-group{
+        .form-group {
             max-width: 100%;
         }
+
         ul.nav-pills {
             top: 100px;
             position: fixed;
@@ -43,7 +45,8 @@
         .nav-pills li.active > a {
             background: rgba(161, 5, 0, 0.83);
         }
-        .form-group .col-sm-10{
+
+        .form-group .col-sm-10 {
             left: 15px;
         }
     </style>
@@ -51,7 +54,8 @@
 <body data-spy="scroll" data-target="scrollSpy" data-offset="20">
 <nav class="navbar navbar-inverse" th:include="index::main-nav"/>
 <div class="wrapper" id="general-info"
-     style="background: url('/images/backgrounds/new_holland_tractor/nh-t8t9-wallpaper-01-1280x960.jpg') center top no-repeat; background-size: 100% 100%">
+     th:style="'background: url(' + ${imagepath1} + ') center top no-repeat; background-size: 100% 100%'"
+     th:object="${landingpage}">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
@@ -61,7 +65,7 @@
                     class="info-text"> ourmail@mail.com</span>
             </div>
             <div class="col-sm-4">
-                <div class="hit-the-floor">New Holland Tractors</div>
+                <div class="hit-the-floor" th:text="${landingpage.main_header}"></div>
             </div>
             <div class="col-sm-4">
                 <span style="color: white" class="glyphicon glyphicon-home"></span><span
@@ -69,45 +73,41 @@
             </div>
             <div class="col-sm-12">
                 <div class="logo">
-                    <h2>Very screaming shiny logo</h2>
+                    <h2>CPS Belgium sprl</h2>
                 </div>
-                <p id="devise">Order spare parts your machinery needs</p>
+                <p id="devise" th:text="${landingpage.logo_description}"></p>
             </div>
         </div>
     </div>
 </div>
 
+<!--/*@thymesVar id="landingpage" type="com.belgium.cps.web.marushkai.entities.ready.LandingPageReady"*/-->
 <div class="wrapper" id="description"
-     style="background: url('/images/backgrounds/new_holland_tractor/tuscany-428041_960_720.jpg') center top no-repeat; background-size: cover;">
+     th:style="'background: url(' + ${imagepath2} + ') center top no-repeat; background-size: cover;'"
+     th:object="${landingpage}">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="hit-the-floor">New Holland Agri spare parts</div>
+                <div class="hit-the-floor" th:text="${landingpage.description_header}">
+                </div>
             </div>
         </div>
         <div class="row descriptions">
             <div class="col-sm-6 text">
                 <img class="img-responsive"
-                     src="/images/NH_Tractor/1604-New_Holland-T6_180_Stage_IVB_A.jpg"/>
+                     th:src="${landingpage.descr_photo_1}"/>
             </div>
             <div class="col-sm-6 backimg">
-                <div class="hit-the-floor" style="font-size: 30px; margin-top: 0; padding-bottom: 10px;">New Holland Agri description
+                <div class="hit-the-floor" style="font-size: 30px; margin-top: 0; padding-bottom: 10px;"
+                     th:text="${landingpage.description_header_small}">
                 </div>
-                <p>Description for the brand product Description for the brand product Description for the
-                    brand
-                    product
-                    Description for the brand product Description for the brand product Description for the
-                    brand
-                    product
-                    Description for the brand product Description for the brand product Description for the
-                    brand
-                    product Description for the brand product Description for the brand product</p>
+                <p th:text="${landingpage.description}"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6 text">
                 <img class="img-responsive"
-                     src="/images/NH_Tractor/parts`11.png"/>
+                     th:src="${landingpage.descr_photo_2}"/>
             </div>
             <div class="col-sm-6 backimg">
                 <div class="hit-the-floor" style="font-size: 30px; margin-top: 0; padding-bottom: 10px;">Supported
@@ -115,30 +115,29 @@
                 </div>
                 <div class="list">
                     <ul class="articles">
-                        <li>Model 1</li>
-                        <li>Model 2</li>
-                        <li>Model 3</li>
-                        <li>Model 4</li>
-                        <li>Model 5</li>
-                        <li>Model 6</li>
-                        <li>Model 1</li>
-                        <li>Model 2</li>
-                        <li>Model 3</li>
-                        <li>Model 4</li>
-                        <li>Model 5</li>
-                        <li>Model 6</li>
-                        <li>Model 1</li>
-                        <li>Model 2</li>
-                        <li>Model 3</li>
-                        <li>Model 4</li>
-                        <li>Model 5</li>
-                        <li>Model 6</li>
-                        <li>Model 1</li>
-                        <li>Model 2</li>
-                        <li>Model 3</li>
-                        <li>Model 4</li>
-                        <li>Model 5</li>
-                        <li>Model 6</li>
+                        <li th:each="model, stat : ${landingpage.models}">
+                            <a class="link" href="#" data-popup-open="popup-1" th:text="${model.model}"></a>
+                            <div class="popup" data-popup="popup-1">
+                                <div class="popup-inner">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <img th:src="${model.photo1}" class="img-thumbnail img-responsive"/>
+                                            <img id="bottom-img" th:src="${model.photo2}"
+                                                 class="img-thumbnail img-responsive"/>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <h2 th:text="${model.model}"></h2>
+                                            <hr/>
+                                            <p th:text="${model.description}"></p>
+                                            <a class="link" th:href="${model.brochure}?: ''"
+                                               th:text="${model.brochure}? 'Get brochure' : ''"></a>
+                                        </div>
+                                    </div>
+                                    <p><a data-popup-close="popup-1" href="#">Close</a></p>
+                                    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -147,11 +146,12 @@
 </div>
 
 <div class="wrapper" id="gallery"
-     style="background: url('/images/backgrounds/new_holland_tractor/new-holland-agriculture-smashes-the-current-guinness-world-records-title-for-most-wheat-harvested-within-eight-hours-with-the-cr1090-combine.png') center top no-repeat; background-size: cover;">
+     th:style="'background: url(' + ${imagepath3} + ') center top no-repeat; background-size: cover;'"
+     th:object="${landingpage}">
     <div class="container">
         <div class="row" id="gallery-1">
             <div class="col-sm-12">
-                <div class="hit-the-floor">New Holland tractors photos</div>
+                <div class="hit-the-floor" th:text="${landingpage.photo_header}"></div>
             </div>
         </div>
         <div class="row descriptions">
@@ -160,50 +160,19 @@
                 <div id="wowslider-container0">
                     <div class="ws_images">
                         <ul>
-                            <li><img src="/images/data1/images/slide1.jpg" alt="slide1" title="slide1"
-                                     id="wows0_0"/>
-                            </li>
-                            <li><img src="/images/data1/images/slide2.jpg" alt="slide2" title="slide2"
-                                     id="wows0_1"/>
-                            </li>
-                            <li><img src="/images/data1/images/slide3.jpg" alt="slide3" title="slide3"
-                                     id="wows0_2"/>
-                            </li>
-                            <li><img src="/images/data1/images/slide4.jpg" alt="slide4" title="slide4"
-                                     id="wows0_3"/>
-                            </li>
-                            <li><img src="/images/data1/images/slide5.jpg" alt="slide5" title="slide5"
-                                     id="wows0_4"/>
-                            </li>
-                            <li><img src="/images/data1/images/slide6.jpg" alt="slide6" title="slide6"
-                                     id="wows0_5"/>
-                            </li>
-                            <li><img src="/images/data1/images/slide7.jpg"
-                                     alt="cssslider" title="slide7" id="wows0_6"/>
-                            </li>
-                            <li><img src="/images/data1/images/slide8.jpg" alt="slide8" title="slide8"
-                                     id="wows0_7"/>
+                            <li th:each="photo, stat : ${landingpage.sliderPhotos}">
+                                <img th:src="${photo.photo}" th:alt="${photo.photo_descr}"
+                                     th:id="${'wows0_' + stat.index}"/>
                             </li>
                         </ul>
                     </div>
                     <div class="ws_bullets">
                         <div>
-                            <a href="#" title="slide1"><span><img src="/images/data1/tooltips/slide1.jpg"
-                                                                  alt="slide1"/>1</span></a>
-                            <a href="#" title="slide2"><span><img src="/images/data1/tooltips/slide2.jpg"
-                                                                  alt="slide2"/>2</span></a>
-                            <a href="#" title="slide3"><span><img src="/images/data1/tooltips/slide3.jpg"
-                                                                  alt="slide3"/>3</span></a>
-                            <a href="#" title="slide4"><span><img src="/images/data1/tooltips/slide4.jpg"
-                                                                  alt="slide4"/>4</span></a>
-                            <a href="#" title="slide5"><span><img src="/images/data1/tooltips/slide5.jpg"
-                                                                  alt="slide5"/>5</span></a>
-                            <a href="#" title="slide6"><span><img src="/images/data1/tooltips/slide6.jpg"
-                                                                  alt="slide6"/>6</span></a>
-                            <a href="#" title="slide7"><span><img src="/images/data1/tooltips/slide7.jpg"
-                                                                  alt="slide7"/>7</span></a>
-                            <a href="#" title="slide8"><span><img src="/images/data1/tooltips/slide8.jpg"
-                                                                  alt="slide8"/>8</span></a>
+                            <a th:each="photo, stat : ${landingpage.sliderPhotos}" href="#"
+                               th:title="${photo.photo_descr}">
+                                <span><img th:src="${photo.photo_tooltip}"
+                                           th:alt="${photo.photo_descr}"/></span>
+                            </a>
                         </div>
                     </div>
                     <div class="ws_script" style="position:absolute;left:-99%">
@@ -215,36 +184,36 @@
                 <!-- End WOWSlider.com BODY section -->
             </div>
             <div class="col-sm-6 backimg">
-                <p style="color: white;">Some text Some text Some textSome textSome textSome textSome text</p>
+                <p style="color: white;" th:text="${landingpage.photo_description}"></p>
             </div>
         </div>
         <hr style="margin-top: 60px;"/>
         <div class="row" id="gallery-2">
             <div class="col-sm-12">
-                <div class="hit-the-floor">New Holland Agriculture introduction</div>
+                <div class="hit-the-floor" th:text="${landingpage.video_header}">
+                </div>
             </div>
         </div>
         <div class="row descriptions video">
             <div class="col-sm-12">
-                <iframe width="100%" height="500" src="https://www.youtube.com/embed/d2-P_eWBru8"
-                        frameborder="0"
-                        allowfullscreen="true"></iframe>
+                <video width="100%" controls>
+                    <source th:src="${landingpage.video_ref}" type="video/mp4"/>
+                    We are sorry, but your browser doesn't support HTML5 videos
+                </video>
             </div>
         </div>
     </div>
 </div>
 
 <div class="wrapper" id="contact"
-     style="background: url('/images/backgrounds/new_holland_tractor/nh-t9-wallpaper-02-1280x960.jpg') center top no-repeat; background-size: cover;">
+     th:style="'background: url(' + ${imagepath4} + ') center top no-repeat; background-size: cover;'"
+     th:object="${landingpage}">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="hit-the-floor">If you have any questions or you want to order spare
-                    parts for New Holland Agriculture,
-                    feel
-                    free to
-                    contact us!
-                </div>
+                <h4 class="prompt">Our team will promptly respond to any inquiry of your quoting our best export
+                    prices
+                </h4>
             </div>
         </div>
         <div class="row descriptions">
@@ -267,7 +236,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-1">
-                                    <textarea th:field="*{message}" class="form-control" id="message" placeholder="Message"
+                                    <textarea th:field="*{message}" class="form-control" id="message"
+                                              placeholder="Message"
                                               rows="6"></textarea>
                     </div>
                 </div>
@@ -308,6 +278,25 @@
 <script src="/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script>
     $('body').scrollspy({target: '#scrollSpy'})
+
+    //    MODAL-WINDOW
+    $(function () {
+        //----- OPEN
+        $('[data-popup-open]').on('click', function (e) {
+            var targeted_popup_class = jQuery(this).attr('data-popup-open');
+            $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+            e.preventDefault();
+        });
+
+        //----- CLOSE
+        $('[data-popup-close]').on('click', function (e) {
+            var targeted_popup_class = jQuery(this).attr('data-popup-close');
+            $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+            e.preventDefault();
+        });
+    });
 </script>
 </body>
 </html>

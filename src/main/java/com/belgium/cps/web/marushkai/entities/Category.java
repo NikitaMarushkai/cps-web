@@ -26,9 +26,11 @@ public class Category {
     @Column(name = "description_ru") private String description_ru;
     @Column(name = "description_fr") private String description_fr;
     @Column(name = "hovertext") private String hovertext;
+    @Column(name = "category")
+    private String category;
 
     public String getDescription(String lang){
-        String langReturn = "en";
+        String langReturn = description_en;
         switch (lang){
             case "ru":
                 langReturn = description_ru;

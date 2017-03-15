@@ -18,6 +18,10 @@ public class SliderPhoto {
     @Id
     @Column(name = "id") private int id;
     @Column(name = "photo") private String photo;
+    @Column(name = "photo_tooltip")
+    private String photo_tooltip;
+    @Column(name = "photo_descr")
+    private String photo_descr;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "page_id")

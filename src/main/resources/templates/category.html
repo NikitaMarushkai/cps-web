@@ -5,6 +5,7 @@
     <title>Items category</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
     <link href="/css/main_page.css" rel="stylesheet"/>
 </head>
 <body th:style="'background: url(' + ${imagepath} + ') center top no-repeat; background-size: cover;'">
@@ -14,7 +15,7 @@
         <div class="col-sm-12">
             <h1>Agriculture machinery spare parts</h1>
         </div>
-        <div th:each="item, stat : ${items}" class="col-sm-3">
+        <div th:each="item, stat : ${items}" class="col-sm-4 col-md-3 cat-alignment">
             <div class="cat">
                 <div class="hovereffect">
                     <a th:href="${item.link}">
@@ -33,10 +34,14 @@
     <div class="footer-cat-copyright" th:fragment="footer-copyright">
         <div class="row">
             <div class="col-sm-12">
-                <span>© CPS Belgium 2017 • All Rights Reserved</span>
+                <span class="disclaimer">DISCLAIMER: ALL MANUFACTURERS' NAMES, SYMBOLS AND DESCRIPTIONS ARE USED FOR REFERENCE PURPOSES ONLY
+AND ARE THE INTELLECTUAL PROPERTY OF THE BRAND OWNERS !</span>
             </div>
             <div class="col-sm-12">
-                <span>Design: unlimited54321@mail.ru</span>
+                <span class="rtm">© CPS Belgium 2017 • All Rights Reserved</span>
+            </div>
+            <div class="col-sm-12">
+                <span class="rtm">Design: unlimited54321@mail.ru</span>
             </div>
         </div>
     </div>

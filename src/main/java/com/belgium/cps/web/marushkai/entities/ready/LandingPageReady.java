@@ -16,7 +16,6 @@ import java.util.List;
 public class LandingPageReady {
     private int id;
     private String main_header;
-    private String big_logo;
     private String logo_description;
     private String description_header;
     private String description_header_small;
@@ -31,6 +30,8 @@ public class LandingPageReady {
     private String video_ref;
     private String descr_photo_1;
     private String descr_photo_2;
-    private List<Model> models;
+    private String type;
+    private String title;
+    private List<ModelReady> models;
     private List<SliderPhoto> sliderPhotos;
 }

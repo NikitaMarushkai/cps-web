@@ -1,11 +1,15 @@
 package com.belgium.cps.web.marushkai.controllers;
 
 import com.belgium.cps.web.marushkai.entities.Category;
+import com.belgium.cps.web.marushkai.entities.LandingPage;
 import com.belgium.cps.web.marushkai.entities.Product;
 import com.belgium.cps.web.marushkai.entities.forms.ContactForm;
 import com.belgium.cps.web.marushkai.entities.ready.CategoryReady;
+import com.belgium.cps.web.marushkai.entities.ready.LandingPageReady;
+import com.belgium.cps.web.marushkai.entities.ready.ModelReady;
 import com.belgium.cps.web.marushkai.entities.ready.ProductReady;
 import com.belgium.cps.web.marushkai.repositories.CategoryRepository;
+import com.belgium.cps.web.marushkai.repositories.LandingPageRepository;
 import com.belgium.cps.web.marushkai.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -33,22 +37,24 @@ public class BaseController {
     ProductRepository productRepository;
     @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
+    LandingPageRepository landingPageRepository;
 
     //LocaleContextHolder
     @RequestMapping("/")
-    public String index(Model model){
+    public String index(Model model) {
         Random random = new Random();
-        int productNumber = (int)productRepository.count();
+        int productNumber = (int) productRepository.count();
         int k = random.nextInt(productNumber) + 1;
         String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
         ArrayList<ProductReady> products = new ArrayList<>();
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             Product product = productRepository.findOne(k);
             ProductReady productReady = new ProductReady(product.getId(), product.getImage(), product.getImageDescr(currLang),
                     product.getHeader(currLang), product.getDescription(currLang), product.getPrice());
             products.add(productReady);
             int newK = random.nextInt(productNumber) + 1;
-            while (newK == k){
+            while (newK == k) {
                 newK = random.nextInt(productNumber) + 1;
             }
             k = newK;
@@ -57,13 +63,13 @@ public class BaseController {
         return "index";
     }
 
-    @RequestMapping("/category/agriculture/")
-    public String getCategory(Model model){
+    @RequestMapping("/category/{cat}/")
+    public String getCategory(@PathVariable String cat, Model model) {
         ArrayList<CategoryReady> categories = new ArrayList<>();
         String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
-        for (Category category : categoryRepository.findAll()){
+        for (Category category : categoryRepository.findByCategory(cat)) {
             categories.add(new CategoryReady(category.getId(), category.getLink(), category.getImglink(),
-                    category.getImgdescr(), category.getDescription(currLang), category.getHovertext()));
+                    category.getImgdescr(), category.getDescription(currLang), category.getHovertext(), category.getCategory()));
         }
         model.addAttribute("items", categories);
         model.addAttribute("imagepath", "/images/backgrounds/agri_cat_bacground.jpg");
@@ -71,8 +77,25 @@ public class BaseController {
     }
 
     @RequestMapping("/product/{type}")
-    public String getLp(@PathVariable String type, Model model){
+    public String getLp(@PathVariable String type, Model model) {
         model.addAttribute("contactform", new ContactForm());
+        String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
+        LandingPage landing = landingPageRepository.findByType(type);
+        ArrayList<ModelReady> models = new ArrayList<>();
+        landing.getModels().forEach(model1 -> models.add(new ModelReady(model1.getId(),
+                model1.getModel(), model1.getDescription(currLang), model1.getPhoto1(), model1.getPhoto2(), model1.getBrochure())));
+        LandingPageReady landingPage = new LandingPageReady(landing.getId(), landing.getMainHeader(currLang),
+                landing.getLogoDescription(currLang), landing.getDescriptionHeader(currLang), landing.getDescriptionHeaderSmall(currLang),
+                landing.getDescription(currLang), landing.getPhotoHeader(currLang), landing.getPhotoDescription(currLang),
+                landing.getVideoHeader(currLang), landing.getFirst_background(), landing.getSecond_background(), landing.getThird_background(),
+                landing.getFourth_background(), landing.getVideo_ref(), landing.getDescr_photo_1(), landing.getDescr_photo_2(), landing.getType(),
+                landing.getTitle(), models, landing.getSliderPhotos());
+        model.addAttribute("imagepath1", landingPage.getFirst_background());
+        model.addAttribute("imagepath2", landingPage.getSecond_background());
+        model.addAttribute("imagepath3", landingPage.getThird_background());
+        model.addAttribute("imagepath4", landingPage.getFourth_background());
+        model.addAttribute("title", landingPage.getTitle());
+        model.addAttribute("landingpage", landingPage);
         return "landing-page";
     }
 }

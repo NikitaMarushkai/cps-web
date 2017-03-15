@@ -32,7 +32,7 @@ public class Product {
     @Column(name = "price") private int price;
 
     public String getImageDescr(String lang){
-        String langReturn = "en";
+        String langReturn = imageDescr_en;
         switch (lang){
             case "ru":
                 langReturn = imageDescr_ru;
@@ -48,7 +48,7 @@ public class Product {
     }
 
     public String getHeader(String lang){
-        String langReturn = "en";
+        String langReturn = header_en;
         switch (lang){
             case "ru":
                 langReturn = header_ru;
@@ -64,7 +64,7 @@ public class Product {
     }
 
     public String getDescription(String lang){
-        String langReturn = "en";
+        String langReturn = description_en;
         switch (lang){
             case "ru":
                 langReturn = description_ru;
