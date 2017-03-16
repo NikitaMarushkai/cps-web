@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by unlim_000 on 24.02.2017.
@@ -23,9 +24,9 @@ public class RequestHandlingController {
     }
 
     @PostMapping("/mail")
-    public String processMailForm(Model model, @ModelAttribute ContactForm contactForm){
+    public ModelAndView processMailForm(Model model, @ModelAttribute ContactForm contactForm) {
         mailClient.prepareAndSend(contactForm);
         model.addAttribute("contactform", new ContactForm());
-        return "landing-page";
+        return new ModelAndView("redirect:" + contactForm.getReturnUrl());
     }
 }

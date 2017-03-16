@@ -227,74 +227,75 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="hovereffect">
-                        <a><img src="/images/logos/main_page/under_construction.png"
+                        <a><img src="/images/logos/main_page/under_construction.gif"
                                 class="img-responsive img-thumbnail"
                                 alt="construction parts"/></a>
                         <div class="overlay">
-                            <h2>CONSTRUCTION</h2>
+                            <h2>CNHI CONSTRUCTION</h2>
                             <a class="info">FIND OUT</a>
                         </div>
                     </div>
-                    <h3>CONSTRUCTION PARTS</h3>
-                    <p>The one you'll like The one you'll like</p>
+                    <h3>CNHI CONSTRUCTION PARTS</h3>
+                    <p>Construction parts description</p>
                     <a class="btn btn-danger">Find out</a>
                 </div>
                 <div class="col-sm-4">
                     <div class="hovereffect">
-                        <a><img src="/images/logos/main_page/under_construction.png"
+                        <a><img src="/images/logos/main_page/under_construction.gif"
                                 class="img-responsive img-thumbnail"
-                                alt="engines"/></a>
+                                alt="FIAT EARTH MOVING PLANT"/></a>
                         <div class="overlay">
-                            <h2>ENGINES</h2>
+                            <h2>FIAT EARTH MOVING PLANT</h2>
                             <a class="info">FIND OUT</a>
                         </div>
                     </div>
-                    <h3>Header 1</h3>
-                    <p>The one you'll like The one you'll like The one you'll like</p>
+                    <h3>FIAT-CONSTRUCTION PARTS</h3>
+                    <p>Spare parts for FIAT-CONSTRUCTION</p>
                     <a class="btn btn-danger">Find out</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="hovereffect">
-                        <a><img src="/images/logos/main_page/under_construction.png"
+                        <a><img src="/images/logos/main_page/under_construction.gif"
                                 class="img-responsive img-thumbnail"
                                 alt="transport"/></a>
                         <div class="overlay">
-                            <h2>TRANSPORT</h2>
+                            <h2>IVECO RANGE</h2>
                             <a class="info">FIND OUT</a>
                         </div>
                     </div>
-                    <h3>Header 1</h3>
-                    <p>The one you'll like The one you'll like The one you'll like The one you'll like</p>
+                    <h3>IVECO VEHICLES PARTS</h3>
+                    <p>Spare parts for IVECO vehicles</p>
                     <a class="btn btn-danger">Find out</a>
                 </div>
                 <div class="col-sm-4">
                     <div class="hovereffect">
-                        <a><img src="/images/logos/main_page/under_construction.png"
+                        <a><img src="/images/logos/main_page/under_construction.gif"
                                 class="img-responsive img-thumbnail"
                                 alt="used machinery"/></a>
                         <div class="overlay">
-                            <h2>USED MACHINES</h2>
-                            <a>FIND OUT</a>
+                            <h2>ENGINES</h2>
+                            <a class="info">FIND OUT</a>
                         </div>
                     </div>
-                    <h3>Header 1</h3>
-                    <p>The one you'll like The one you'll like The one you'll like The one you'll like</p>
+                    <h3>ENGINES</h3>
+                    <p>Here you can find engines for your machinery</p>
                     <a class="btn btn-danger">Find out</a>
                 </div>
                 <div class="col-sm-4">
                     <div class="hovereffect">
-                        <a><img src="/images/logos/main_page/under_construction.png"
+                        <a><img src="/images/logos/main_page/under_construction.gif"
                                 class="img-responsive img-thumbnail"
-                                alt="agricultural implements"/></a>
+                                alt="OTHER AGRI. BRANDS"/></a>
                         <div class="overlay">
-                            <h2>AGRI IMPLEMENTS</h2>
+                            <h2>OTHER AGRI. BRANDS</h2>
                             <a class="info">FIND OUT</a>
                         </div>
                     </div>
-                    <h3>Header 1</h3>
-                    <p>The one you'll like</p>
+                    <h3>OTHER AGRI. BRANDS</h3>
+                    <p>Genuine & Quality replacement for John-Deer, CLAAS, Massey-Ferguson, McCormick, Kubota, Goldoni,
+                        Fendt, JCB</p>
                     <a class="btn btn-danger">Find out</a>
                 </div>
             </div>
@@ -313,13 +314,16 @@
                         <div class="items">
                             <div class="row">
                                 <div th:each="item, stat : ${products}" class="col-sm-4">
-                                    <div class="product">
-                                        <img th:src="${item.image}" th:alt="${item.imageDescr}"
-                                             class="img-responsive img-thumbnail"/>
-                                        <h4 th:text="${item.header}"></h4>
-                                        <p th:text="${item.description}"></p>
-                                        <h3 th:text="'€' + ${item.price}"></h3>
+                                    <div class="hovereffect">
+                                        <a><img th:src="${item.image}" th:alt="${item.imageDescr}"
+                                                class="img-responsive img-thumbnail"/></a>
+                                        <div class="overlay">
+                                            <h2 th:text="${item.imageDescr}"></h2>
+                                            <a class="info">FIND OUT</a>
+                                        </div>
                                     </div>
+                                    <h4 th:text="${item.header}"></h4>
+                                    <p th:text="${item.description}"></p>
                                 </div>
                             </div>
                         </div>
@@ -349,7 +353,7 @@
                     <p><a href="#">FORD</a></p>
                     <p><a href="#">FLEXI-COIL</a></p>
                     <p><a href="#">STEIGER</a></p>
-                    <p><a href="#">Orenstein and Koppl</a></p>
+                    <p><a href="#">O&K (Orenstein & Koppel)</a></p>
                     <p><a href="#">IVECO</a></p>
                     <p><a href="#">FPT</a></p>
                     <p><a href="#">PERKINS</a></p>
@@ -360,13 +364,12 @@
                     <p><a href="#">IVECO</a></p>
                 </div>
                 <div class="col-sm-3">
-                    <h4>Our news</h4>
+                    <h4>Promotion offers</h4>
                     <div class="footer-news">
-                        <img src="/images/test_image.jpg" class="img-responsive" alt="news"/>
+                        <img src="/images/logos/main_page/under_construction.gif" class="img-responsive" alt="news"/>
                     </div>
                     <h5>New arrivals of something!</h5>
-                    <p style="font-size: small;">News contentNews contentNews contentNews contentNews contentNews
-                        contentNews contentNews contentNews content</p>
+                    <p style="font-size: small;">Here will be some promotion texts</p>
                 </div>
                 <div class="col-sm-3">
                     <h4>Contact us</h4>

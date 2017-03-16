@@ -15,5 +15,7 @@ public class ContactForm {
     private String email;
     private String subject;
     private String message;
+    private String categoryName;
+    private String returnUrl;
 
 }

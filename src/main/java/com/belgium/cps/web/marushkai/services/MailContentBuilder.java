@@ -26,6 +26,7 @@ public class MailContentBuilder {
         context.setVariable("subject", contactForm.getSubject());
         context.setVariable("name", contactForm.getName());
         context.setVariable("message", contactForm.getMessage());
+        context.setVariable("category", contactForm.getCategoryName());
         return templateEngine.process("mailTemplate", context);
     }
 }

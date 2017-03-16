@@ -43,22 +43,26 @@ public class BaseController {
     //LocaleContextHolder
     @RequestMapping("/")
     public String index(Model model) {
-        Random random = new Random();
-        int productNumber = (int) productRepository.count();
-        int k = random.nextInt(productNumber) + 1;
         String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
+        // Getting Randomly 3 products
+//        Random random = new Random();
+//        int productNumber = (int) productRepository.count();
+//        int k = random.nextInt(productNumber) + 1;
+//        ArrayList<ProductReady> products = new ArrayList<>();
+//        for (int i = 0; i < 3; i++) {
+//            Product product = productRepository.findOne(k);
+//            ProductReady productReady = new ProductReady(product.getId(), product.getImage(), product.getImageDescr(currLang),
+//                    product.getHeader(currLang), product.getDescription(currLang), product.getPrice());
+//            products.add(productReady);
+//            int newK = random.nextInt(productNumber) + 1;
+//            while (newK == k) {
+//                newK = random.nextInt(productNumber) + 1;
+//            }
+//            k = newK;
+//        }
         ArrayList<ProductReady> products = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            Product product = productRepository.findOne(k);
-            ProductReady productReady = new ProductReady(product.getId(), product.getImage(), product.getImageDescr(currLang),
-                    product.getHeader(currLang), product.getDescription(currLang), product.getPrice());
-            products.add(productReady);
-            int newK = random.nextInt(productNumber) + 1;
-            while (newK == k) {
-                newK = random.nextInt(productNumber) + 1;
-            }
-            k = newK;
-        }
+        productRepository.findAll().forEach(product -> products.add(new ProductReady(product.getId(), product.getImage(),
+                product.getImageDescr(currLang), product.getHeader(currLang), product.getDescription(currLang))));
         model.addAttribute("products", products);
         return "index";
     }
@@ -95,6 +99,7 @@ public class BaseController {
         model.addAttribute("imagepath3", landingPage.getThird_background());
         model.addAttribute("imagepath4", landingPage.getFourth_background());
         model.addAttribute("title", landingPage.getTitle());
+        model.addAttribute("return", type);
         model.addAttribute("landingpage", landingPage);
         return "landing-page";
     }

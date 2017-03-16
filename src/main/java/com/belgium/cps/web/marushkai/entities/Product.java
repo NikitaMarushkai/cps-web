@@ -29,7 +29,7 @@ public class Product {
     @Column(name = "description_ru") private String description_ru;
     @Column(name = "description_en") private String description_en;
     @Column(name = "description_fr") private String description_fr;
-    @Column(name = "price") private int price;
+//    @Column(name = "price") private int price;
 
     public String getImageDescr(String lang){
         String langReturn = imageDescr_en;
