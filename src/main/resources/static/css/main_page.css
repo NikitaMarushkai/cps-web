@@ -691,6 +691,23 @@ img.d2_img {
         text-align: center;
     }
 
+    .list {
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        -moz-column-count: 2; /* Firefox */
+        column-count: 2;
+    }
+
+    .popup-inner {
+        max-width: 100%;
+        max-height: 600px;
+    }
+
+    .popup-inner > .row > .col-xs-7 {
+        overflow: scroll;
+        max-width: 100%;
+        max-height: 550px;
+    }
+
     .logo {
         max-width: 90%;
         padding-bottom: 0;
