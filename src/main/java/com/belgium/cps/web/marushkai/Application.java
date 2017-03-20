@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -37,6 +38,16 @@ public class Application extends WebMvcConfigurerAdapter {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
+	}
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		super.addResourceHandlers(registry);
+		registry
+				.addResourceHandler("/images/**", "/videos/**")
+				.addResourceLocations("file:///C:/Programming/CPS/images/", "file:/opt/cps/images/",
+						"file:///C:/Programming/CPS/videos/", "file:/opt/cps/videos/",
+						"classpath:/static/images/", "classpath:/static/videos/");
 	}
 
 	public static void main(String[] args) {

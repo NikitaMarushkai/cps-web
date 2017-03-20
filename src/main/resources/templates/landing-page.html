@@ -97,27 +97,21 @@ BELGIUM</span>
             </div>
         </div>
         <div class="row descriptions">
-            <div class="col-sm-6 text">
-                <img style="text-align: right;" class="d_img img-responsive img-thumbnail"
-                     th:src="${landingpage.descr_photo_1}"/>
-            </div>
-            <div class="col-sm-6 backimg">
-                <div class="hit-the-floor" style="font-size: 30px; margin-top: 10px; padding-bottom: 10px;"
-                     th:text="${landingpage.description_header_small}">
-                </div>
-                <p th:text="${landingpage.description}"></p>
+            <div class="col-sm-12">
+                <img th:src="${landingpage.descr_photo_1}" class="img-responsive img-thumbnail d_img">
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 backimg">
-                <div class="hit-the-floor" style="font-size: 30px; margin-top: 0; padding-bottom: 10px;">Supported
+            <div class="col-sm-12 backimg">
+                <h4 class="prompt" style="font-size: 40px; margin-top: 0; padding-bottom: 10px;">Supported
                     models
-                </div>
+                </h4>
                 <div class="list">
                     <ul class="articles">
                         <li th:each="model, stat : ${landingpage.models}">
-                            <a class="link" href="#" data-popup-open="popup-1" th:text="${model.model}"></a>
-                            <div class="popup" data-popup="popup-1">
+                            <a class="link" href="#" th:attr="data-popup-open='popup-' + ${stat.index}"
+                               th:text="${model.model}"></a>
+                            <div class="popup" th:attr="data-popup='popup-' + ${stat.index}">
                                 <div class="popup-inner">
                                     <div class="row">
                                         <div class="col-sm-5">
@@ -133,17 +127,20 @@ BELGIUM</span>
                                                th:text="${model.brochure}? 'Get brochure' : ''"></a>
                                         </div>
                                     </div>
-                                    <p><a data-popup-close="popup-1" href="#">Close</a></p>
-                                    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                                    <a class="popup-close" th:attr="data-popup-close='popup-' + ${stat.index}" href="#">x</a>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-6 text">
-                <img class="img-responsive"
-                     th:src="${landingpage.descr_photo_2}"/>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <img class="img-responsive img-thumbnail d2_img" th:src="${landingpage.descr_photo_2}">
+            </div>
+            <div class="col-xs-3 col-xs-offset-6">
+                <img class="img-responsive img-thumbnail d2_img" th:src="${landingpage.descr_photo_3}">
             </div>
         </div>
     </div>
@@ -305,6 +302,15 @@ BELGIUM</span>
             $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
 
             e.preventDefault();
+        });
+
+        $('.popup').click(function (e) {
+            $('.popup').fadeOut(350);
+            e.preventDefault();
+        });
+
+        $('.popup-inner').click(function (e) {
+            e.stopPropagation();
         });
     });
 </script>

@@ -31,9 +31,6 @@ public class LandingPage {
     @Column(name = "description_header_small_ru") private String description_header_small_ru;
     @Column(name = "description_header_small_en") private String description_header_small_en;
     @Column(name = "description_header_small_fr") private String description_header_small_fr;
-    @Column(name = "description_ru") private String description_ru;
-    @Column(name = "description_en") private String description_en;
-    @Column(name = "description_fr") private String description_fr;
     @Column(name = "photo_header_ru") private String photo_header_ru;
     @Column(name = "photo_header_en") private String photo_header_en;
     @Column(name = "photo_header_fr") private String photo_header_fr;
@@ -50,6 +47,8 @@ public class LandingPage {
     @Column(name = "video_ref") private String video_ref;
     @Column(name = "descr_photo_1") private String descr_photo_1;
     @Column(name = "descr_photo_2") private String descr_photo_2;
+    @Column(name = "descr_photo_3")
+    private String descr_photo_3;
     @Column(name = "type")
     private String type;
     @Column(name = "title")
@@ -134,22 +133,6 @@ public class LandingPage {
                 break;
             case "fr":
                 langReturn = description_header_small_fr;
-                break;
-        }
-        return langReturn;
-    }
-
-    public String getDescription(String lang){
-        String langReturn = description_en;
-        switch (lang){
-            case "ru":
-                langReturn = description_ru;
-                break;
-            case "en":
-                langReturn = description_en;
-                break;
-            case "fr":
-                langReturn = description_fr;
                 break;
         }
         return langReturn;

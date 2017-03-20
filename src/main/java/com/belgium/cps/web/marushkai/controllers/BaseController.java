@@ -89,10 +89,9 @@ public class BaseController {
         landing.getModels().forEach(model1 -> models.add(new ModelReady(model1.getId(),
                 model1.getModel(), model1.getDescription(currLang), model1.getPhoto1(), model1.getPhoto2(), model1.getBrochure())));
         LandingPageReady landingPage = new LandingPageReady(landing.getId(), landing.getMainHeader(currLang),
-                landing.getLogoDescription(currLang), landing.getDescriptionHeader(currLang), landing.getDescriptionHeaderSmall(currLang),
-                landing.getDescription(currLang), landing.getPhotoHeader(currLang), landing.getPhotoDescription(currLang),
+                landing.getLogoDescription(currLang), landing.getDescriptionHeader(currLang), landing.getDescriptionHeaderSmall(currLang), landing.getPhotoHeader(currLang), landing.getPhotoDescription(currLang),
                 landing.getVideoHeader(currLang), landing.getFirst_background(), landing.getSecond_background(), landing.getThird_background(),
-                landing.getFourth_background(), landing.getVideo_ref(), landing.getDescr_photo_1(), landing.getDescr_photo_2(), landing.getType(),
+                landing.getFourth_background(), landing.getVideo_ref(), landing.getDescr_photo_1(), landing.getDescr_photo_2(), landing.getDescr_photo_3(), landing.getType(),
                 landing.getTitle(), models, landing.getSliderPhotos());
         model.addAttribute("imagepath1", landingPage.getFirst_background());
         model.addAttribute("imagepath2", landingPage.getSecond_background());

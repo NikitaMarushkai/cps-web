@@ -19,7 +19,6 @@ public class LandingPageReady {
     private String logo_description;
     private String description_header;
     private String description_header_small;
-    private String description;
     private String photo_header;
     private String photo_description;
     private String video_header;
@@ -30,6 +29,7 @@ public class LandingPageReady {
     private String video_ref;
     private String descr_photo_1;
     private String descr_photo_2;
+    private String descr_photo_3;
     private String type;
     private String title;
     private List<ModelReady> models;
