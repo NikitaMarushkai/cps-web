@@ -7,26 +7,77 @@
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
     <link href="/css/main_page.css" rel="stylesheet"/>
+    <link href="/css/parts_catalogue.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-inverse" th:include="index::main-nav"/>
-<div class="wrapper">
+<div style="margin-top: -20px;" class="wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 catalogue">
                 <h1>Parts catalogs</h1>
                 <h2>Here you can access CNHI parts catalogues for brands that we are working with</h2>
                 <h3>Instructions</h3>
                 <ol>
                     <li>Click the logo of the brand which spare parts you want to search through</li>
-                    <li>Register as a customer or log in if you have a CNHI account or click "No Thanks, just launch the EPC" to
-                    access the parts catalogue</li>
+                    <li>Register as a customer or log in if you have a CNHI account or click "No Thanks, just launch the
+                        EPC" to
+                        access the parts catalogue
+                    </li>
                     <li>If you have chosen to just launch the EPC, click "Yes" at next window</li>
                     <li>Wait until catalogue loads</li>
                     <li>Accept all agreements, choose a brand from those which are avaliable</li>
                     <li>Everything should be OK now, choose your spare parts and then return to this page to contact us,
-                        providing the part number to make an order!</li>
+                        providing the part number to make an order!
+                    </li>
                 </ol>
+            </div>
+            <h3 class="head">Available catalogues links</h3>
+            <div class="col-sm-6 col-sm-offset-3 link">
+                <div class="hovereffect">
+                    <a href="https://ngpc.cnh.com/Lp/es/cbs?brand=NHAG&region=EUR&sma=&locale=en_GB">
+                        <img src="/images/catalogue/new-holland-parts-catalogue.jpg" class="img-responsive outset"
+                             alt="New Holland Agriculture parts catalogue"/>
+                    </a>
+                    <div class="overlay">
+                        <h2>New Holland Agriculture catalogue</h2>
+                        <a class="info" href="https://ngpc.cnh.com/Lp/es/cbs?brand=NHAG&region=EUR&sma=&locale=en_GB">OPEN
+                            CATALOGUE</a>
+                    </div>
+                </div>
+                <p>Click on the link, appearing on the image to access the genuine CNHI parts catalogue for New Holland
+                    Agriculture machinery</p>
+                <hr/>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 link">
+                <div class="hovereffect">
+                    <a href="https://ngpc.cnh.com/Lp/es/cbs?brand=FLEX&region=NAR&sma=&locale=en">
+                        <img src="/images/catalogue/flexi-coil.png" class="img-responsive outset"
+                             alt="Flexi-coil spare parts catalogue"/>
+                    </a>
+                    <div class="overlay">
+                        <h2>Flexi-Coil spare parts catalogue</h2>
+                        <a class="info" href="https://ngpc.cnh.com/Lp/es/cbs?brand=FLEX&region=NAR&sma=&locale=en">OPEN
+                            CATALOGUE</a>
+                    </div>
+                </div>
+                <p>Click on the link, appearing on the image to access the genuine CNHI parts catalogue for Flexi-COIL
+                    machinery</p>
+                <hr/>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 link">
+                <div class="hovereffect">
+                    <a href="#">
+                        <img src="/images/catalogue/new-holland-parts-catalogue.jpg" class="img-responsive outset"
+                             alt=""/>
+                    </a>
+                    <div class="overlay">
+                        <h2>New Holland spare parts catalogue</h2>
+                        <a class="info" href="#">OPEN CATALOGUE</a>
+                    </div>
+                </div>
+                <p>Click on the link, appearing on the image to access the genuine CNHI parts catalogue for New Holland
+                    machinery</p>
             </div>
         </div>
 
@@ -70,9 +121,9 @@
                 </div>
             </form>
         </div>
+        <hr style="margin-bottom: 30px;"/>
+        <div class="footer-cat-copyright" th:include="category::footer-copyright"/>
     </div>
-    <hr style="margin-bottom: 30px;"/>
-    <div class="footer-cat-copyright" th:include="category::footer-copyright"/>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

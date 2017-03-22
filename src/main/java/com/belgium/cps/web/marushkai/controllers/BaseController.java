@@ -102,4 +102,10 @@ public class BaseController {
         model.addAttribute("landingpage", landingPage);
         return "landing-page";
     }
+
+    @RequestMapping("/catalogue/")
+    public String getCatalogue(Model model) {
+        model.addAttribute("contactform", new ContactForm());
+        return "catalogue";
+    }
 }
