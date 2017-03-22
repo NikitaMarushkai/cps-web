@@ -605,10 +605,10 @@ img.d2_img {
 
 .popup-inner p {
     text-align: left;
-    white-space: normal;
     font-weight: normal;
     font-family: "Myriad Pro";
     font-size: 20px;
+    white-space: pre-wrap;
 }
 
 .popup-inner #bottom-img {
