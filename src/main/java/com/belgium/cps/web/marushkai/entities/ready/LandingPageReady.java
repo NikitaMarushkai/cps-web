@@ -18,7 +18,6 @@ public class LandingPageReady {
     private String main_header;
     private String logo_description;
     private String description_header;
-    private String description_header_small;
     private String photo_header;
     private String photo_description;
     private String video_header;

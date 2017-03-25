@@ -28,9 +28,6 @@ public class LandingPage {
     @Column(name = "description_header_ru") private String description_header_ru;
     @Column(name = "description_header_en") private String description_header_en;
     @Column(name = "description_header_fr") private String description_header_fr;
-    @Column(name = "description_header_small_ru") private String description_header_small_ru;
-    @Column(name = "description_header_small_en") private String description_header_small_en;
-    @Column(name = "description_header_small_fr") private String description_header_small_fr;
     @Column(name = "photo_header_ru") private String photo_header_ru;
     @Column(name = "photo_header_en") private String photo_header_en;
     @Column(name = "photo_header_fr") private String photo_header_fr;
@@ -117,22 +114,6 @@ public class LandingPage {
                 break;
             case "fr":
                 langReturn = description_header_fr;
-                break;
-        }
-        return langReturn;
-    }
-
-    public String getDescriptionHeaderSmall(String lang){
-        String langReturn = description_header_small_en;
-        switch (lang){
-            case "ru":
-                langReturn = description_header_small_ru;
-                break;
-            case "en":
-                langReturn = description_header_small_en;
-                break;
-            case "fr":
-                langReturn = description_header_small_fr;
                 break;
         }
         return langReturn;
