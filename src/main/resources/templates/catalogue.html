@@ -15,24 +15,19 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 catalogue">
-                <h1>Parts catalogs</h1>
-                <h2>Here you can access CNHI parts catalogues for brands that we are working with</h2>
-                <h3>Instructions</h3>
+                <h1 th:text="#{parts_cat_h1}"></h1>
+                <h2 th:text="#{parts_cat_h2}"></h2>
+                <h3 th:text="#{parts_cat_h3}"></h3>
                 <ol>
-                    <li>Click the logo of the brand which spare parts you want to search through</li>
-                    <li>Register as a customer or log in if you have a CNHI account or click "No Thanks, just launch the
-                        EPC" to
-                        access the parts catalogue
-                    </li>
-                    <li>If you have chosen to just launch the EPC, click "Yes" at next window</li>
-                    <li>Wait until catalogue loads</li>
-                    <li>Accept all agreements, choose a brand from those which are avaliable</li>
-                    <li>Everything should be OK now, choose your spare parts and then return to this page to contact us,
-                        providing the part number to make an order!
-                    </li>
+                    <li th:text="#{li_1}"></li>
+                    <li th:text="#{li_2}"></li>
+                    <li th:text="#{li_3}"></li>
+                    <li th:text="#{li_4}"></li>
+                    <li th:text="#{li_5}"></li>
+                    <li th:text="#{li_6}"></li>
                 </ol>
             </div>
-            <h3 class="head">Available catalogues links</h3>
+            <h3 class="head" th:text="#{cat_links}"></h3>
             <div class="col-sm-6 col-sm-offset-3 link">
                 <div class="hovereffect">
                     <a href="https://ngpc.cnh.com/Lp/es/cbs?brand=NHAG&region=EUR&sma=&locale=en_GB">
@@ -40,13 +35,12 @@
                              alt="New Holland Agriculture parts catalogue"/>
                     </a>
                     <div class="overlay">
-                        <h2>New Holland Agriculture catalogue</h2>
-                        <a class="info" href="https://ngpc.cnh.com/Lp/es/cbs?brand=NHAG&region=EUR&sma=&locale=en_GB">OPEN
-                            CATALOGUE</a>
+                        <h2 th:text="#{nh_agri_cat}"></h2>
+                        <a class="info" href="https://ngpc.cnh.com/Lp/es/cbs?brand=NHAG&region=EUR&sma=&locale=en_GB"
+                           th:text="#{open_cat}"></a>
                     </div>
                 </div>
-                <p>Click on the link, appearing on the image to access the genuine CNHI parts catalogue for New Holland
-                    Agriculture machinery</p>
+                <p th:text="#{nh_agri_descr}"></p>
                 <hr/>
             </div>
             <div class="col-sm-6 col-sm-offset-3 link">
@@ -56,13 +50,12 @@
                              alt="Flexi-coil spare parts catalogue"/>
                     </a>
                     <div class="overlay">
-                        <h2>Flexi-Coil spare parts catalogue</h2>
-                        <a class="info" href="https://ngpc.cnh.com/Lp/es/cbs?brand=FLEX&region=NAR&sma=&locale=en">OPEN
-                            CATALOGUE</a>
+                        <h2 th:text="#{flexi_coil_cat}"></h2>
+                        <a class="info" href="https://ngpc.cnh.com/Lp/es/cbs?brand=FLEX&region=NAR&sma=&locale=en"
+                           th:text="#{open_cat}"></a>
                     </div>
                 </div>
-                <p>Click on the link, appearing on the image to access the genuine CNHI parts catalogue for Flexi-COIL
-                    machinery</p>
+                <p th:text="#{flexi_coil_descr}"></p>
                 <hr/>
             </div>
             <div class="col-sm-6 col-sm-offset-3 link">
@@ -72,12 +65,11 @@
                              alt=""/>
                     </a>
                     <div class="overlay">
-                        <h2>New Holland spare parts catalogue</h2>
-                        <a class="info" href="#">OPEN CATALOGUE</a>
+                        <h2 th:text="#{case_cat}"></h2>
+                        <a class="info" href="#" th:text="#{open_cat}"></a>
                     </div>
                 </div>
-                <p>Click on the link, appearing on the image to access the genuine CNHI parts catalogue for New Holland
-                    machinery</p>
+                <p th:text="#{case_descr}"></p>
             </div>
         </div>
 
@@ -115,7 +107,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-10">
                         <div class="col-sm-5 col-sm-offset-4">
-                            <button type="submit" class="btn btn-danger btn-md">Submit</button>
+                            <button type="submit" class="btn btn-danger btn-md" th:text="#{submit}"></button>
                         </div>
                     </div>
                 </div>

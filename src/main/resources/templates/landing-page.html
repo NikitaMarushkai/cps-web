@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <!--/*@thymesVar id="title" type="com.belgium.cps.web.marushkai.entities.ready.LandingPageReady.title"*/-->
     <title th:text="${title}"></title>
+    <meta name="description" th:content="${landingpage.meta_descr}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
@@ -103,8 +104,8 @@ BELGIUM</span>
         </div>
         <div class="row">
             <div class="col-sm-12 backimg">
-                <h4 class="prompt" style="font-size: 40px; margin-top: 0; padding-bottom: 10px;">Supported
-                    models
+                <h4 class="prompt" style="font-size: 40px; margin-top: 0; padding-bottom: 10px;"
+                    th:text="#{supported_models}">
                 </h4>
                 <div class="list">
                     <ul class="articles">
@@ -212,8 +213,7 @@ BELGIUM</span>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h4 class="prompt">Our team will promptly respond to any inquiry of yours, quoting our best export
-                    prices
+                <h4 class="prompt" th:text="#{prompt}">
                 </h4>
             </div>
         </div>
@@ -251,7 +251,7 @@ BELGIUM</span>
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-10">
                         <div class="col-sm-5 col-sm-offset-4">
-                            <button type="submit" class="btn btn-danger btn-md">Submit</button>
+                            <button type="submit" class="btn btn-danger btn-md" th:text="#{submit}"></button>
                         </div>
                     </div>
                 </div>
@@ -266,16 +266,18 @@ BELGIUM</span>
     <div class="row">
         <nav class="col-sm-1" id="scrollSpy">
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#general-info">General</a></li>
-                <li><a href="#description">Description</a></li>
+                <li class="active"><a href="#general-info" th:text="#{general}"></a></li>
+                <li><a href="#description" th:text="#{description}"></a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gallery <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span th:text="#{gallery}"
+                                                                                     th:remove="tag"></span> <span
+                            class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#gallery-1">Photos</a></li>
-                        <li><a href="#gallery-2">Videos</a></li>
+                        <li><a href="#gallery-1" th:text="#{photos}"></a></li>
+                        <li><a href="#gallery-2" th:text="#{videos}"></a></li>
                     </ul>
                 </li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="#contact" th:text="#{contact_us}"></a></li>
             </ul>
         </nav>
     </div>

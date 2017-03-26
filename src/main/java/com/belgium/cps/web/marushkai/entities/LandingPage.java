@@ -50,6 +50,12 @@ public class LandingPage {
     private String type;
     @Column(name = "title")
     private String title;
+    @Column(name = "meta_descr_ru")
+    private String meta_descr_ru;
+    @Column(name = "meta_descr_en")
+    private String meta_descr_en;
+    @Column(name = "meta_descr_fr")
+    private String meta_descr_fr;
 
     @OneToMany(mappedBy = "page")
     private List<Model> models;
@@ -162,6 +168,22 @@ public class LandingPage {
                 break;
             case "fr":
                 langReturn = video_header_fr;
+                break;
+        }
+        return langReturn;
+    }
+
+    public String getMetaDescr(String lang) {
+        String langReturn = meta_descr_en;
+        switch (lang) {
+            case "ru":
+                langReturn = meta_descr_ru;
+                break;
+            case "en":
+                langReturn = meta_descr_en;
+                break;
+            case "fr":
+                langReturn = meta_descr_fr;
                 break;
         }
         return langReturn;

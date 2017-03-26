@@ -31,6 +31,7 @@ public class LandingPageReady {
     private String descr_photo_3;
     private String type;
     private String title;
+    private String meta_descr;
     private List<ModelReady> models;
     private List<SliderPhoto> sliderPhotos;
 }

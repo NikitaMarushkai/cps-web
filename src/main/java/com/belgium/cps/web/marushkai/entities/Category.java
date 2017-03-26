@@ -28,6 +28,28 @@ public class Category {
     @Column(name = "hovertext") private String hovertext;
     @Column(name = "category")
     private String category;
+    @Column(name = "header_ru")
+    private String header_ru;
+    @Column(name = "header_en")
+    private String header_en;
+    @Column(name = "header_fr")
+    private String header_fr;
+
+    public String getHeader(String lang) {
+        String langReturn = header_en;
+        switch (lang) {
+            case "ru":
+                langReturn = header_ru;
+                break;
+            case "en":
+                langReturn = header_en;
+                break;
+            case "fr":
+                langReturn = header_fr;
+                break;
+        }
+        return langReturn;
+    }
 
     public String getDescription(String lang){
         String langReturn = description_en;

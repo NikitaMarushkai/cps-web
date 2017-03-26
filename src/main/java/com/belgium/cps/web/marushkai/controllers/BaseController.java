@@ -73,9 +73,10 @@ public class BaseController {
         String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
         for (Category category : categoryRepository.findByCategory(cat)) {
             categories.add(new CategoryReady(category.getId(), category.getLink(), category.getImglink(),
-                    category.getImgdescr(), category.getDescription(currLang), category.getHovertext(), category.getCategory()));
+                    category.getImgdescr(), category.getDescription(currLang), category.getHovertext(), category.getCategory(), category.getHeader(currLang)));
         }
         model.addAttribute("items", categories);
+        model.addAttribute("header", categories.get(0).getHeader());
         model.addAttribute("imagepath", "/images/backgrounds/agri_cat_bacground.jpg");
         return "category";
     }
@@ -92,7 +93,7 @@ public class BaseController {
                 landing.getLogoDescription(currLang), landing.getDescriptionHeader(currLang), landing.getPhotoHeader(currLang), landing.getPhotoDescription(currLang),
                 landing.getVideoHeader(currLang), landing.getFirst_background(), landing.getSecond_background(), landing.getThird_background(),
                 landing.getFourth_background(), landing.getVideo_ref(), landing.getDescr_photo_1(), landing.getDescr_photo_2(), landing.getDescr_photo_3(), landing.getType(),
-                landing.getTitle(), models, landing.getSliderPhotos());
+                landing.getTitle(), landing.getMetaDescr(currLang), models, landing.getSliderPhotos());
         model.addAttribute("imagepath1", landingPage.getFirst_background());
         model.addAttribute("imagepath2", landingPage.getSecond_background());
         model.addAttribute("imagepath3", landingPage.getThird_background());

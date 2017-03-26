@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Items category</title>
+    <title>Supported categories</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
@@ -13,7 +13,8 @@
 <div class="container" id="cat-container" th:object="${items}">
     <div class="row">
         <div class="col-sm-12">
-            <h1>Agriculture machinery spare parts</h1>
+            <!--/*@thymesVar id="header" type="com.belgium.cps.web.marushkai.entities.ready.CategoryReady"*/-->
+            <h1 th:text="${header}"></h1>
         </div>
         <div th:each="item, stat : ${items}" class="col-sm-4 col-md-3 cat-alignment">
             <div class="cat">
@@ -34,8 +35,7 @@
     <div class="footer-cat-copyright" th:fragment="footer-copyright">
         <div class="row">
             <div class="col-sm-12">
-                <span class="disclaimer">DISCLAIMER: ALL MANUFACTURERS' NAMES, SYMBOLS AND DESCRIPTIONS ARE USED FOR REFERENCE PURPOSES ONLY
-AND ARE THE INTELLECTUAL PROPERTY OF THE BRAND OWNERS !</span>
+                <span class="disclaimer" th:text="#{disclaim}"></span>
             </div>
             <div class="col-sm-12">
                 <span class="rtm">© CPS Belgium 2017 • All Rights Reserved</span>
