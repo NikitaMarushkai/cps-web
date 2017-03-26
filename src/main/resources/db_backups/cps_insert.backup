@@ -59,7 +59,11 @@ CREATE TABLE category (
     description_en text,
     description_ru text,
     description_fr text,
-    hovertext text
+    hovertext text,
+    category text,
+    header_ru text,
+    header_en text,
+    header_fr text
 );
 
 
@@ -95,21 +99,12 @@ CREATE TABLE landingpages (
     main_header_ru text,
     main_header_en text,
     main_header_fr text,
-    big_logo_ru text,
-    big_logo_en text,
-    big_logo_fr text,
     logo_description_ru text,
     logo_description_en text,
     logo_description_fr text,
     description_header_ru text,
     description_header_en text,
     description_header_fr text,
-    description_header_small_ru text,
-    description_header_small_en text,
-    description_header_small_fr text,
-    description_ru text,
-    description_en text,
-    description_fr text,
     photo_header_ru text,
     photo_header_en text,
     photo_header_fr text,
@@ -125,7 +120,13 @@ CREATE TABLE landingpages (
     fourth_background text,
     video_ref text,
     descr_photo_1 text,
-    descr_photo_2 text
+    descr_photo_2 text,
+    type text,
+    title text,
+    descr_photo_3 text,
+    meta_descr_ru text,
+    meta_descr_en text,
+    meta_descr_fr text
 );
 
 
@@ -166,7 +167,13 @@ ALTER SEQUENCE landingpages_id_seq OWNED BY landingpages.id;
 CREATE TABLE models (
     id integer NOT NULL,
     model text,
-    page_id integer
+    page_id integer,
+    description_ru text,
+    photo1 text,
+    photo2 text,
+    description_en text,
+    description_fr text,
+    brochure text
 );
 
 
@@ -243,7 +250,9 @@ ALTER SEQUENCE product_id_seq OWNED BY product.id;
 CREATE TABLE slider_photos (
     id integer NOT NULL,
     photo text,
-    page_id integer
+    page_id integer,
+    photo_tooltip text,
+    photo_descr text
 );
 
 
@@ -309,59 +318,180 @@ ALTER TABLE ONLY slider_photos ALTER COLUMN id SET DEFAULT nextval('slider_photo
 -- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (1, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'NEW HOLLAND TRACTORS');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (2, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'NEW HOLLAND COMBINES');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (3, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'CASE-IH TRACTORS');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (4, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'CASE-IH COMBINES');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (5, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'STEYR TRACTORS');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (6, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'FORD AGRI. TRACTORS');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (7, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'FIAT-AGRI TRACTORS');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (8, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'FLEXI-COIL ');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (9, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'JOHN DEER-Non-Gen');
-INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext) VALUES (10, '/product/new_holland_agri', '/images/test_image.jpg', 'smthsmthsmthsmthsmthsmthsmth', 'Description', 'чтотчточчо', 'фывфывфывф', 'STEIGER');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (11, '', '/images/logos/Under_construction-1.jpg', 'FLEXI-COIL Agricultural', 'FLEXI-COIL Agricultural spare parts', 'Запасные части для FLEXI-COIL', 'фвфывфыв', 'FLEXI-COIL AGRICULTURAL', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (4, '', '/images/logos/Under_construction-1.jpg', 'Case-IH combines spare parts', 'Case-IH combines spare parts', 'Запасные части для комбайнов CASE-IH', 'фывфывфывф', 'CASE-IH COMBINES', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (10, '', '/images/logos/Under_construction-1.jpg', 'Steiger tractors spare parts', 'Steiger tractors spare parts', 'Запасные части для тракторов Steiger', 'фывфывфывф', 'STEIGER', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (5, '', '/images/logos/Under_construction-1.jpg', 'Steyer tractors spare parts', 'Steyr tractors spare parts', 'Запасные части для тракторов Steyr', 'фывфывфывф', 'STEYR TRACTORS', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (7, '', '/images/logos/Under_construction-1.jpg', 'Fiat-Agricultural tractors spare parts', 'Fiat-Agricultural tractors spare parts', 'Запасные части для тракторов Fiat', 'фывфывфывф', 'FIAT-AGRI TRACTORS', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (6, '', '/images/logos/Under_construction-1.jpg', 'FORD-New Holland tractors spare parts', 'FORD-New Holland tractors spare parts', 'Запасные части для тракторов FORD-New Holland', 'фывфывфывф', 'FORD-NEW HOLLAND TRACTORS', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (3, '', '/images/logos/Under_construction-1.jpg', 'Case-IH tractors spare parts', 'Case-IH tractors spare parts', 'Запасные части для тракторов CASE-IH', 'фывфывфывф', 'CASE-IH TRACTORS', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (1, '/product/new-holland-tractors/', '/images/logos/New_Holland_Tractors.png', 'New Holland Tractors spare parts', 'New Holland Tractors spare parts', 'Запасные части для тракторов New Holland', 'фывфывфывф', 'NEW HOLLAND TRACTOR PARTS', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
+INSERT INTO category (id, link, imglink, imgdescr, description_en, description_ru, description_fr, hovertext, category, header_ru, header_en, header_fr) VALUES (2, '/product/new-holland-combines/', '/images/logos/New_Holland_Combines.jpg', 'New Holland combines spare parts', 'New Holland combines spare parts', 'Запасные части для комбайнов New Holland', 'фывфывфывф', 'NEW HOLLAND COMBINES', 'agriculture', 'Запчасти для селськохозяйственной техники CNHI', 'CNHI-Agriculture machinery spare parts', 'CNHI-Agriculture machinery spare parts');
 
 
 --
 -- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('category_id_seq', 10, true);
+SELECT pg_catalog.setval('category_id_seq', 11, true);
 
 
 --
 -- Data for Name: landingpages; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO landingpages (id, main_header_ru, main_header_en, main_header_fr, logo_description_ru, logo_description_en, logo_description_fr, description_header_ru, description_header_en, description_header_fr, photo_header_ru, photo_header_en, photo_header_fr, photo_description_ru, photo_description_en, photo_description_fr, video_header_ru, video_header_en, video_header_fr, first_background, second_background, third_background, fourth_background, video_ref, descr_photo_1, descr_photo_2, type, title, descr_photo_3, meta_descr_ru, meta_descr_en, meta_descr_fr) VALUES (1, 'Запчасти для тракторов New Holland', 'New Holland Tractor Parts', 'New Holland Tractor Parts', 'Поставщик №1 для оригинальных запчастей и компонентов для всех типов и поколений тракторов New Holland и FIAT AGRI.', 'NR. 1 SOURCE FOR GENUINE PARTS & COMPONENTS FOR ALL TYPE AND GENERATION OF NEW-HOLLAND AND FIAT AGRI. TRACTORS', 'Order spare parts your machinery needs#_ак', 'Запчасти для New Holland agriculture', 'New Holland Agri spare parts', 'New Holland Agri spare parts#_fr', 'New Holland. Фото тракторов', 'New Holland tractors photos', 'New Holland tractors photos#_ак', 'Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст ', 'Some text Some text Some textSome
+                    textSome textSome textSome text', 'Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст #_ак', 'Представляем вам тракторы New Holland', 'New Holland Agriculture introduction', 'New Holland Agriculture introduction#_FR', '/images/backgrounds/new_holland_tractor/nh-t8t9-wallpaper-01-1280x960.jpg', '/images/backgrounds/new_holland_tractor/tuscany-428041_960_720.jpg', '/images/backgrounds/new_holland_tractor/new-holland-agriculture-smashes-the-current-guinness-world-records-title-for-most-wheat-harvested-within-eight-hours-with-the-cr1090-combine.png', '/images/backgrounds/new_holland_tractor/nh-t9-wallpaper-02-1280x960.jpg', '/videos/NHTractors_video.mp4', '/images/NH_Tractor/parts_image.png', '/images/NH_Tractor/modern-agriculture.jpg', 'new-holland-tractors', 'New Holland Tractors', '/images/NH_Tractor/CNH_Packing.png', 'Запчасти для тракторов New Holland. Здесь вы можете найти оригинальные запчасти для тракторов New Holland. CPS Belgium sprl.', 'Genuine spare parts for New Holland tractors. Here you can find original CNHI spare parts for New Holland tractors. CPS belgium sprl.', NULL);
+INSERT INTO landingpages (id, main_header_ru, main_header_en, main_header_fr, logo_description_ru, logo_description_en, logo_description_fr, description_header_ru, description_header_en, description_header_fr, photo_header_ru, photo_header_en, photo_header_fr, photo_description_ru, photo_description_en, photo_description_fr, video_header_ru, video_header_en, video_header_fr, first_background, second_background, third_background, fourth_background, video_ref, descr_photo_1, descr_photo_2, type, title, descr_photo_3, meta_descr_ru, meta_descr_en, meta_descr_fr) VALUES (2, 'Запчасти для уборочных комбайнов New Holland', 'New Holland Harvesting Combines Parts', 'New Holland Harvester Combines Parts', 'Поставщик №1 для оригинальных запчастей и компонентов для всех типов и поколений уборочных комбайнов New Holland.', 'NR. 1 SOURCE FOR GENUINE PARTS & COMPONENTS FOR ALL TYPE AND GENERATION OF NEW-HOLLAND HARVESTING COMBINES ', 'Order spare parts your machinery needs#_ак', 'Запчасти для комбайнов New Holland', 'New Holland combines spare parts', 'New Holland Agri spare parts#_fr', 'Фото комбайнов New Holland', 'New Holland harvesting combines photos', 'New Holland combines photos#_ак', 'Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст ', '                    textSome textSome textSome text', '                    textSome textSome textSome text', 'Представляем вам комбайны New Holland', 'New Holland Agriculture introduction', 'New Holland Agriculture introduction#_FR', '/images/backgrounds/new_holland_combines/image-1.jpg', '/images/backgrounds/new_holland_combines/image-2.jpg', '/images/backgrounds/new_holland_combines/image-3.jpg', '/images/backgrounds/new_holland_tractor/nh-t9-wallpaper-02-1280x960.jpg', '/videos/NHTractors_video.mp4', '/images/NH_Tractor/parts_image.png', '/images/NH_Tractor/modern-agriculture.jpg', 'new-holland-combines', 'New Holland Harvesting Combines', '/images/NH_Tractor/CNH_Packing.png', 'Запчасти для уборочных комбайнов New Holland. Здесь вы можете найти оригинальные запчасти для уборочных комбайнов New Holland. CPS Belgium sprl. ', 'Genuine spare parts for New Holland harvesting combines. Here you can find original CNHI spare parts for New Holland harvesters. CPS belgium sprl.', 'Genuine spare parts for New Holland harvesting combines. Here you can find original CNHI spare parts for New Holland harvesters. CPS belgium sprl.');
 
 
 --
 -- Name: landingpages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('landingpages_id_seq', 1, false);
+SELECT pg_catalog.setval('landingpages_id_seq', 2, true);
 
 
 --
 -- Data for Name: models; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (23, 'T4 Series - Tier 4A', 1, 'Когда вы ищете базовый утилитарный трактор чтобы перевозить телеги или каждодневную рабочую лошадку для того чтобы кормить коров и чистить сараи, трактор T4 для вас.
+Models: T4.90, T4.100, T4.110, T4.120', '/images/NH_Tractor/popups/t4-tier-4b-1.jpg', '/images/NH_Tractor/popups/t4-tier-4b-2.jpg', 'Whether you''re in search of a basic utility tractor to haul wagons and rake hay, or a daily workhorse to feed the cows and scrape the barnyard, a T4 tractor is for you. A T4 tractor with a flat-deck ROPS platform or the VisionView cab. A 2WD heavy-duty front axle, the standard-duty 4WD front axle or the heavy-duty FWD front axle. And there''s a wide selection of transmissions, including an easy-to-use Hi-Lo transmission, New Holland''sРІвЂћСћ Dual Command transmission.
+Models: T4.90, T4.100, T4.110, T4.120', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t4-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (1, '35 Series', 1, 'У нас есть запасные части для этой модели', '/images/NH_Tractor/popups/35-series-1.png', '/images/NH_Tractor/popups/35-series-2.jpg', 'We have spare parts for this series of NH Tractors', 'Description#_fr', NULL);
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (3, '60 Series', 1, 'У нас есть запасные части для этой модели', '/images/NH_Tractor/popups/60-series-1.jpg', '/images/NH_Tractor/popups/60-series-2.jpg', 'We have spare parts for this series of NH Tractors', 'Description#_fr', NULL);
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (4, '70 Series', 1, 'У нас есть запасные части для этой модели', '/images/NH_Tractor/popups/70-series-1.jpg', '/images/NH_Tractor/popups/70-series-2.jpg', 'We have spare parts for this series of NH Tractors', 'Description#_fr', NULL);
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (2, '40 Series', 1, 'У нас есть запасные части для этой модели', '/images/NH_Tractor/popups/40_series-1.jpg', '/images/NH_Tractor/popups/40-series-2.png', 'We have spare parts for this series of NH Tractors', 'Description#_fr', NULL);
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (26, 'T4F Narrow Series - Tier 3', 1, 'Серия T4F построена на легендарной платформе серии узких тракторов TNF-A, предлагая улучшение до ширины в 58.5 дюймов. Низкая кабина, три варианта кабины, рулевое управление SuperSteer™, мощная гидравлика и возможности двигателя. 
+Модели: T4.75F, T4.85F, T4.95F, T4.105F', '/images/NH_Tractor/popups/t4f1-1.jpg', '/images/NH_Tractor/popups/t4f1-2.jpg', 'The T4F series builds on the legendary TNF-A narrow tractors offering upgrades in a package as narrow as 58.5 inches. Lower cab height, three transmission options, SuperSteer™ FWD axle, powerful hydraulic and engine capability plus an optional front three-point hitch lets you multitask on each pass. 
+Models: T4.75F, T4.85F, T4.95F, T4.105F', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/T4FV#_31T475F83#_INB.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (12, 'T9 SERIES 4WD - Tier 4B', 1, 'T9 4WD использует инновационный двигатель ECOBlue™ Высоко-эффективный каталитический редуктор (HI-eSCR) для Tier 4B. Использует инновационную и запатентованную технологию HI-eSCR. С системой электронного управления двигателем (EPM), доступны до 62 дополнительных лс, используемых для оптимальной продуктивности. С EPM, T9.700 и 620 номинальными лошадиными силами выдает до 682 л\с! 
+Модели: Models: T9.435, T9.480, T9.530, T9.565, T9.600, T9.645, T9.700', '/images/NH_Tractor/popups/t9_tier_4b_1.jpg', '/images/NH_Tractor/popups/t9-tier-4b-2.jpg', 'T9 4WD tractor engines utilize award-winning ECOBlue™ High-Efficiency Selective Catalytic Reduction (HI-eSCR) technology for Tier 4B compliance. Using cutting-edge and multi-patented HI-eSCR technology, the Cursor 9L and 13L powerplants breathe clean, fresh air for optimal combustion and deliver a significant performance advantage. With Engine Power Management (EPM), up to 62 additional horsepower are available in demanding mobile hydraulic, PTO and transport applications for optimum productivity. With EPM, the T9.700 with 620 rated engine horsepower develops up to 682 horsepower!
+Models: T9.435, T9.480, T9.530, T9.565, T9.600, T9.645, T9.700', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t9-series-4wd-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (32, 'Boomer™ Easy Drive™', 1, 'ПЛАВНАЯ ТРАНСМИССИЯ EASYDRIVE™
+EasyDrive™ настраивается автоматически, чтобы предоставить скорость которую вы хотите в условиях соответствия текущей нагрузке.
+Модели: Boomer™ Deluxe CVT 46D, Boomer™ Deluxe CVT 54D, Boomer™ Deluxe CVT 45D, Boomer™ Deluxe CVT 50D', '/images/NH_Tractor/popups/boomer-easydrive-1.jpg', '/images/NH_Tractor/popups/boomer-easydrive-2.jpg', 'SMOOTH EASYDRIVE™ TRANSMISSION
+The EasyDrive™ transmission automatically adjusts to deliver the speed you want while matching load conditions.
+Models: Boomer™ Deluxe CVT 46D, Boomer™ Deluxe CVT 54D, Boomer™ Deluxe CVT 45D, Boomer™ Deluxe CVT 50D
+', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/boomer-d-series-cvt-compact-tractors-46-54-hp-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (35, 'Workmaster™ 33/37 Compact T4B', 1, 'New Holland WORKMASTER™ 33 и WORKMASTER™ 37 это компактные тракторы, сочетающие топовую производительность с высокой ценностью. Они созданы крепкими, легкими для управления предлагая опции, которые подходят вашим требованиям.
+Модели: Workmaster™ 33, Workmaster™ 37', '/images/NH_Tractor/popups/workmaster1-1.jpg', '/images/NH_Tractor/popups/workmaster1-2.jpg', 'The New Holland WORKMASTER™ 33 and WORKMASTER™ 37 Value compact tractors combine top performance with top value. They’re built tough, are easy to operate and offer the features and options that suit your needs.
+Models: Workmaster™ 33, Workmaster™ 37', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/workmaster-compact-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (36, 'Boomer Series 24 HP', 1, 'Вы управляете с уверенностью и комфортом трактором серии Boomer™ с шикарной обзоронстью и естественным комфортом.
+Модель: Boomer 24', '/images/NH_Tractor/popups/boomer-24-1.jpg', '/images/NH_Tractor/popups/boomer-24-2.jpg', 'EASE AND COMFORT
+You operate in confidence and comfort with unmatched Boomer™ visibility and natural controls.
+Models: Boomer 24', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/boomer-24-hp-brochure-specsheet-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (37, 'Compact Telehandlers', 1, 'Компактные погрузчики LM5.25 и LM6.28. С серией LM, у New Holland есть погрузчики отвечающие особым требованиям. И у нас есть запчасти для них!
+Модели: LM5.25, LM6.28', '/images/NH_Tractor/popups/lm-compact-1.jpg', '/images/NH_Tractor/popups/lm-compact-2.jpg', 'Choose from the LM5.25 or LM6.28 compact telehandlers. With the LM Series, New Holland has a telehandler to suit specific demands. And we have spare parts for them!
+Models: LM5.25, LM6.28', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/material-handling/LM#_Series#_Telehandler#_070214.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (33, 'Boomer 33-47 HP Series', 1, 'МОЩНОСТЬ КОТОРАЯ ВАМ НУЖНА
+Тихие, экономичные двигатели дают вам мощность, которая вам нужна для загрузки, передвижения, копания, чистки снега, и еще много много чего. Вы получите быстрые отклик на нажатие педалей и управление благодаря двухпомповой гидросистеме высокой емкости.
+Модели: Boomer 33, Boomer 37, Boomer 41, Boomer 47', '/images/NH_Tractor/popups/boomer-1.jpg', '/images/NH_Tractor/popups/boomer-2.jpg', 'THE POWER YOU NEED
+Quiet, fuel-efficient engines give you the power you need for loading, mowing, digging, blowing snow, tilling, and much, much more. You get fast implement response and steering thanks to the high-capacity, dual-pump hydraulic system.
+Models: Boomer 33, Boomer 37, Boomer 41, Boomer 47', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/Boomer3347#_NH31003340#_INB.PDF');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (34, 'Boomer 35-55 HP Series', 1, 'МОЩНОСТЬ КОТОРАЯ ВАМ НУЖНА
+Тихие, экономичные двигатели дают вам мощность, которая вам нужна для загрузки, передвижения, копания, чистки снега, и еще много много чего. Вы получите быстрые отклик на нажатие педалей и управление благодаря двухпомповой гидросистеме высокой емкости.
+Модели: Boomer 35 (T4B), Boomer 40 (T4B), Boomer 40 Cab (T4B), Boomer 45 (T4B), Boomer 45 Cab (T4B), Boomer 50 (T4B), Boomer 50 Cab (T4B), Boomer 55 (T4B), Boomer 55 Cab (T4B)', '/images/NH_Tractor/popups/boomer-1.jpg', '/images/NH_Tractor/popups/boomer-2.jpg', 'THE POWER YOU NEED
+Quiet, fuel-efficient engines give you the power you need for loading, mowing, digging, blowing snow, tilling, and much, much more. You get fast implement response and steering thanks to the high-capacity, dual-pump hydraulic system.
+Models: Boomer 35 (T4B), Boomer 40 (T4B), Boomer 40 Cab (T4B), Boomer 45 (T4B), Boomer 45 Cab (T4B), Boomer 50 (T4B), Boomer 50 Cab (T4B), Boomer 55 (T4B), Boomer 55 Cab (T4B)', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/boomer-35-55-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (5, '82 Series', 1, 'Описание', '/images/test_image.jpg', '/images/test_image.jpg', 'DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription', 'Description#_fr', NULL);
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (40, 'CR SERIES – TIER 4B TWIN ROTOR® COMBINES', 2, ' ', ' ', ' ', ' ', ' ', ' ');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (41, 'Model Year 2014 CR Combines', 2, ' ', ' ', ' ', ' ', ' ', ' ');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (42, 'CX Elevation Combines', 2, ' ', ' ', ' ', ' ', ' ', ' ');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (43, 'CX8 Series - Tier 4B Super Conventional Combines', 2, ' ', ' ', ' ', ' ', ' ', ' ');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (6, 'T3 Series', 1, 'Описание', '/images/test_image.jpg', '/images/test_image.jpg', 'DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t9-series-4wd-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (7, 'T4000 Series', 1, 'Описание', '/images/test_image.jpg', '/images/test_image.jpg', 'DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t9-series-4wd-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (8, 'T5000 Series', 1, 'Описание', '/images/test_image.jpg', '/images/test_image.jpg', 'DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t9-series-4wd-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (9, 'T6000 Series', 1, 'Описание', '/images/test_image.jpg', '/images/test_image.jpg', 'DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t9-series-4wd-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (10, 'T7000 Series', 1, 'Описание', '/images/test_image.jpg', '/images/test_image.jpg', 'DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t9-series-4wd-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (11, 'T9000 Series', 1, 'Описание', '/images/test_image.jpg', '/images/test_image.jpg', 'DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t9-series-4wd-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (18, 'T6 Series – Tier 4B', 1, 'Выбор из 5-ти моделей от 95 до 125 л\с с невероятным увеличением момента до 42% плюс до 34 л\с от системы Engine Power Management.
+Модели: T6.145, T6.155, T6.165, T6.175, T6.180', '/images/NH_Tractor/popups/t6-tier-4b-1.jpg', '/images/NH_Tractor/popups/t6-tier-4b-2.jpg', 'Choose from five models from 95 to 125 PTO hp with enormous 42#% torque rise plus up to an additional 34 hp from Engine Power Management.
+Models: T6.145, T6.155, T6.165, T6.175, T6.180', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t6-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (15, 'T8 Series - Tier 4A', 1, 'Каждая модель трактора T8 хвастается производительностью нового двигателя New Holland Tier 4.
+Подлокотник New Holland SideWinder II делает управление серии T8 еще более интуитивным.
+Модели: T8.275, T8.300, T8.330, T8.360, T8.390', '/images/NH_Tractor/popups/t8-a-1.jpg', '/images/NH_Tractor/popups/t8-a-2.jpg', 'Every T8 model boasts the new performance of New Holland''s EcoBlue Tier 4 engine solutions.
+New Holland SideWinder II armrest makes the T8 Series intuitive to operate for reduced fatigue.
+Models: T8.275, T8.300, T8.330, T8.360, T8.390', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/T8#_NH31T827550#_INB.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (20, 'T5 Series – Tier 4B', 1, 'БЕЗУПРЕЧНЫЙ КОМФОРТ.
+В первый раз в линейке T5,  вы можете наслаждаться ездовым комфортом на извсетной передней подвеске New Holland Terraglide™.
+Модели: T5.110, T5.120', '/images/NH_Tractor/popups/t5-tier-4b-1.jpg', '/images/NH_Tractor/popups/t5-tier-4b-2.jpg', 'ULTIMATE COMFORT.
+For the first time on the T5 line, you can benefit from the smoother
+ride of New HollandвЂ™s well-known and proven Terraglideв„ў front axle suspension.
+Models: T5.110, T5.120', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t5-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (24, 'T4F Narrow Series - Tier 4A', 1, 'НОВИНКА от лидера в мире поставки узких тркторов - серия New Holland T4F narrow. Тракторы T4F сочитают больше мощности и нового стиля с улучшенным комфортом и безопасностью для оператора.
+Модели: T4.80F, T4.90F, T4.100F, T4.110F', '/images/NH_Tractor/popups/t4f-1.jpg', '/images/NH_Tractor/popups/t4f-2.jpg', 'NEW from the world’s leading supplier of narrow tractors—the New Holland T4F Series narrow tractors. T4F tractors combine more power and a bold new style with enhanced operator comfort and safety.
+Models: T4.80F, T4.90F, T4.100F, T4.110F', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t4f-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (25, 'T4V Vineyard Series - Tier 4A', 1, 'ШИРИНА ВСЕГО 43.1 ДЮЙМА
+С шириной всего в 43.1 дюйма(в зависимости от шин), трактор T4V подходит для самых стесненных пространств.
+Модели: T4.80V, T4.90V, T4.100V, T4.110V', '/images/NH_Tractor/popups/t4v-1.jpg', '/images/NH_Tractor/popups/t4v-2.jpg', 'AS NARROW AS 43.1 INCHES
+With a width as narrow as 43.1 inches (depending on tire size), the T4V tractor fits in the tightest rows.
+Models: T4.80V, T4.90V, T4.100V, T4.110V', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t4v-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (28, 'PowerStar™ Series – Tier 4B', 1, 'Тракторы New Holland PowerStar™ созданы для работы в настоящем, используя технологии из будущего.
+Модели: T4.65, T4.75', '/images/NH_Tractor/popups/t4-powerstar-1.jpg', '/images/NH_Tractor/popups/t4-powerstar-2.jpg', 'New Holland PowerStar™ tractors are for today''s work using tomorrow''s technology.
+Models: T4.65, T4.75', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t4-powerstar-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (29, 'TD4040F Narrow', 1, 'Заряжен современным, экономичным 4-х цилиндровым двигателем, TD4040F сочетает проверенный дизайн с последними инжинерными достижениями. Просторная платформа оператора с современным эргономичным управлением обеспечивают комфорт и простоту.
+Модели: TD4040F', '/images/NH_Tractor/popups/td4040f-1.jpg', '/images/NH_Tractor/popups/td4040f-2.jpg', 'Powered by modern, fuel efficient four-cylinder engines, TD4040F matches proven design with the latest in engineering excellence. A spacious operator platform with a modern ergonomic control layout deliver comfort and simplicity.
+Models: TD4040F', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/TD4040F#_NH31404012#_INB.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (30, 'TK4000 Crawler', 1, 'Самые вызывающие условия больше не проблема. Серия TK4000 добавляет отличные стиль, эффективность и эргономичный дизайн к мощной легенде.
+Модели: TK4030V, TK4050, TK4050M, TK4060', '/images/NH_Tractor/popups/tk4000-1.jpg', '/images/NH_Tractor/popups/tk4000-2.jpg', 'The most challenging conditions are no match for tracks. The TK4000 Series crawler tractors add sleek styling, operating efficiency and ergonomic design to a powerful legend.
+Models: TK4030V, TK4050, TK4050M, TK4060', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/TK4000#_NH31403042.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (27, 'T4V Vineyard Series - Tier 3', 1, 'ШИРИНА ВСЕГО 43.1 ДЮЙМА
+С шириной всего в 43.1 дюйма(в зависимости от шин), трактор T4V подходит для самых стесненных пространств.
+Модели: T4.75V, T4.85V, T4.95V, T4.105V', '/images/NH_Tractor/popups/t4v-1.jpg', '/images/NH_Tractor/popups/t4v-2.jpg', 'AS NARROW AS 43.1 INCHES
+With a width as narrow as 43.1 inches (depending on tire size), the T4V tractor fits in the tightest rows.
+Models: T4.75V, T4.85V, T4.95V, T4.105V', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t4v-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (38, 'Full-Size Telehandlers', 1, 'Полноразмерные погрузчики. С серией LM, у New Holland есть погрузчики отвечающие особым требованиям. И у нас есть запчасти для них!
+Модели: LM6.32, LM7.42 Elite, LM9.35', '/images/NH_Tractor/popups/lm-full-size-1.jpg', '/images/NH_Tractor/popups/lm-full-size-2.jpg', 'Choose from full-size telehandlers. With them, New Holland has a telehandler to suit specific demands. And we have spare parts for them!
+Models: LM6.32, LM7.42 Elite, LM9.35', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/material-handling/LM#_Series#_Telehandler#_070214.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (39, 'Workmaster™ 35/40 Compact T4B', 1, 'New Holland WORKMASTER™ 35 и WORKMASTER™ 40 это компактные тракторы, сочетающие топовую производительность с высокой ценностью. Они созданы крепкими, легкими для управления предлагая опции, которые подходят вашим требованиям.
+Модели: Workmaster™ 35, Workmaster™ 40', '/images/NH_Tractor/popups/workmaster1-1.jpg', '/images/NH_Tractor/popups/workmaster1-2.jpg', 'The New Holland WORKMASTER™ 35 and WORKMASTER™ 40 Value compact tractors combine top performance with top value. They’re built tough, are easy to operate and offer the features and options that suit your needs.
+Models: Workmaster™ 35, Workmaster™ 40', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/workmaster-compact-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (31, 'Workmaster™ Utility Tier 4b Final', 1, 'New Holland рад представить поколение рабочих лошадок, представляя новую линейку тракторов со знакомым именем - WORKMASTER™.
+Модели: Workmaster 50 2WD, Workmaster 50 4WD, Workmaster 60 2WD, Workmaster 60 4WD, Workmaster 70 2WD, Workmaster 70 4WD', '/images/NH_Tractor/popups/workmaster-1.jpg', '/images/NH_Tractor/popups/workmaster-2.jpg', 'New Holland salutes a generation of doers by introducing a new line of tractors with a familiar name – WORKMASTER™.
+Models: Workmaster 50 2WD, Workmaster 50 4WD, Workmaster 60 2WD, Workmaster 60 4WD, Workmaster 70 2WD, Workmaster 70 4WD', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/workmaster-utility-50-60-70-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (13, 'T9 Series 4WD – Tier 4A', 1, 'Двигатели курсор 13 использованы в двух самых больших моделях, T9.615 и T9.670, использующих двойной турбонаддув. Первая турбина подпитывает вторую, обеспечивая больший крутящий момент и больше мощности,чтобы справлятся с самыми трудными задачами и условиями.
+Модели: T9.390, T9.450, T9.505, T9.560, T9.615, T9.670', '/images/NH_Tractor/popups/t9-tier-4a-02.jpg', '/images/NH_Tractor/popups/t9-tier-4a-03.jpg', 'The Cursor 13 engines used in the two largest models, the T9.615 and T9.670, use a two-stage turbocharger. The first turbo feeds the second, delivering higher torque and higher sustained power to cope with the most demanding tasks and conditions.
+Models: Модели: T9.390, T9.450, T9.505, T9.560, T9.615, T9.670', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/T9_NH31T939061_INB.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (16, 'T7 Series – Tier 4B', 1, 'Новые лучшие в классе пакеты освещения, подвеска кабины Comfort Ride™ и инновационное легкое для использования управление улучшает комфорт и продуктивность работы оператора.
+Модели: T7.175 Classic, T7.175 SideWinder II, T7.190 Classic, T7.190 SideWinder II, T7.210 Classic, T7.210 SideWinder II, T7.230 Classiс, T7.230 Side-Winder II, T7.245 Classic, T7.245 SideWinder II, T7.260 SideWinder II, T7.270 SideWinder II, T7.290 SideWinder II, T7.315 SideWinder II', '/images/NH_Tractor/popups/t7-tier-4b-1.jpg', '/images/NH_Tractor/popups/t7-tier-4b-2.jpg', 'New best in class lighting packages, upgraded seat options, Comfort Ride™ cab suspension and innovative easy-to-use controls improve operator comfort and productivity.
+Models: T7.175 Classic, T7.175 SideWinder II, T7.190 Classic, T7.190 SideWinder II, T7.210 Classic, T7.210 SideWinder II, T7.230 Classiс, T7.230 Side-Winder II, T7.245 Classic, T7.245 SideWinder II, T7.260 SideWinder II, T7.270 SideWinder II, T7.290 SideWinder II, T7.315 SideWinder II', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t7-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (14, 'GENESIS® T8 Series – Tier 4B', 1, 'Серия тракторов GENESIS T8 Это самые мощные и удобные тракторы в мире.
+Модели: GENESIS® T8.320, GENESIS® T8.350, GENESIS® T8.380, GENESIS® T8.410, GENESIS® T8.435, GENESIS® T8.380 SMARTTRAX, GENESIS® T8.410 SMARTTRAX, GENESIS® T8.435 SMARTTRAX', '/images/NH_Tractor/popups/genesis-t8-tier-4b-1.jpg', '/images/NH_Tractor/popups/genesis-t8-tier-4b-1.jpg', 'GENESIS T8 Series tractors are the most powerful conventional tractors in the world.
+Models: GENESIS® T8.320, GENESIS® T8.350, GENESIS® T8.380, GENESIS® T8.410, GENESIS® T8.435, GENESIS® T8.380 SMARTTRAX, GENESIS® T8.410 SMARTTRAX, GENESIS® T8.435 SMARTTRAX', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/genesis-t8-series-tier-4b-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (17, 'T7 Series – Tier 4A', 1, 'Новые лучшие в классе пакеты освещения, подвеска кабины Comfort Ride™ и инновационное легкое для использования управление улучшает комфорт и продуктивность работы оператора.
+Модели: T7.170, T7.185, T7.200, T7.210, T7.235, T7.250, T7.260, T7.270', '/images/NH_Tractor/popups/t7-tier-4a-1.jpg', '/images/NH_Tractor/popups/t7-tier-4a-2.jpg', 'New best in class lighting packages, upgraded seat options, Comfort Ride™ cab suspension and innovative easy-to-use controls improve operator comfort and productivity.
+Models: T7.170, T7.185, T7.200, T7.210, T7.235, T7.250, T7.260, T7.270', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/T7#_NH31T717091#_INB.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (19, 'TS6 Series – Tier 4B', 1, 'ВСЕ КРОМЕ БАЗОВОГО
+Тракторы TS6 это стандартные тракторы, выносливые, надежные и удобные. А тот факт что они при этом доступные - будет приятным бонусом!
+Модели: TS6.110, TS6.120, TS6.120 High Clearance, TS6.130, TS6.140', '/images/NH_Tractor/popups/ts6-tier-4b-1.jpg', '/images/NH_Tractor/popups/ts6-tier-4b-2.jpg', 'ANYTHING BUT BASIC
+TS6 tractors are Standard tractors are rugged, comfortable and flexible. The fact they are affordable is an added bonus.
+Models: TS6.110, TS6.120, TS6.120 High Clearance, TS6.130, TS6.140', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/ts6-series-brochure-us-en.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (21, 'T5 Series – Tier 4A', 1, 'МОЩНО ПРОДУКТИВЕН
+Двигатель F5D работает лучше, благодаря системе Cooled Exhaust Gas Recirculation (CEGR)  вместе с Diesel Particulate Filter (DPF) для уменьшения выбросов Tier 4A.
+Модели: T5.95, T5.105, T5.105 Electro Command™, T5.115, T5.115 Electro Command™', '/images/NH_Tractor/popups/t5-tier-4a-1.jpg', '/images/NH_Tractor/popups/t5-tier-4a-2.jpg', 'POWERFULLY PRODUCTIVE
+The F5D engine benefits from a Cooled Exhaust Gas Recirculation (CEGR) system with a Diesel Particulate Filter (DPF) for Tier 4A emission compliance.
+Models: T5.95, T5.105, T5.105 Electro Commandв„ў, T5.115, T5.115 Electro Commandв„ў', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/T5_NH31T59551_INB.pdf');
+INSERT INTO models (id, model, page_id, description_ru, photo1, photo2, description_en, description_fr, brochure) VALUES (22, 'T4 Series – Tier 4B', 1, 'Когда вы ищете базовый утилитарный трактор чтобы перевозить телеги или каждодневную рабочую лошадку для того чтобы кормить коров и чистить сараи, трактор T4 для вас.
+Models: T4.90, T4.100, T4.110, T4.120', '/images/NH_Tractor/popups/t4-tier-4b-1.jpg', '/images/NH_Tractor/popups/t4-tier-4b-2.jpg', 'Whether you''re in search of a basic utility tractor to haul wagons and rake hay, or a daily workhorse to feed the cows and scrape the barnyard, a T4 tractor is for you. A T4 tractor with a flat-deck ROPS platform or the VisionView cab. A 2WD heavy-duty front axle, the standard-duty 4WD front axle or the heavy-duty FWD front axle. And there''s a wide selection of transmissions, including an easy-to-use Hi-Lo transmission, New Holland''sв„ў Dual Command transmission.
+Models: T4.90, T4.100, T4.110, T4.120', 'Description#_fr', 'http://d3u1quraki94yp.cloudfront.net/nhag/nar/en-us/assets/pdf/agricultural-tractors/t4-tier-4b-brochure-us-en.pdf');
 
 
 --
 -- Name: models_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('models_id_seq', 1, false);
+SELECT pg_catalog.setval('models_id_seq', 43, true);
 
 
 --
 -- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO product (id, image, imagedescr_ru, imagedescr_en, imagedescr_fr, header_ru, header_en, header_fr, description_ru, description_en, description_fr, price) VALUES (1, '/images/test_image.jpg', 'Описание', 'description', 'descr', 'Заголовок', 'Header', 'Head', 'ОПИСАНИЕ', 'DESCRIPTION', 'DESC', 100);
-INSERT INTO product (id, image, imagedescr_ru, imagedescr_en, imagedescr_fr, header_ru, header_en, header_fr, description_ru, description_en, description_fr, price) VALUES (2, '/images/test_image.jpg', 'Описание', 'description', 'descr', 'Заголовок', 'Header', 'Head', 'ОПИСАНИЕ', 'DESCRIPTION', 'DESC', 100);
-INSERT INTO product (id, image, imagedescr_ru, imagedescr_en, imagedescr_fr, header_ru, header_en, header_fr, description_ru, description_en, description_fr, price) VALUES (3, '/images/test_image.jpg', 'Описание', 'description', 'descr', 'Заголовок', 'Header', 'Head', 'ОПИСАНИЕ', 'DESCRIPTION', 'DESC', 100);
-INSERT INTO product (id, image, imagedescr_ru, imagedescr_en, imagedescr_fr, header_ru, header_en, header_fr, description_ru, description_en, description_fr, price) VALUES (4, '/images/test_image.jpg', 'Описание', 'description', 'descr', 'Заголовок', 'Header', 'Head', 'ОПИСАНИЕ', 'DESCRIPTION', 'DESC', 100);
+INSERT INTO product (id, image, imagedescr_ru, imagedescr_en, imagedescr_fr, header_ru, header_en, header_fr, description_ru, description_en, description_fr, price) VALUES (1, '/images/logos/main_page/under_construction.gif', 'Б\У запчасти для фермерства', 'USED FARMING MACHINERY', 'descr', 'Б\У запчасти для фермерства', 'USED FARMING MACHINERY', 'Head', 'Бывшие в употреблении запчасти для сельскохозяйственной техники', 'Used agricultural spare parts for farming machinery', 'DESC', NULL);
+INSERT INTO product (id, image, imagedescr_ru, imagedescr_en, imagedescr_fr, header_ru, header_en, header_fr, description_ru, description_en, description_fr, price) VALUES (2, '/images/logos/main_page/under_construction.gif', 'AGRI IMPLEMENTS', 'AGRI IMPLEMENTS', 'descr', 'AGRI IMPLEMENTS', 'AGRI IMPLEMENTS', 'Head', 'AGRI IMPLEMENTS', 'AGRI IMPLEMENTS', 'DESC', NULL);
+INSERT INTO product (id, image, imagedescr_ru, imagedescr_en, imagedescr_fr, header_ru, header_en, header_fr, description_ru, description_en, description_fr, price) VALUES (3, '/images/logos/main_page/under_construction.gif', 'Описание', 'description', 'descr', 'Заголовок', 'Header', 'Head', 'ОПИСАНИЕ', 'DESCRIPTION', 'DESC', NULL);
 
 
 --
@@ -375,13 +505,27 @@ SELECT pg_catalog.setval('product_id_seq', 4, true);
 -- Data for Name: slider_photos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (1, '/images/data1/images/slide1.jpg', 1, '/images/data1/tooltips/slide1.jpg', 'New Holland Tractor');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (2, '/images/data1/images/slide2.jpg', 1, '/images/data1/tooltips/slide2.jpg', 'New Holland Tractor');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (3, '/images/data1/images/slide3.jpg', 1, '/images/data1/tooltips/slide3.jpg', 'New Holland Tractor');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (4, '/images/data1/images/slide4.jpg', 1, '/images/data1/tooltips/slide4.jpg', 'New Holland Tractor');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (5, '/images/data1/images/slide5.jpg', 1, '/images/data1/tooltips/slide5.jpg', 'New Holland Tractor');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (6, '/images/data1/images/slide6.jpg', 1, '/images/data1/tooltips/slide6.jpg', 'New Holland Tractor');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (7, '/images/data1/images/slide7.jpg', 1, '/images/data1/tooltips/slide7.jpg', 'New Holland Tractor');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (8, '/images/data1/images/slide8.jpg', 1, '/images/data1/tooltips/slide8.jpg', 'New Holland Tractor');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (9, '/images/data2_nhcombines/images/slide_1.jpg', 2, '/images/data2_nhcombines/tooltips/slide_1.jpg', 'New Holland Harvesting Combines');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (10, '/images/data2_nhcombines/images/slide_2.jpg', 2, '/images/data2_nhcombines/tooltips/slide_2.jpg', 'New Holland Harvesting Combines');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (11, '/images/data2_nhcombines/images/slide_3.jpg', 2, '/images/data2_nhcombines/tooltips/slide_3.jpg', 'New Holland Harvesting Combines');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (12, '/images/data2_nhcombines/images/slide_4.jpg', 2, '/images/data2_nhcombines/tooltips/slide_4.jpg', 'New Holland Harvesting Combines');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (13, '/images/data2_nhcombines/images/slide_5.jpg', 2, '/images/data2_nhcombines/tooltips/slide_5.jpg', 'New Holland Harvesting Combines');
+INSERT INTO slider_photos (id, photo, page_id, photo_tooltip, photo_descr) VALUES (14, '/images/data2_nhcombines/images/slide_6.jpg', 2, '/images/data2_nhcombines/tooltips/slide_6.jpg', 'New Holland Harvesting Combines');
 
 
 --
 -- Name: slider_photos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('slider_photos_id_seq', 1, false);
+SELECT pg_catalog.setval('slider_photos_id_seq', 14, true);
 
 
 --
@@ -422,6 +566,13 @@ ALTER TABLE ONLY product
 
 ALTER TABLE ONLY slider_photos
     ADD CONSTRAINT slider_photos_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: landingpages_type_uindex; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE UNIQUE INDEX landingpages_type_uindex ON landingpages USING btree (type);
 
 
 --
