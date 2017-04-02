@@ -469,6 +469,7 @@
     font-family: "Myriad Pro";
     font-size: 30px;
     font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.36);
 }
 
 .descriptions {
@@ -544,7 +545,7 @@
     margin-top: 20px;
 }
 
-.partners {
+.partners p {
     text-transform: uppercase;
 }
 
