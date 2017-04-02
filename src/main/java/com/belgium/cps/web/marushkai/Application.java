@@ -47,7 +47,9 @@ public class Application extends WebMvcConfigurerAdapter {
 				.addResourceHandler("/images/**", "/videos/**")
 				.addResourceLocations("file:///C:/Programming/CPS/images/", "file:/opt/cps/images/",
 						"file:///C:/Programming/CPS/videos/", "file:/opt/cps/videos/",
-						"classpath:/static/images/", "classpath:/static/videos/");
+						"classpath:/static/images/", "classpath:/static/videos/",
+						"https://s3.eu-west-2.amazonaws.com/cps228/videos/",
+						"https://s3.eu-west-2.amazonaws.com/cps228/images/");
 	}
 
 	public static void main(String[] args) {
