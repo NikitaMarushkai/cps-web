@@ -689,6 +689,14 @@ img.d2_img {
     width: 250px;
 }
 
+@media only screen and (max-height: 350px){
+    .popup-inner #bottom-img{
+        margin-top: 0;
+    }
+    .popup-inner img{
+        width: 43vh;
+    }
+}
 @media only screen and (max-width: 900px) {
     .col-sm-5 {
         text-align: center;
