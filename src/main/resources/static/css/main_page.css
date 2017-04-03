@@ -702,7 +702,9 @@ img.d2_img {
 
     .popup-inner {
         max-width: 100%;
-        max-height: calc(100vh - 100px);
+        max-height: -webkit-calc(100% - 100px);
+        max-height: calc(100% - 100px);
+        max-height: -moz-calc(100% - 100px);
     }
 
     .popup-inner > .row > .col-xs-7 {
