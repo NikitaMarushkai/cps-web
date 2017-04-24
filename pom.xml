@@ -4,7 +4,6 @@
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/NikitaMarushkai/cps-web.git</developerConnection>
-    <tag>HEAD</tag>
   </scm>
 
 	<groupId>com.belgium.cps.web.marushkai</groupId>
