@@ -91,7 +91,6 @@
 				<version>2.5.3</version>
 				<configuration>
 					<preparationGoals>clean install</preparationGoals>
-					<goals>deploy</goals>
 				</configuration>
 			</plugin>
 		</plugins>
