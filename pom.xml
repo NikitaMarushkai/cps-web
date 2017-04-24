@@ -4,11 +4,12 @@
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/NikitaMarushkai/cps-web.git</developerConnection>
+    <tag>landing-site-1.0.3</tag>
   </scm>
 
 	<groupId>com.belgium.cps.web.marushkai</groupId>
 	<artifactId>landing-site</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<packaging>jar</packaging>
 
 	<name>landing-site</name>
