@@ -109,4 +109,9 @@ public class BaseController {
         model.addAttribute("contactform", new ContactForm());
         return "catalogue";
     }
+
+    @RequestMapping("/contacts/")
+    public String getContacts(Model model) {
+        return "contacts";
+    }
 }
