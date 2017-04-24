@@ -4,7 +4,6 @@
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/NikitaMarushkai/cps-web.git</developerConnection>
-	  <tag>landing-site-1.0.1</tag>
   </scm>
 
 	<groupId>com.belgium.cps.web.marushkai</groupId>
