@@ -15,11 +15,18 @@ spring:
 #    url: jdbc:postgresql://localhost:5432/CPS
 #    username: postgres
 #    password: 14071996
+  http:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
   datasource:
       driver-class-name: org.postgresql.Driver
       url: jdbc:postgresql://ec2-23-21-204-166.compute-1.amazonaws.com:5432/d4ujgq0l4hjfqk?sslmode=require
       username: duafvlefztrjrr
       password: 0f42f58a218c4f57ac73ab5b95bc27a2cd99d7c94afb7f88ea5119a55152b688
+  jpa:
+      hibernate:
+        ddl-auto: update
   thymeleaf:
     cache: false
     mode: LEGACYHTML5
