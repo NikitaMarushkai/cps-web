@@ -56,16 +56,20 @@ public class AdminController {
             String model_dir = landingPage.getMain_header_en().replaceAll(" ", "_");
             byte[] bytesFile1 = photo1_file.getBytes();
             byte[] bytesFile2 = photo2_file.getBytes();
-            Path path1 = Paths.get(UPLOADED_FOLDER + model_dir + System.getProperty("file.separator") + photo1_file.getOriginalFilename());
-            Path path2 = Paths.get(UPLOADED_FOLDER + model_dir + System.getProperty("file.separator") + photo2_file.getOriginalFilename());
+            Path path1 = Paths.get(UPLOADED_FOLDER + model_dir + System.getProperty("file.separator") +
+                    photo1_file.getOriginalFilename().replaceAll(" ", "_"));
+            Path path2 = Paths.get(UPLOADED_FOLDER + model_dir + System.getProperty("file.separator") +
+                    photo2_file.getOriginalFilename().replaceAll(" ", "_"));
             Files.createDirectories(Paths.get(UPLOADED_FOLDER + model_dir));
             Files.write(path1, bytesFile1);
             Files.write(path2, bytesFile2);
             Model modelToSave = new Model();
             modelToSave.setModel(model_name);
             modelToSave.setPage(landingPage);
-            modelToSave.setPhoto1("/images/" + model_dir + "/" + photo1_file.getOriginalFilename());
-            modelToSave.setPhoto2("/images/" + model_dir + "/" + photo2_file.getOriginalFilename());
+            modelToSave.setPhoto1("/images/" + model_dir + "/" +
+                    photo1_file.getOriginalFilename().replaceAll(" ", "_"));
+            modelToSave.setPhoto2("/images/" + model_dir + "/" +
+                    photo2_file.getOriginalFilename().replaceAll(" ", "_"));
             if (myModel.getBrochure().isEmpty()){
                 modelToSave.setBrochure(null);
             } else {
