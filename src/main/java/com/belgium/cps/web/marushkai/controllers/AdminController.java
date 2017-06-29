@@ -70,7 +70,7 @@ public class AdminController {
                     photo1_file.getOriginalFilename().replaceAll(" ", "_"));
             modelToSave.setPhoto2("/images/" + model_dir + "/" +
                     photo2_file.getOriginalFilename().replaceAll(" ", "_"));
-            if (myModel.getBrochure().isEmpty()){
+            if (myModel.getBrochure().isEmpty()) {
                 modelToSave.setBrochure(null);
             } else {
                 modelToSave.setBrochure(myModel.getBrochure());

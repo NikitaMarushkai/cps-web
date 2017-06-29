@@ -17,7 +17,7 @@ public class ModelServiceImpl implements ModelService {
     private ModelRepository modelRepository;
 
     @Autowired
-    public ModelServiceImpl(ModelRepository modelRepository){
+    public ModelServiceImpl(ModelRepository modelRepository) {
         this.modelRepository = modelRepository;
     }
 

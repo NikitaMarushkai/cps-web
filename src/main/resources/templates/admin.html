@@ -11,15 +11,16 @@
 <body>
 
 <!--/*@thymesVar id="model" type="com.belgium.cps.web.marushkai.entities.Model"*/-->
-<form th:action="@{/admin/uploadModel}" th:object="${model}" method="post" class="form-horizontal" enctype="multipart/form-data">
+<form th:action="@{/admin/uploadModel}" th:object="${model}" method="post" class="form-horizontal"
+      enctype="multipart/form-data">
     <div class="form-group">
         <div class="col-sm-10 col-sm-offset-1">
-        <label for="page">Страница:</label>
-        <select class="form-control" id="page" name="page_id">
-            <!--/*@thymesVar id="page" type="com.belgium.cps.web.marushkai.entities.LandingPage"*/-->
-            <option class="pages" th:each="page, index : ${pages}" th:text="${page.main_header_en}"
-                    th:value="${page.id}"></option>
-        </select>
+            <label for="page">Страница:</label>
+            <select class="form-control" id="page" name="page_id">
+                <!--/*@thymesVar id="page" type="com.belgium.cps.web.marushkai.entities.LandingPage"*/-->
+                <option class="pages" th:each="page, index : ${pages}" th:text="${page.main_header_en}"
+                        th:value="${page.id}"></option>
+            </select>
         </div>
     </div>
     <div class="form-group">
