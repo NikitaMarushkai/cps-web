@@ -114,4 +114,9 @@ public class BaseController {
     public String getContacts(Model model) {
         return "contacts";
     }
+
+    @RequestMapping("/about_us/")
+    public String aboutUs(Model model) {
+        return "about_us";
+    }
 }

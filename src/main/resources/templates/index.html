@@ -143,7 +143,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/catalogue/" th:text="#{catalogue}"></a></li>
-                    <li><a href="#" th:text="#{about_us}"></a></li>
+                    <li><a href="/about_us/" th:text="#{about_us}"></a></li>
                     <li><a href="#" th:text="#{special_offers}"></a></li>
                     <li><a href="/contacts/" th:text="#{contacts}"></a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -339,9 +339,9 @@
             <div class="row">
                 <div class="col-sm-3">
                     <h4 th:text="#{quick_links}"></h4>
-                    <p><a href="#" th:text="#{home}"></a></p>
-                    <p><a href="#" th:text="#{catalogue}"></a></p>
-                    <p><a href="#" th:text="#{about_us}"></a></p>
+                    <p><a href="/" th:text="#{home}"></a></p>
+                    <p><a href="/catalogue/" th:text="#{catalogue}"></a></p>
+                    <p><a href="/about_us/" th:text="#{about_us}"></a></p>
                     <p><a href="#" th:text="#{special_offers}"></a></p>
                     <p><a href="#" th:text="#{contacts}"></a></p>
                     <p><a href="#" th:text="#{location}"></a></p>
@@ -412,8 +412,9 @@
         </div>
     </div>
 </footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<div th:fragment="scripts">
+    <script src="/libs/jquery-3.1.1.min.js"></script>
+    <script src="/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</div>
 </body>
 </html>
