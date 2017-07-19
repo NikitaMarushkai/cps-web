@@ -73,11 +73,12 @@ public class BaseController {
         String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
         for (Category category : categoryRepository.findByCategory(cat)) {
             categories.add(new CategoryReady(category.getId(), category.getLink(), category.getImglink(),
-                    category.getImgdescr(), category.getDescription(currLang), category.getHovertext(), category.getCategory(), category.getHeader(currLang)));
+                    category.getImgdescr(), category.getDescription(currLang), category.getHovertext(), category.getCategory(), category.getHeader(currLang),
+                    category.getBackground()));
         }
         model.addAttribute("items", categories);
         model.addAttribute("header", categories.get(0).getHeader());
-        model.addAttribute("imagepath", "/images/backgrounds/agri_cat_bacground.jpg");
+        model.addAttribute("imagepath", categories.get(0).getBackground());
         return "category";
     }
 
@@ -112,6 +113,7 @@ public class BaseController {
 
     @RequestMapping("/contacts/")
     public String getContacts(Model model) {
+        model.addAttribute("contactform", new ContactForm());
         return "contacts";
     }
 

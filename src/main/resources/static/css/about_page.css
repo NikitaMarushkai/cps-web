@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
+.contacts-head {
+    text-align: center;
+    color: whitesmoke;
+    margin-top: 25px;
+}
+
+.who {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.gray-background {
+    border-radius: 10px;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.36);
+}
+
+.quote {
+    font-style: italic;
+    font-size: 17px;
+}
+
+.author {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.build {
+    width: 400px;
+    height: 300px;
+}
+
+.dan {
+    margin-bottom: 35px;
+}
+
+.staff {
+    margin-bottom: 25px;
+}
+
+.name {
+    color: #e3e3e3;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 32px;
+    margin: 0 0 24px;
+    text-shadow: 1px 1px 1px #082b34;
+}
+
+.staff-name {
+    font-size: 18px;
+}
+
+.other-fields {
+    color: white;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px #082b34;
+    line-height: 15px;
+}
+
+.map {
+    width: 550px;
+    height: 400px;
+}
+
+.contacts {
+    border-radius: 10px;
+    margin-top: 20px;
+    background: rgba(238, 210, 123, 1);
+}
+
+.black {
+    color: black;
+}
+
+.c-descr {
+    margin-top: 40px;
+    font-size: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fixed-size {
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.maps {
+    margin-top: 33px;
+    background: white;
+    border-radius: 50px;
+}

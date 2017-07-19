@@ -7,14 +7,147 @@
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
     <link href="/css/main_page.css" rel="stylesheet"/>
+    <link href="/css/about_page.css" rel="stylesheet"/>
+    <style>
+        .disclaimer {
+            color: black;
+        }
+
+        .footer-cat-copyright .rtm {
+            color: black;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse" th:include="index::main-nav"/>
-<div class="wrapper">
-    <div class="container">
-        <h1 style="color: #000;">This is the contacts landing page</h1>
+<div class="wrapper" id="about">
+    <div class="container contacts">
+        <div class="row">
+            <div class="col-sm-12 contacts-head black">
+                <h1>CPS BELGIUM sprl</h1>
+                <h2 th:text="#{our_contacts}"></h2>
+                <p class="black c-descr" th:text="#{contacts_instructions}"></p>
+            </div>
+            <div class="col-sm-12 black center">
+                <hr/>
+                <h3 class="author" th:text="#{our_tels}"></h3>
+                <hr/>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-responsive img-thumbnail staff fixed-size" alt="President of CPS Belgium"
+                             src="/images/about_us/dan.jpg">
+                        <p class="name black">Mr Dan A. WERBER</p>
+                        <p class="other-fields black" th:text="#{about_dan}"></p>
+                        <p class="other-fields black">GSM: +44 7770 980 133</p>
+                        <p class="other-fields black">e-mail: dan@parts-on-line.com</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-responsive img-thumbnail staff fixed-size"
+                             alt="General Manager CPS Belgium sprl"
+                             src="/images/about_us/francis.jpg">
+                        <p class="name staff-name black">Mr Francis PAHAUT</p>
+                        <p class="other-fields black" th:text="#{about_francis}"></p>
+                        <p class="other-fields black">Tel: +32 4 257 71 98</p>
+                        <p class="other-fields black">Mobile: +32 471 61 43 88</p>
+                        <p class="other-fields black">e-mail: francis@parts-on-line.be​</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-responsive img-thumbnail staff fixed-size" alt="Stores Supervisor"
+                             src="/images/about_us/simon.jpg">
+                        <p class="name staff-name black">Mr Simon WILMART</p>
+                        <p class="other-fields black" th:text="#{about_simon}"></p>
+                        <p class="other-fields black">Tel: +32 4 25771 95</p>
+                        <p class="other-fields black">Mobile: +32 496 38 71 08</p>
+                        <p class="other-fields black">e-mail: simon.cps.be@gmail.com</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-responsive img-thumbnail staff fixed-size"
+                             alt="Representative & Sales Manager - Russia & C.I.S"
+                             src="/images/about_us/anna.png">
+                        <p class="name staff-name black">Anna Zavolskaia</p>
+                        <p class="other-fields black" th:text="#{about_anna}"></p>
+                        <p class="other-fields black">Tel: +7 912 316 8069</p>
+                        <p class="other-fields black">e-mail: a.zavolskaya@gmail.com​</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-responsive img-thumbnail staff fixed-size" alt="Company accountant"
+                             src="/images/about_us/brice.jpg">
+                        <p class="name staff-name black">Mr Brice RYCERSKI</p>
+                        <p class="other-fields black" th:text="#{about_brice}"></p>
+                        <p class="other-fields black">Tel: +32 4 257 71 95</p>
+                        <p class="other-fields black">e-mail: brice@b-fisc.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 black center">
+                <hr/>
+                <h3 class="author" th:text="#{where_to_find}"></h3>
+                <hr/>
+                <p class="other-fields black">Rue de la Legende 47,<br/>
+                    Zoning Artisanal de Cornemont,<br/>
+                    B-4141 Louveigne (SPRIMONT),<br/>
+                    BELGIUM<br/>
+                </p>
+                <div class="col-sm-12 maps center">
+                    <div class="col-sm-6">
+                        <img class="img-responsive map img-rounded" alt="map" src="/images/about_us/map-1.jpg">
+                    </div>
+                    <div class="col-sm-6">
+                        <img class="img-responsive map img-rounded" alt="map" src="/images/about_us/map-2.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row descriptions black center">
+            <hr/>
+            <h3 class="author" th:text="#{contact_us}"></h3>
+            <hr/>
+            <!--/*@thymesVar id="contactform" type="com.belgium.cps.web.marushkai.entities.forms.ContactForm"*/-->
+            <form action="#" th:action="@{/mail}" th:object="${contactform}" method="post" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <input type="text" required th:field="*{name}" class="form-control" id="name"
+                               placeholder="Name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <input type="email" required th:field="*{email}" class="form-control" id="email"
+                               placeholder="email"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <input type="text" required th:field="*{subject}" class="form-control" id="city"
+                               placeholder="Subject"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                                    <textarea required th:field="*{message}" class="form-control" id="message"
+                                              placeholder="Message"
+                                              rows="6"></textarea>
+                    </div>
+                </div>
+                <!--/*@thymesVar id="title" type="com.belgium.cps.web.marushkai.entities.ready.LandingPageReady.title"*/-->
+                <input type="hidden" th:attr="name='categoryName'" th:value="'catalogue'">
+                <input type="hidden" th:attr="name='returnUrl'" th:value="'/contacts/'">
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <div class="col-sm-5 col-sm-offset-4">
+                            <button type="submit" class="btn btn-danger btn-md" th:text="#{submit}"></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr style="margin-bottom: 30px;"/>
+        <div class="footer-cat-copyright" th:include="category::footer-copyright"></div>
     </div>
 </div>
 <div th:include="index::scripts"></div>
 </body>
+
 </html>

@@ -23,4 +23,5 @@ public class CategoryReady {
     private String hovertext;
     private String category;
     private String header;
+    private String background;
 }

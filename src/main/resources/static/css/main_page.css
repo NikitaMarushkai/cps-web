@@ -391,6 +391,21 @@
     padding-top: 100px;
 }
 
+#about {
+    margin-top: -20px;
+}
+
+.knockout {
+    color: #80b947;
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(transparent, transparent), url("/images/orange_grass.jpg") -80px -80px;
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+    font-family: arial, helvetica;
+    margin: 10px auto;
+    margin-top: -5px;
+    text-align: center;
+}
 .info-text {
     color: white;
     font-size: 20px;
@@ -402,6 +417,9 @@
     padding: 5px;
 }
 
+.center {
+    text-align: center;
+}
 .glyphicon-home, .glyphicon-earphone, .glyphicon-envelope {
     font-size: 18px;
 }

@@ -98,17 +98,7 @@
             transition-delay: .2s;
         }
 
-        .knockout {
-            color: #80b947;
-            -webkit-text-fill-color: transparent;
-            background: -webkit-linear-gradient(transparent, transparent), url("/images/orange_grass.jpg") -80px -80px;
-            background: -o-linear-gradient(transparent, transparent);
-            -webkit-background-clip: text;
-            font-family: arial, helvetica;
-            margin: 10px auto;
-            margin-top: -5px;
-            text-align: center;
-        }
+
     </style>
 
     <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
@@ -230,17 +220,17 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="hovereffect">
-                        <a><img src="/images/logos/main_page/under_construction.gif"
-                                class="img-responsive img-thumbnail"
-                                alt="construction parts"/></a>
+                        <a href="/category/construction/"><img src="/images/logos/main_page/under_construction.gif"
+                                                               class="img-responsive img-thumbnail"
+                                                               alt="construction parts"/></a>
                         <div class="overlay">
                             <h2 th:text="#{cnhi_construction}"></h2>
-                            <a class="info" th:text="#{find_out}"></a>
+                            <a href="/category/construction/" class="info" th:text="#{find_out}"></a>
                         </div>
                     </div>
                     <h3 th:text="#{cnhi_construction_parts}"></h3>
                     <p th:text="#{cnhi_construction_parts_descr}"></p>
-                    <a class="btn btn-danger" th:text="#{find_out}"></a>
+                    <a href="/category/construction/" class="btn btn-danger" th:text="#{find_out}"></a>
                 </div>
                 <div class="col-sm-4">
                     <div class="hovereffect">

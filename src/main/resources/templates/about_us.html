@@ -7,101 +7,119 @@
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
     <link href="/css/main_page.css" rel="stylesheet"/>
+    <link href="/css/about_page.css" rel="stylesheet"/>
 </head>
 <body>
 <nav class="navbar navbar-inverse" th:include="index::main-nav"/>
-<div class="wrapper">
-    <div class="container">
+<div class="wrapper" id="about">
+    <div class="container gray-background">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 contacts-head">
                 <h1>CPS BELGIUM sprl</h1>
                 <h2 th:text="#{top_header}"></h2>
             </div>
-            <hr/>
             <div class="col-sm-12">
-                <h3 th:text="'- ' + #{who_we_are} + ' -'"></h3>
+                <div class="col-sm-12 center who">
+                    <hr/>
+                    <h3 class="author" th:text="'- ' + #{who_we_are} + ' -'"></h3>
+                    <hr/>
+                </div>
+                <div class="col-sm-12">
+                    <p class="quote" th:utext="'&quot' + #{about_text} + '&quot'"></p>
+                    <p class="author" th:utext="#{author}"></p>
+                </div>
             </div>
-            <hr/>
-            <div class="col-sm-12">
-                <p class="quote" th:text="#{about_text}"></p>
-                <p class="author" th:text="#{author}"></p>
-            </div>
-            <hr/>
-            <div class="col-sm-12">
-                <h3 th:text="'- ' + #{our_stores} + ' -'"></h3>
-                <hr/>
-                <div class="container">
-                    <img class="img-responsive" src="/images/about_us/Stores-1.jpg" alt="Our warehouse">
-                    <img class="img-responsive" src="/images/about_us/office-view.jpg" alt="Our office">
+            <div class="col-sm-12 center">
+                <div class="col-sm-12 who">
+                    <hr/>
+                    <h3 class="author" th:text="'- ' + #{our_stores} + ' -'"></h3>
+                    <hr/>
+                </div>
+                <div>
+                    <img class="img-responsive img-thumbnail" style="margin-bottom: 40px;"
+                         src="/images/about_us/office-view.jpg" alt="Our office">
+                    <img class="img-responsive img-thumbnail" src="/images/about_us/Stores-1.jpg" alt="Our warehouse">
                     <hr/>
                     <div class="row">
                         <div class="col-sm-4">
-                            <img class="img-responsive" alt="building 1" src="/images/about_us/building-1.jpg">
+                            <img class="img-responsive img-thumbnail build" alt="building 1"
+                                 src="/images/about_us/building-1.jpg">
                         </div>
                         <div class="col-sm-4">
-                            <img class="img-responsive" alt="building 2" src="/images/about_us/building-2.jpg">
+                            <img class="img-responsive img-thumbnail build" alt="building 2"
+                                 src="/images/about_us/building-2.jpg">
                         </div>
                         <div class="col-sm-4">
-                            <img class="img-responsive" alt="building 3" src="/images/about_us/building-3.jpg">
+                            <img class="img-responsive img-thumbnail build" alt="building 3"
+                                 src="/images/about_us/building-3.jpg">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <h3 th:text="'- ' + #{our_team} + ' -'"></h3>
-            </div>
-            <hr/>
-            <div class="col-sm-10 col-offset-sm-2">
-                <img class="img-responsive" alt="President of CPS Belgium" src="/images/about_us/dan.jpg">
-                <p>Mr Dan A. WERBER</p>
-                <p th:text="#{about_dan}"></p>
-                <p>GSM: +44 7770 980 133</p>
-                <p>e-mail: dan@parts-on-line.com</p>
-            </div>
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <img class="img-responsive" alt="General Manager CPS Belgium sprl"
-                         src="/images/about_us/francis.jpg">
-                    <p>Mr Francis PAHAUT</p>
-                    <p th:text="#{about_francis}"></p>
-                    <p>Tel: +32 4 257 71 98</p>
-                    <p>Mobile: +32 471 61 43 88</p>
-                    <p>e-mail: francis@parts-on-line.be​</p>
+            <div class="col-sm-12 center">
+                <div class="col-sm-12 center who">
+                    <hr/>
+                    <h3 class="author" th:text="'- ' + #{our_team} + ' -'"></h3>
+                    <hr/>
                 </div>
-                <div class="col-sm-3">
-                    <img class="img-responsive" alt="Stores Supervisor" src="/images/about_us/simon.jpg">
-                    <p>Mr Simon WILMART</p>
-                    <p th:text="#{about_simon}"></p>
-                    <p>Tel: +32 4 25771 95</p>
-                    <p>Mobile: +32 496 38 71 08</p>
-                    <p>e-mail: simon.cps.be@gmail.com</p>
+                <div class="col-sm-12 center dan">
+                    <img class="img-responsive img-circle dan" alt="President of CPS Belgium"
+                         src="/images/about_us/dan.jpg">
+                    <p class="name">Mr Dan A. WERBER</p>
+                    <p class="other-fields" th:text="#{about_dan}"></p>
+                    <p class="other-fields">GSM: +44 7770 980 133</p>
+                    <p class="other-fields">e-mail: dan@parts-on-line.com</p>
                 </div>
-                <div class="col-sm-3">
-                    <img class="img-responsive" alt="Representative & Sales Manager - Russia & C.I.S"
-                         src="/images/about_us/anna.jpg">
-                    <p>Anna Zavolskaia</p>
-                    <p th:text="#{about_anna}"></p>
-                    <p>Tel: +7 912 472 65 42</p>
-                    <p>e-mail: a.zavolskaya@gmail.com​</p>
+                <div class="col-sm-12">
+                    <div class="col-sm-3">
+                        <img class="img-responsive img-circle staff" alt="General Manager CPS Belgium sprl"
+                             src="/images/about_us/francis.jpg">
+                        <p class="name staff-name">Mr Francis PAHAUT</p>
+                        <p class="other-fields" th:text="#{about_francis}"></p>
+                        <p class="other-fields">Tel: +32 4 257 71 98</p>
+                        <p class="other-fields">Mobile: +32 471 61 43 88</p>
+                        <p class="other-fields">e-mail: francis@parts-on-line.be​</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-responsive img-circle staff" alt="Stores Supervisor"
+                             src="/images/about_us/simon.jpg">
+                        <p class="name staff-name">Mr Simon WILMART</p>
+                        <p class="other-fields" th:text="#{about_simon}"></p>
+                        <p class="other-fields">Tel: +32 4 25771 95</p>
+                        <p class="other-fields">Mobile: +32 496 38 71 08</p>
+                        <p class="other-fields">e-mail: simon.cps.be@gmail.com</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-responsive img-rounded staff"
+                             alt="Representative & Sales Manager - Russia & C.I.S"
+                             src="/images/about_us/anna.png">
+                        <p class="name staff-name">Anna Zavolskaia</p>
+                        <p class="other-fields" th:text="#{about_anna}"></p>
+                        <p class="other-fields">Tel: +7 912 316 8069</p>
+                        <p class="other-fields">e-mail: a.zavolskaya@gmail.com​</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-responsive img-circle staff" alt="Company accountant"
+                             src="/images/about_us/brice.jpg">
+                        <p class="name staff-name">Mr Brice RYCERSKI</p>
+                        <p class="other-fields" th:text="#{about_brice}"></p>
+                        <p class="other-fields">Tel: +32 4 257 71 95</p>
+                        <p class="other-fields">e-mail: brice@b-fisc.com</p>
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <img class="img-responsive" alt="Company accountant" src="/images/about_us/brice.jpg">
-                    <p>Mr Brice RYCERSKI</p>
-                    <p th:text="#{about_brice}"></p>
-                    <p>Tel: +32 4 257 71 95</p>
-                    <p>e-mail: brice@b-fisc.com</p>
+                <div class="col-sm-12 center who">
+                    <hr/>
+                    <h3 class="author" th:text="'- ' + #{where_to_find} + ' -'"></h3>
+                    <hr/>
                 </div>
             </div>
-            <hr/>
-            <div class="col-sm-12">
-                <h3 th:text="'- ' + #{where_to_find} + ' -'"></h3>
-            </div>
-            <hr/>
-            <div class="col-sm-6">
-                <img class="img-responsive" alt="map" src="/images/about_us/map-1.jpg">
-            </div>
-            <div class="col-sm-6">
-                <img class="img-responsive" alt="map" src="/images/about_us/map-2.jpg">
+            <div class="col-sm-12 center">
+                <div class="col-sm-6">
+                    <img class="img-responsive map img-rounded" alt="map" src="/images/about_us/map-1.jpg">
+                </div>
+                <div class="col-sm-6">
+                    <img class="img-responsive map img-rounded" alt="map" src="/images/about_us/map-2.jpg">
+                </div>
             </div>
         </div>
         <hr style="margin-bottom: 30px;"/>

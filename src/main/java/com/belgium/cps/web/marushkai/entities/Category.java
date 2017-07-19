@@ -34,6 +34,8 @@ public class Category {
     private String header_en;
     @Column(name = "header_fr")
     private String header_fr;
+    @Column(name = "background", length = 1024)
+    private String background;
 
     public String getHeader(String lang) {
         String langReturn = header_en;
