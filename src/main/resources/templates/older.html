@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gold Value</title>
+    <meta name="description" th:content="#{meta_descr}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
+    <link href="/css/main_page.css" rel="stylesheet"/>
+    <link href="/css/about_page.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse" th:include="index::main-nav"/>
+<div class="wrapper" id="about">
+    <div class="container gray-background">
+        <h1 class="contacts-head">Gold Value</h1>
+        <p class="golden-text" th:text="#{golden_descr}"></p>
+        <img class="img-center img-responsive" src="/images/logos/main_page/gold-value.jpg">
+        <div class="golden-other" th:utext="#{golden_all}"></div>
+        <a class="btn btn-danger a-center" href="/download/golden-value" th:text="#{brochure}"></a>
+        <hr style="margin-bottom: 30px;"/>
+        <div class="footer-cat-copyright" th:include="category::footer-copyright"></div>
+    </div>
+</div>
+<div th:include="index::scripts"></div>
+</body>
+</html>

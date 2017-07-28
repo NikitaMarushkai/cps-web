@@ -20,6 +20,8 @@ import javax.persistence.Table;
 public class Product {
     @Id @Column(name = "id") private int id;
     @Column(name = "image") private String image;
+    @Column(name = "reference")
+    private String reference;
     @Column(name = "imagedescr_ru") private String imageDescr_ru;
     @Column(name = "imagedescr_en") private String imageDescr_en;
     @Column(name = "imagedescr_fr") private String imageDescr_fr;

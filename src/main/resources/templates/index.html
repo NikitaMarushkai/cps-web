@@ -142,7 +142,8 @@
                         <ul class="dropdown-menu">
                             <li><a href=".?lang=ru"><span class="flag-icon flag-icon-ru"></span> Russian</a></li>
                             <li><a href=".?lang=en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
-                            <li><a href=".?lang=fr"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+                            <!--<li><a href=".?lang=fr"><span class="flag-icon flag-icon-fr"></span> French</a></li>-->
+                            <li><a><span class="flag-icon flag-icon-fr"></span> Coming soon</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -322,11 +323,12 @@
                             <div class="row">
                                 <div th:each="item, stat : ${products}" class="col-sm-4">
                                     <div class="hovereffect">
-                                        <a><img th:src="${item.image}" th:alt="${item.imageDescr}"
-                                                class="img-responsive img-thumbnail"/></a>
+                                        <a th:href="${item.reference}"><img th:src="${item.image}"
+                                                                            th:alt="${item.imageDescr}"
+                                                                            class="img-responsive img-thumbnail"/></a>
                                         <div class="overlay">
                                             <h2 th:text="${item.imageDescr}"></h2>
-                                            <a class="info" th:text="#{find_out}"></a>
+                                            <a th:href="${item.reference}" class="info" th:text="#{find_out}"></a>
                                         </div>
                                     </div>
                                     <h4 th:text="${item.header}"></h4>

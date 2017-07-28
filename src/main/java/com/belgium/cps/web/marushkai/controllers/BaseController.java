@@ -62,7 +62,7 @@ public class BaseController {
 //        }
         ArrayList<ProductReady> products = new ArrayList<>();
         productRepository.findAll().forEach(product -> products.add(new ProductReady(product.getId(), product.getImage(),
-                product.getImageDescr(currLang), product.getHeader(currLang), product.getDescription(currLang))));
+                product.getImageDescr(currLang), product.getHeader(currLang), product.getDescription(currLang), product.getReference())));
         model.addAttribute("products", products);
         return "index";
     }
@@ -120,5 +120,10 @@ public class BaseController {
     @RequestMapping("/about_us/")
     public String aboutUs(Model model) {
         return "about_us";
+    }
+
+    @RequestMapping("/older/")
+    public String getOlder(Model model) {
+        return "older";
     }
 }
