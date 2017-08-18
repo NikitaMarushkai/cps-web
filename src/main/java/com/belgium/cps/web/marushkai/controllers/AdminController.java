@@ -5,6 +5,7 @@ import com.belgium.cps.web.marushkai.entities.Model;
 import com.belgium.cps.web.marushkai.entities.forms.ModelForm;
 import com.belgium.cps.web.marushkai.repositories.LandingPageRepository;
 import com.belgium.cps.web.marushkai.services.ModelService;
+import com.belgium.cps.web.marushkai.services.UsedParserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -26,11 +27,13 @@ public class AdminController {
 
     private ModelService modelService;
     private LandingPageRepository landingPageRepository;
+    private UsedParserService usedParserService;
 
     @Autowired
-    public AdminController(ModelService modelService, LandingPageRepository landingPageRepository) {
+    public AdminController(ModelService modelService, LandingPageRepository landingPageRepository, UsedParserService usedParserService) {
         this.modelService = modelService;
         this.landingPageRepository = landingPageRepository;
+        this.usedParserService = usedParserService;
     }
 
     private static final String UPLOADED_FOLDER = "C:\\Programming\\CPS\\images\\";
@@ -89,5 +92,11 @@ public class AdminController {
             e.printStackTrace();
             return "redirect:/admin/";
         }
+    }
+
+    @GetMapping("/parseUsed")
+    public String parseUsed() {
+        usedParserService.parse();
+        return "redirect:/admin/";
     }
 }
