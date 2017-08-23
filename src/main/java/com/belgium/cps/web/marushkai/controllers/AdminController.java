@@ -95,8 +95,16 @@ public class AdminController {
     }
 
     @GetMapping("/parseUsed")
-    public String parseUsed() {
-        usedParserService.parse();
+    public String parseUsed(RedirectAttributes redirectAttributes) {
+        try {
+            usedParserService.parse();
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("status", "error");
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            return "redirect:/admin/";
+        }
+        redirectAttributes.addFlashAttribute("status", "parsing OK");
         return "redirect:/admin/";
     }
 }
