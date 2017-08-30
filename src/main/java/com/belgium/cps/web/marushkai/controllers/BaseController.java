@@ -126,4 +126,15 @@ public class BaseController {
     public String getOlder(Model model) {
         return "older";
     }
+
+    @RequestMapping("/used/")
+    public String getUsed(Model model) {
+        return "used";
+    }
+
+    @RequestMapping("/used/filter")
+    public String getUsedFiltered(Model model) {
+
+        return "redirect:/used/";
+    }
 }

@@ -1,0 +1,25 @@
+.wrapper {
+    margin-top: -20px;
+}
+
+.filter-container {
+    text-align: center;
+}
+
+.used-container {
+    width: 75vw;
+    border-radius: 20px;
+}
+
+.used-container > div > ul > li > div {
+    margin: 20px 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.item-img {
+    width: 500px;
+    height: 300px;
+}

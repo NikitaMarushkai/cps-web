@@ -33,8 +33,11 @@ public class Used {
     @Column(name = "year")
     private String year;
 
-    @Column(name = "hours")
-    private String hours;
+    @Column(name = "engine_hours")
+    private String engine_hours;
+
+    @Column(name = "separator_hours")
+    private String separator_hours;
 
     @Column(name = "model")
     private String model;
@@ -42,6 +45,9 @@ public class Used {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "photo")
+    @Column(name = "photo", length = 1024)
     private String photo;
+
+    @Column(name = "type")
+    private String type;
 }
