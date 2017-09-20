@@ -3,14 +3,13 @@ package com.belgium.cps.web.marushkai.controllers;
 import com.belgium.cps.web.marushkai.entities.Category;
 import com.belgium.cps.web.marushkai.entities.LandingPage;
 import com.belgium.cps.web.marushkai.entities.Product;
+import com.belgium.cps.web.marushkai.entities.TypeTranslation;
 import com.belgium.cps.web.marushkai.entities.forms.ContactForm;
 import com.belgium.cps.web.marushkai.entities.ready.CategoryReady;
 import com.belgium.cps.web.marushkai.entities.ready.LandingPageReady;
 import com.belgium.cps.web.marushkai.entities.ready.ModelReady;
 import com.belgium.cps.web.marushkai.entities.ready.ProductReady;
-import com.belgium.cps.web.marushkai.repositories.CategoryRepository;
-import com.belgium.cps.web.marushkai.repositories.LandingPageRepository;
-import com.belgium.cps.web.marushkai.repositories.ProductRepository;
+import com.belgium.cps.web.marushkai.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
@@ -39,8 +38,11 @@ public class BaseController {
     CategoryRepository categoryRepository;
     @Autowired
     LandingPageRepository landingPageRepository;
+    @Autowired
+    UsedRepository usedRepository;
+    @Autowired
+    TypeTranslationRepository typeTranslationRepository;
 
-    //LocaleContextHolder
     @RequestMapping("/")
     public String index(Model model) {
         String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
@@ -129,12 +131,14 @@ public class BaseController {
 
     @RequestMapping("/used/")
     public String getUsed(Model model) {
+        String currLang = LocaleContextHolder.getLocaleContext().getLocale().getLanguage();
+        List<String> types = usedRepository.getDistinctTypes();
+        List<String> typeTranslations = new ArrayList<>();
+        types.forEach(type -> {
+            typeTranslations.add(typeTranslationRepository.getByType(type).getTypeTranslated(currLang));
+        });
+        model.addAttribute("types", types);
+        model.addAttribute("typesTrans", typeTranslations);
         return "used";
-    }
-
-    @RequestMapping("/used/filter")
-    public String getUsedFiltered(Model model) {
-
-        return "redirect:/used/";
     }
 }

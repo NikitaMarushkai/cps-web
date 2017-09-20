@@ -12,230 +12,72 @@
 <body>
 <nav class="navbar navbar-inverse" th:include="index::main-nav"/>
 <div class="wrapper">
-    <div class="row" style="padding: 25px;">
+    <div class="row outer-row">
         <div class="col-sm-2 filter-container">
             <div class="filters">
-                <p class="filter-cat">Select machinery type</p>
+                <p class="filter-cat" th:text="#{mach_type}"></p>
                 <form th:action="@{/used/filter}" class="form-horizontal" method="get">
                     <div class="form-group">
-                        <select class="form-control" id="type" name="type">
+                        <select class="form-control" id="type" name="type" onchange="setFilter(this.value)">
                             <option class="types" value="" selected></option>
-                            <!--/*@thymesVar id="page" type="com.belgium.cps.web.marushkai.entities.LandingPage"*/-->
-                            <!--<option class="types" th:each="type, index : ${types}" th:text="${type}"-->
-                            <!--th:value="${type}"></option>-->
+                            <!--/*@thymesVar id="type" type="com.belgium.cps.web.marushkai.entities.Used"*/-->
+                            <option class="types" th:each="index : ${#numbers.sequence( 0, #arrays.length(types)
+                             - 1)}" th:text="${typesTrans[index]}"
+                                    th:value="${types[index]}"></option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-danger btn-md">Apply</button>
-                    </div>
+                    <!--<div class="form-group">-->
+                    <!--<button type="submit" class="btn btn-danger btn-md" th:text="#{submit}"></button>-->
+                    <!--</div>-->
                 </form>
             </div>
         </div>
         <div class="col-sm-10">
-            <div style="background: gray;" class="container used-container">
+            <div class="container used-container">
                 <div class="row">
-                    <ul>
+                    <ul id="rows">
                         <li>
-                            <div class="col-sm-12">
-                                <div class="row">
+                            <div class="col-sm-12 item-background">
+                                <div class="row relative">
                                     <div class="col-sm-4">
                                         <img class="img-responsive img-thumbnail item-img"
                                              src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
                                              alt="image1">
                                     </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
+                                    <div class="col-sm-8 relative">
+                                        <h4 class="model-name">Model</h4>
+                                        <ul class="item-details">
+                                            <li><span id="year" class="item-details-name"
+                                                      th:text="#{year} + ': '"></span>
+                                                <span class="item-details-value">US</span></li>
+                                            <li><span id="location" class="item-details-name"
+                                                      th:text="#{location} + ': '"> </span>
+                                                <span class="item-details-value">12332</span></li>
+                                            <li><span id="engine_hours" class="item-details-name"
+                                                      th:text="#{engine_hours} + ': '"> </span>
+                                                <span class="item-details-value">asdasd</span></li>
+                                            <li><span id="separator_hours" class="item-details-name"
+                                                      th:text="#{separator_hours} + ': '"> </span>
+                                                <span class="item-details-value">ASDA</span></li>
+                                            <li><span class="item-details-name">ID: </span>
+                                                <span class="item-details-value">ASDA</span></li>
                                         </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="img-responsive img-thumbnail item-img"
-                                             src="https://newhollandused.uk/media/img/vehicles/65137/1154249.jpg"
-                                             alt="image1">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h4>Model</h4>
-                                        <ul>
-                                            <li>location: US</li>
-                                            <li>year: 2014</li>
-                                            <li>engine-hours: 234</li>
-                                            <li>price: on request</li>
-                                        </ul>
+                                        <div class="price col-sm-2 col-sm-offset-10">
+                                            <p id="price" class="pr-name" th:text="#{price} + ':'"></p>
+                                            <p id="on_request" class="pr-value" th:text="#{on_request}"></p>
+                                        </div>
+                                        <div class="col-sm-12 instr-div">
+                                            <p id="instructions" class="instruction" th:text="#{instructions}"></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
                     </ul>
+                </div>
+                <div class="col-sm-12">
+                    <h3 class="pages" th:text="#{pages} + ':'"></h3>
+                    <ul id="page-numbers" class="pagination"></ul>
                 </div>
             </div>
         </div>
@@ -246,5 +88,6 @@
     </div>
 </div>
 <div th:include="index::scripts"></div>
+<script src="/scripts/pagination.js"></script>
 </body>
 </html>

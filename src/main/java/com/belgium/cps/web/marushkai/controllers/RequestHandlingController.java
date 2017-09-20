@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 
 /**
  * Created by unlim_000 on 24.02.2017.
@@ -43,7 +45,8 @@ public class RequestHandlingController {
 
     @GetMapping("/download/{file}")
     public void downloadFile(@PathVariable String file, HttpServletResponse response) {
-        String src = contextRepository.findByKey("brochures").getValue().concat("\\" + file + ".pdf");
+        String src = contextRepository.findByKey("brochures").getValue().concat(FileSystems.getDefault().getSeparator()
+                + file + ".pdf");
         try {
             response.setContentType("application/pdf");
             InputStream is = new FileInputStream(src);

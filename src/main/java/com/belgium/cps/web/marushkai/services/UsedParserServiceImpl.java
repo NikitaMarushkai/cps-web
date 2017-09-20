@@ -35,16 +35,12 @@ public class UsedParserServiceImpl implements UsedParserService {
 
     private Document renderPage(String category) throws InterruptedException {
         String url = contextRepository.findByKey("used_connection").getValue() + category;
-//        String url = contextRepository.findByKey("used_connection").getValue() + "/tractors";
-//        String url = contextRepository.findByKey("used_connection").getValue() + "/combines";
-//        String url = contextRepository.findByKey("used_connection").getValue() + "/forage-harvesters";
-//        String url = contextRepository.findByKey("used_connection").getValue() + "/balers";
         DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
         capabilities.setCapability("phantomjs.binary.path", contextRepository.findByKey("phantomjs_bin").getValue());
         WebDriver ghostDriver = new PhantomJSDriver(capabilities);
         try {
             ghostDriver.get(url);
-            Thread.sleep(30000);
+            Thread.sleep(20000);
             return Jsoup.parse(ghostDriver.getPageSource());
         } finally {
             ghostDriver.quit();
@@ -58,19 +54,26 @@ public class UsedParserServiceImpl implements UsedParserService {
                 "balers"};
         Stream<String> categoriesStream = Arrays.stream(categories);
         categoriesStream.parallel().forEach(cat -> {
-            for (int i = 1; i <= 4; i++) {
-                Document doc = null;
+            Document doc = null;
+            int totalPages = 0;
+            try {
+                doc = this.renderPage("/" + cat + "?layout=list");
+                int totalNumbers = Integer.parseInt(doc.body()
+                        .select("div.result-counter.pull-right > div").text().substring(7).
+                                replaceAll(",", ""));
+                totalPages = (int) Math.ceil(totalNumbers / 10);
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("No data of total items");
+            } catch (InterruptedException e) {
+                System.err.println("Interrupted exception in renderPage method, message: " + e.getMessage());
+                e.printStackTrace();
+            }
+            for (int i = 1; i <= totalPages; i++) {
                 try {
                     doc = this.renderPage("/" + cat + "?layout=list&p=" + i);
                 } catch (InterruptedException e) {
                     System.err.println("Interrupted exception in renderPage method, message: " + e.getMessage());
                     e.printStackTrace();
-                }
-                try {
-                    System.out.println(Integer.parseInt(doc.body()
-                            .select("div.result-counter.pull-right > div").text().substring(7)));
-                } catch (StringIndexOutOfBoundsException e) {
-                    System.out.println("no data");
                 }
                 Elements items = doc.body().select("li.item");
                 items.forEach(item -> {
@@ -107,11 +110,7 @@ public class UsedParserServiceImpl implements UsedParserService {
                     if (features.containsKey("separatorHours")) {
                         usedEntity.setSeparator_hours(features.get("separatorHours"));
                     }
-                    if (features.containsKey("engineHours")) {
-                        usedEntity.setEngine_hours(features.get("engineHours"));
-                    } else {
-                        usedEntity.setEngine_hours("On request");
-                    }
+                    usedEntity.setEngine_hours(features.getOrDefault("engineHours", "On request"));
                     usedEntity.setType(cat);
                     usedRepository.save(usedEntity);
                 });
