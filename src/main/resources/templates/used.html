@@ -35,6 +35,10 @@
         <div class="col-sm-10">
             <div class="container used-container">
                 <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="pages" th:text="#{pages} + ':'"></h3>
+                        <ul class="pagination page-numbers"></ul>
+                    </div>
                     <ul id="rows">
                         <li>
                             <div class="col-sm-12 item-background">
@@ -77,7 +81,7 @@
                 </div>
                 <div class="col-sm-12">
                     <h3 class="pages" th:text="#{pages} + ':'"></h3>
-                    <ul id="page-numbers" class="pagination"></ul>
+                    <ul class="pagination page-numbers"></ul>
                 </div>
             </div>
         </div>

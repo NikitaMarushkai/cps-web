@@ -248,6 +248,7 @@ BELGIUM</span>
                 </div>
                 <!--/*@thymesVar id="title" type="com.belgium.cps.web.marushkai.entities.ready.LandingPageReady.title"*/-->
                 <input type="hidden" th:attr="name='categoryName'" th:value="${title}">
+                <input type="hidden" th:attr="name='mail'" th:value="#{mail}">
                 <input type="hidden" th:attr="name='returnUrl'" th:value="'/product/' + ${return} + '/'">
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-10">

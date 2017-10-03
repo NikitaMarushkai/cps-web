@@ -23,18 +23,34 @@ function initLangVars() {
 function initPageNumbers() {
     //get total rows number
     $.get('/rest/totalRows?filter=' + filterType, function (data) {
+        setLocation('#0');
         total_rows = parseInt(data);
 
-        $('#page-numbers').html('');
+        $('.page-numbers').html('');
+
+        $('.page-numbers').append('<li class="page-list" style="display: inline;" id="first"><a href="#0" onclick="getPage(0,0);">' +
+            '<span class="glyphicon glyphicon-fast-backward"></span></a></li>');
+        $('.page-numbers').append('<li class="page-list" style="display: inline;" id="previous"><a onclick="getNextPage(false, 0);">' +
+            '<span class="glyphicon glyphicon-chevron-left"></span></a></li>');
+
         //Loop through every available page and output a page link
         var count = 0;
         var pid = 0;
         for (var x = 0; x < total_rows; x += rows_per_page) {
-            $('#page-numbers').append('<li class="page-list" id="pid' + pid + '"><a href="#' + count + '" onclick="getPage(' + count + ',' +
-                pid + ');">' + parseInt(count + 1) + '</a></li>');
+            if (pid < 6) {
+                $('.page-numbers').append('<li class="page-list listing pid' + pid + '" style="display: inline;"><a href="#' + count + '" onclick="getPage(' + count + ',' +
+                    pid + ');">' + parseInt(count + 1) + '</a></li>');
+            } else {
+                $('.page-numbers').append('<li class="page-list listing pid' + pid + '" style="display: none;"><a href="#' + count + '" onclick="getPage(' + count + ',' +
+                    pid + ');">' + parseInt(count + 1) + '</a></li>');
+            }
             count++;
             pid++;
         }
+        $('.page-numbers').append('<li class="page-list" style="display: inline;" id="next"><a onclick="getNextPage(true,' + parseInt(count - 1) + ');">' +
+            '<span class="glyphicon glyphicon-chevron-right"></span></a></li>');
+        $('.page-numbers').append('<li class="page-list" style="display: inline;" id=""><a href="#' + parseInt(count - 1) + '" onclick="getPage(' + parseInt(count - 1) + ',' +
+            parseInt(pid - 1) + ');"><span class="glyphicon glyphicon-fast-forward"></span></a></li>');
     });
 }
 
@@ -42,12 +58,12 @@ function getPage(page_num, pid) {
     //Clear existing data
     $('#rows').html('');
 
-    $('.page-list').each(function () {
+    $('.listing').each(function () {
         $(this).toggleClass('active', false);
     });
 
     if (pid < 5) {
-        $('.page-list').each(function () {
+        $('.listing').each(function () {
             if (parseInt($('a', this).text()) <= pid + 5) {
                 $(this).css("display", "inline");
             } else {
@@ -55,7 +71,7 @@ function getPage(page_num, pid) {
             }
         });
     } else {
-        $('.page-list').each(function () {
+        $('.listing').each(function () {
             if (parseInt($('a', this).text()) <= pid + 5 && parseInt($('a', this).text()) > pid - 3) {
                 $(this).css("display", "inline");
             } else {
@@ -63,7 +79,7 @@ function getPage(page_num, pid) {
             }
         });
     }
-    $('#pid' + pid).toggleClass('active', true);
+    $('.pid' + pid).toggleClass('active', true);
 
     //Get subset of data
     $.get('/rest/usedPages?page=' + page_num + '&size=' + rows_per_page + '&filter=' + filterType, function (data) {
@@ -125,6 +141,32 @@ function setFilter(value) {
     }
 
     getPage(page_num);
+}
+
+function setLocation(curLoc) {
+    try {
+        history.pushState(null, null, curLoc);
+        return;
+    } catch (e) {
+    }
+    location.hash = '#' + curLoc;
+}
+
+function getNextPage(isNext, last) {
+    w_hash = window.location.hash.substring(1);
+    if (isNext) {
+        if (parseInt(w_hash) != last) {
+            next = parseInt(w_hash) + 1;
+            getPage(next, next);
+            setLocation('#' + next);
+        }
+    } else {
+        if (parseInt(w_hash) != 0) {
+            prev = parseInt(w_hash) - 1;
+            getPage(prev, prev);
+            setLocation('#' + prev);
+        }
+    }
 }
 
 $(document).ready(function () {

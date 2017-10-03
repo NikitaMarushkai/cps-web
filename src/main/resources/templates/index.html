@@ -355,7 +355,7 @@
                     <p><a href="/" th:text="#{home}"></a></p>
                     <p><a href="/catalogue/" th:text="#{catalogue}"></a></p>
                     <p><a href="/about_us/" th:text="#{about_us}"></a></p>
-                    <p><a href="#" th:text="#{special_offers}"></a></p>
+                    <p><a href="/specials/" th:text="#{special_offers}"></a></p>
                     <p><a href="/contacts/" th:text="#{contacts}"></a></p>
                 </div>
                 <div class="col-sm-3 partners">
@@ -380,7 +380,9 @@
                 <div class="col-sm-3">
                     <h4 th:text="#{promo}"></h4>
                     <div class="footer-news">
-                        <img src="/images/logos/main_page/under_construction.gif" class="img-responsive" alt="news"/>
+                        <a href="/specials/">
+                            <img src="/images/logos/main_page/promo.jpg" class="img-responsive" alt="news"/>
+                        </a>
                     </div>
                     <h5 th:text="#{new_arrivals}"></h5>
                     <p style="font-size: small;" th:text="#{new_arrivals_text}"></p>

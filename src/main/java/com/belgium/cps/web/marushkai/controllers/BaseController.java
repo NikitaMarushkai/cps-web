@@ -141,4 +141,10 @@ public class BaseController {
         model.addAttribute("typesTrans", typeTranslations);
         return "used";
     }
+
+    @RequestMapping("/specials/")
+    public String getSpecials(Model model) {
+        model.addAttribute("contactform", new ContactForm());
+        return "specials";
+    }
 }
