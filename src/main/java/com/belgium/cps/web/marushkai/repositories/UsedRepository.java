@@ -17,4 +17,6 @@ public interface UsedRepository extends PagingAndSortingRepository<Used, Long> {
     long countAllByType(String type);
 
     Page<Used> findAllByType(Pageable pageable, String type);
+
+    List<Used> findAllByIdIn(List<Long> ids);
 }

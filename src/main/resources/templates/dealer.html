@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dealer page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
+    <link href="/css/main_page.css" rel="stylesheet"/>
+    <link href="/css/dealer.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse" th:include="index::main-nav"/>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 head"><h1>Dealer section</h1></div>
+            <div class="col-sm-12 instr"><p>Type in the ids in the field below and press search button, to get the
+                dealer info
+                for chosen machinery ids (separate by comma (,))</p></div>
+            <form action="#" th:action="@{/dealer/find}" method="get" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="text" required class="form-control" name="ids" id="ids"
+                               placeholder="Name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="col-sm-5 col-sm-offset-4">
+                            <button type="submit" class="btn btn-danger btn-md">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <p th:text="${status}"></p>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Input id</th>
+                        <th>Machinery type</th>
+                        <th>Machinery name</th>
+                        <th>Dealer contact info</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${items}">
+                        <td th:text="${item.id}"></td>
+                        <td th:text="${item.type}"></td>
+                        <td th:text="${item.model}"></td>
+                        <td th:text="${item.dealer_info}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12">
+                <hr style="margin-bottom: 30px;"/>
+                <div class="footer-cat-copyright" th:include="category::footer-copyright"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="index::scripts"></div>
+</body>
+</html>

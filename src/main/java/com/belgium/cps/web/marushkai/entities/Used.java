@@ -50,4 +50,7 @@ public class Used {
 
     @Column(name = "type")
     private String type;
+
+    @Column(name = "dealer_info", length = 1024)
+    private String dealer_info;
 }

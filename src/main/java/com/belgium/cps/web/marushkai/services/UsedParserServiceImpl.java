@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -87,10 +88,19 @@ public class UsedParserServiceImpl implements UsedParserService {
                     usedEntity.setPhoto(item.select("div.preview-image.col-sm-3.cursor-pointer > a > div").attr("style")
                             .replace("background-image: url(", "").replace(");", ""));
                     String location = null;
+                    String fullDealerInfo = null;
                     try {
                         location = item.select("p.icons-line.ng-binding").last().text();
+                        fullDealerInfo = item.select("p.icons-line.ng-binding").stream().map(x -> x.text())
+                                .collect(Collectors.joining(", "));
                     } catch (NullPointerException e) {
                         location = "On request";
+                        fullDealerInfo = "Not found";
+                    }
+                    if (fullDealerInfo == null || fullDealerInfo.isEmpty() || fullDealerInfo.equals(" ")) {
+                        usedEntity.setDealer_info("Not found");
+                    } else {
+                        usedEntity.setDealer_info(fullDealerInfo);
                     }
                     if (location == null || location.isEmpty() || location.equals(" ")) {
                         usedEntity.setLocation("On request");
