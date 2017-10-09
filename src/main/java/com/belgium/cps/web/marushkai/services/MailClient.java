@@ -28,7 +28,7 @@ public class MailClient {
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setFrom(contactForm.getEmail());
-            messageHelper.setTo("unlimited54321@mail.ru");
+            messageHelper.setTo(contactForm.getMail());
             messageHelper.setSubject("Parts-on-line request " + contactForm.getSubject());
             String content = contentBuilder.build(contactForm);
             messageHelper.setText(content, true);

@@ -14,5 +14,6 @@ public class ProductReady {
     private String imageDescr;
     private String header;
     private String description;
+    private String reference;
 //    private int price;
 }

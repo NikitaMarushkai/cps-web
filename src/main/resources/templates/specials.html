@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Special offers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/libs/flag-icon-css-master/css/flag-icon.min.css" rel="stylesheet"/>
+    <link href="/css/main_page.css" rel="stylesheet"/>
+    <link href="/css/about_page.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse" th:include="index::main-nav"/>
+<div class="wrapper specials" id="about">
+    <div class="container gray-background">
+        <div class="row buttons">
+            <div class="col-sm-12 contacts-head"><h1 th:text="#{new_arrivals_head}"></h1></div>
+            <div class="col-sm-12 new-arr-text"><p th:text="#{new_arrivals_text}"></p></div>
+            <div class="col-sm-12 new-arr-instr"><p th:text="#{new_arrivals_instr}"></p></div>
+            <div class="row">
+
+                <div class="col-sm-12 divide">
+                    <a class="btn btn-danger a-center" href="/download/ISUZU_surplus"
+                       th:text="#{isuzu_surplus}"></a>
+                </div>
+
+
+                <div class="col-sm-12 divide">
+                    <a class="btn btn-danger a-center" href="/download/surplus" th:text="#{surplus}"></a>
+                </div>
+
+
+            </div>
+
+            <div class="row contact">
+                <div class="col-sm-12">
+                    <!--/*@thymesVar id="contactform" type="com.belgium.cps.web.marushkai.entities.forms.ContactForm"*/-->
+                    <form action="#" th:action="@{/mail}" th:object="${contactform}" method="post"
+                          class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <input type="text" required th:field="*{name}" class="form-control" id="name"
+                                       placeholder="Name"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <input type="email" required th:field="*{email}" class="form-control" id="email"
+                                       placeholder="email"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <input type="text" required th:field="*{subject}" class="form-control" id="city"
+                                       placeholder="Subject"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                    <textarea required th:field="*{message}" class="form-control" id="message"
+                                              placeholder="Message"
+                                              rows="6"></textarea>
+                            </div>
+                        </div>
+                        <!--/*@thymesVar id="title" type="com.belgium.cps.web.marushkai.entities.ready.LandingPageReady.title"*/-->
+                        <input type="hidden" th:attr="name='categoryName'" th:value="'Special offers'">
+                        <input type="hidden" th:attr="name='mail'" th:value="#{mail}">
+                        <input type="hidden" th:attr="name='returnUrl'" th:value="'/specials/'">
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <div class="col-sm-5 col-sm-offset-4">
+                                    <button type="submit" class="btn btn-danger btn-md" th:text="#{submit}"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-bottom: 30px;"/>
+        <div class="footer-cat-copyright" th:include="category::footer-copyright"></div>
+    </div>
+</div>
+<div th:include="index::scripts"></div>
+</body>
+</html>

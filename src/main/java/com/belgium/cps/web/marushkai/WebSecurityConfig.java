@@ -17,7 +17,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/admin/**").authenticated()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/dealer/**").hasAnyRole("DEALER", "ADMIN")
                 .anyRequest().permitAll()
                 .and()
                 .httpBasic()
@@ -29,5 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("cps_admin").password("cps_523-ADMIN_^3__2134dsf$").roles("ADMIN");
+        auth.inMemoryAuthentication()
+                .withUser("dealer").password("dealer_228").roles("DEALER");
     }
 }

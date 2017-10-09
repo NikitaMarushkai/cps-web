@@ -39,7 +39,8 @@
                         <p class="name black">Mr Dan A. WERBER</p>
                         <p class="other-fields black" th:text="#{about_dan}"></p>
                         <p class="other-fields black">GSM: +44 7770 980 133</p>
-                        <p class="other-fields black">e-mail: dan@parts-on-line.com</p>
+                        <p class="other-fields black">e-mail: <a href="mailto:dan@parts-on-line.com"
+                                                                 class="e-mail black">dan@parts-on-line.com</a></p>
                     </div>
                     <div class="col-sm-4">
                         <img class="img-responsive img-thumbnail staff fixed-size"
@@ -49,7 +50,8 @@
                         <p class="other-fields black" th:text="#{about_francis}"></p>
                         <p class="other-fields black">Tel: +32 4 257 71 98</p>
                         <p class="other-fields black">Mobile: +32 471 61 43 88</p>
-                        <p class="other-fields black">e-mail: francis@parts-on-line.be​</p>
+                        <p class="other-fields black">e-mail: <a href="mailto:francis@parts-on-line.be"
+                                                                 class="e-mail black">francis@parts-on-line.be​</a></p>
                     </div>
                     <div class="col-sm-4">
                         <img class="img-responsive img-thumbnail staff fixed-size" alt="Stores Supervisor"
@@ -57,8 +59,9 @@
                         <p class="name staff-name black">Mr Simon WILMART</p>
                         <p class="other-fields black" th:text="#{about_simon}"></p>
                         <p class="other-fields black">Tel: +32 4 25771 95</p>
-                        <p class="other-fields black">Mobile: +32 496 38 71 08</p>
-                        <p class="other-fields black">e-mail: simon.cps.be@gmail.com</p>
+                        <p class="other-fields black">Mobile: +32 471 61 43 88</p>
+                        <p class="other-fields black">e-mail: <a href="mailto:simon.cps.be@gmail.com"
+                                                                 class="e-mail black">simon.cps.be@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="row">
@@ -69,7 +72,8 @@
                         <p class="name staff-name black">Anna Zavolskaia</p>
                         <p class="other-fields black" th:text="#{about_anna}"></p>
                         <p class="other-fields black">Tel: +7 912 316 8069</p>
-                        <p class="other-fields black">e-mail: a.zavolskaya@gmail.com​</p>
+                        <p class="other-fields black">e-mail: <a href="mailto:a.zavolskaya@gmail.com"
+                                                                 class="e-mail black">a.zavolskaya@gmail.com</a>​</p>
                     </div>
                     <div class="col-sm-4">
                         <img class="img-responsive img-thumbnail staff fixed-size" alt="Company accountant"
@@ -77,7 +81,8 @@
                         <p class="name staff-name black">Mr Brice RYCERSKI</p>
                         <p class="other-fields black" th:text="#{about_brice}"></p>
                         <p class="other-fields black">Tel: +32 4 257 71 95</p>
-                        <p class="other-fields black">e-mail: brice@b-fisc.com</p>
+                        <p class="other-fields black">e-mail: <a href="mailto:brice@b-fisc.com" class="e-mail black">brice@b-fisc.com</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -104,44 +109,47 @@
             <hr/>
             <h3 class="author" th:text="#{contact_us}"></h3>
             <hr/>
-            <!--/*@thymesVar id="contactform" type="com.belgium.cps.web.marushkai.entities.forms.ContactForm"*/-->
-            <form action="#" th:action="@{/mail}" th:object="${contactform}" method="post" class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <input type="text" required th:field="*{name}" class="form-control" id="name"
-                               placeholder="Name"/>
+            <div class="col-sm-12">
+                <!--/*@thymesVar id="contactform" type="com.belgium.cps.web.marushkai.entities.forms.ContactForm"*/-->
+                <form action="#" th:action="@{/mail}" th:object="${contactform}" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <input type="text" required th:field="*{name}" class="form-control" id="name"
+                                   placeholder="Name"/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <input type="email" required th:field="*{email}" class="form-control" id="email"
-                               placeholder="email"/>
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <input type="email" required th:field="*{email}" class="form-control" id="email"
+                                   placeholder="email"/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <input type="text" required th:field="*{subject}" class="form-control" id="city"
-                               placeholder="Subject"/>
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <input type="text" required th:field="*{subject}" class="form-control" id="city"
+                                   placeholder="Subject"/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10 col-sm-offset-1">
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-1">
                                     <textarea required th:field="*{message}" class="form-control" id="message"
                                               placeholder="Message"
                                               rows="6"></textarea>
-                    </div>
-                </div>
-                <!--/*@thymesVar id="title" type="com.belgium.cps.web.marushkai.entities.ready.LandingPageReady.title"*/-->
-                <input type="hidden" th:attr="name='categoryName'" th:value="'catalogue'">
-                <input type="hidden" th:attr="name='returnUrl'" th:value="'/contacts/'">
-                <div class="form-group">
-                    <div class="col-sm-offset-1 col-sm-10">
-                        <div class="col-sm-5 col-sm-offset-4">
-                            <button type="submit" class="btn btn-danger btn-md" th:text="#{submit}"></button>
                         </div>
                     </div>
-                </div>
-            </form>
+                    <!--/*@thymesVar id="title" type="com.belgium.cps.web.marushkai.entities.ready.LandingPageReady.title"*/-->
+                    <input type="hidden" th:attr="name='categoryName'" th:value="'Contacts'">
+                    <input type="hidden" th:attr="name='mail'" th:value="#{mail}">
+                    <input type="hidden" th:attr="name='returnUrl'" th:value="'/contacts/'">
+                    <div class="form-group">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <div class="col-sm-5 col-sm-offset-4">
+                                <button type="submit" class="btn btn-danger btn-md" th:text="#{submit}"></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         <hr style="margin-bottom: 30px;"/>
         <div class="footer-cat-copyright" th:include="category::footer-copyright"></div>
