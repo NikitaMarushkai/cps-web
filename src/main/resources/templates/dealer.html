@@ -62,6 +62,7 @@
                         <th>Input id</th>
                         <th>Machinery type</th>
                         <th>Machinery name</th>
+                        <th>Dealer logo</th>
                         <th>Dealer contact info</th>
                     </tr>
                     </thead>
@@ -70,6 +71,7 @@
                         <td th:text="${item.id}"></td>
                         <td th:text="${item.type}"></td>
                         <td th:text="${item.model}"></td>
+                        <td><img class="img-responsive" th:src="${item.dealer_logo}"></td>
                         <td th:text="${item.dealer_info}"></td>
                     </tr>
                     </tbody>

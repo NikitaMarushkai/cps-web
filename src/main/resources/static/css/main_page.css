@@ -267,6 +267,12 @@
     text-align: center;
 }
 
+.eng-alignment {
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+
 #cat-container p {
     margin-top: 10px;
     margin-bottom: 20px;

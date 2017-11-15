@@ -37,7 +37,8 @@
             <!--/*@thymesVar id="header" type="com.belgium.cps.web.marushkai.entities.ready.CategoryReady"*/-->
             <h1 th:text="${header}"></h1>
         </div>
-        <div th:each="item, stat : ${items}" class="col-sm-3 cat-alignment">
+        <div th:each="item, stat : ${items}"
+             th:class="${#strings.contains(items[0].category, 'engines')}? 'col-sm-3 eng-alignment' : 'col-sm-3 cat-alignment'">
             <div class="cat">
                 <div class="hovereffect">
                     <a th:href="${item.link}">
