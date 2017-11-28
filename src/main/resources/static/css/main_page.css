@@ -273,6 +273,14 @@
     margin: 0 auto;
 }
 
+.video-border {
+    border-radius: 10px;
+}
+
+.video-marg {
+    margin-bottom: 20px;
+}
+
 #cat-container p {
     margin-top: 10px;
     margin-bottom: 20px;
