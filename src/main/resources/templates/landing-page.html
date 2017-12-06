@@ -150,7 +150,8 @@ BELGIUM</span>
                                                th:text="${model.brochure}? 'Get brochure' : ''"></a>
                                         </div>
                                     </div>
-                                    <a class="popup-close" th:attr="data-popup-close='popup-' + ${stat.index}" href="#">x</a>
+                                    <a class="popup-close" th:attr="data-popup-close='popup-' + ${stat.index}"
+                                       href="#">x</a>
                                 </div>
                             </div>
                         </li>
@@ -168,7 +169,6 @@ BELGIUM</span>
         </div>
     </div>
 </div>
-
 <div class="wrapper" id="gallery"
      th:style="'background: url(' + ${imagepath3} + ') center top no-repeat; background-size: cover;'"
      th:object="${landingpage}">
@@ -219,16 +219,23 @@ BELGIUM</span>
             </div>
         </div>
         <div class="row descriptions video">
-            <div class="col-sm-12">
+            <div th:unless="${#strings.contains(landingpage.video_ref, ';')}" class="col-sm-12">
                 <video width="100%" controls>
                     <source th:src="${landingpage.video_ref}" type="video/mp4"/>
                     We are sorry, but your browser doesn't support HTML5 videos
                 </video>
             </div>
+            <div th:if="${#strings.contains(landingpage.video_ref, ';')}">
+                <div th:each="video : ${#strings.arraySplit(landingpage.video_ref, '; ')}" class="col-sm-4 video-marg">
+                    <video class="video-border" width="100%" controls>
+                        <source th:src="${video}" type="video/mp4"/>
+                        We are sorry, but your browser doesn't support HTML5 videos
+                    </video>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 <div class="wrapper" id="contact"
      th:style="'background: url(' + ${imagepath4} + ') center top no-repeat; background-size: cover;'"
      th:object="${landingpage}">

@@ -6,6 +6,7 @@ import com.belgium.cps.web.marushkai.repositories.ContextRepository;
 import com.belgium.cps.web.marushkai.repositories.UsedRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
@@ -89,13 +90,24 @@ public class UsedParserServiceImpl implements UsedParserService {
                             .replace("background-image: url(", "").replace(");", ""));
                     String location = null;
                     String fullDealerInfo = null;
+                    String dealerLogo = null;
                     try {
                         location = item.select("p.icons-line.ng-binding").last().text();
-                        fullDealerInfo = item.select("p.icons-line.ng-binding").stream().map(x -> x.text())
+                        fullDealerInfo = item.select("p.icons-line.ng-binding").stream().map(Element::text)
                                 .collect(Collectors.joining(", "));
                     } catch (NullPointerException e) {
                         location = "On request";
                         fullDealerInfo = "Not found";
+                    }
+                    try {
+                        dealerLogo = item.select("div.dealer-logo > a > img").last().attr("src");
+                    } catch (NullPointerException e) {
+                        dealerLogo = "No dealer image";
+                    }
+                    if (dealerLogo == null || dealerLogo.isEmpty() || dealerLogo.equals(" ")) {
+                        usedEntity.setDealer_logo("No dealer image");
+                    } else {
+                        usedEntity.setDealer_logo(dealerLogo);
                     }
                     if (fullDealerInfo == null || fullDealerInfo.isEmpty() || fullDealerInfo.equals(" ")) {
                         usedEntity.setDealer_info("Not found");

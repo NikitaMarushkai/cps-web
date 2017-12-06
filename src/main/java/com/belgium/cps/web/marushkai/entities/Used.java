@@ -53,4 +53,7 @@ public class Used {
 
     @Column(name = "dealer_info", length = 1024)
     private String dealer_info;
+
+    @Column(name = "dealer_logo", length = 1024)
+    private String dealer_logo;
 }

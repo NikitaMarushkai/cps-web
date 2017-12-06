@@ -267,6 +267,20 @@
     text-align: center;
 }
 
+.eng-alignment {
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+
+.video-border {
+    border-radius: 10px;
+}
+
+.video-marg {
+    margin-bottom: 20px;
+}
+
 #cat-container p {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -616,6 +630,7 @@ img.d2_img {
 
 img.img-thumbnail.modal-img.img-responsive {
     width: 100vh;
+    max-height: 40vh;
 }
 
 .popup-inner h2 {
