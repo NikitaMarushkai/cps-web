@@ -14,9 +14,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,9 +34,13 @@ public class UsedParserServiceImpl implements UsedParserService {
 
 
     private Document renderPage(String category) throws InterruptedException {
+        ArrayList<String> clArgs = new ArrayList<>();
         String url = contextRepository.findByKey("used_connection").getValue() + category;
         DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
         capabilities.setCapability("phantomjs.binary.path", contextRepository.findByKey("phantomjs_bin").getValue());
+        clArgs.add("--ignore-ssl-errors=true");
+        clArgs.add("--web-security=false");
+        capabilities.setCapability("phantomjs.cli.args", clArgs);
         WebDriver ghostDriver = new PhantomJSDriver(capabilities);
         try {
             ghostDriver.get(url);
