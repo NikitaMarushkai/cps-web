@@ -175,35 +175,35 @@
     <div id="wowslider-container0">
         <div class="ws_images">
             <ul>
-                <li><img src="/images/data0/images/slide1.jpg" alt="slide1" th:title="#{slide1}" id="wows0_0"/>
+                <li><img src="/images/data0/images/slide1.jpg" th:alt="#{descr_1}" th:title="#{slide1}" id="wows0_0"/>
                     <span th:text="#{descr_1}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide2.jpg" alt="slide2" th:title="#{slide2}" id="wows0_1"/>
+                <li><img src="/images/data0/images/slide2.jpg" th:alt="#{descr_2}" th:title="#{slide2}" id="wows0_1"/>
                     <span th:text="#{descr_2}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide3.jpg" alt="slide3" th:title="#{slide3}" id="wows0_2"/>
+                <li><img src="/images/data0/images/slide3.jpg" th:alt="#{descr_3}" th:title="#{slide3}" id="wows0_2"/>
                     <span th:text="#{descr_3}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide4.jpg" alt="slide4" th:title="#{slide4}" id="wows0_3"/>
+                <li><img src="/images/data0/images/slide4.jpg" th:alt="#{descr_4}" th:title="#{slide4}" id="wows0_3"/>
                     <span th:text="#{descr_4}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide5.jpg" alt="bootstrap slider"
+                <li><img src="/images/data0/images/slide5.jpg" th:alt="#{descr_5}"
                          th:title="#{slide5}" id="wows0_4"/>
                     <span th:text="#{descr_5}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide6.jpg" alt="bootstrap slider"
+                <li><img src="/images/data0/images/slide6.jpg" th:alt="#{descr_6}"
                          th:title="#{slide6}" id="wows0_5"/>
                     <span th:text="#{descr_6}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide7.jpg" alt="bootstrap slider"
+                <li><img src="/images/data0/images/slide7.jpg" th:alt="#{descr_7}"
                          th:title="#{slide7}" id="wows0_6"/>
                     <span th:text="#{descr_7}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide8.jpg" alt="bootstrap slider"
+                <li><img src="/images/data0/images/slide8.jpg" th:alt="#{descr_8}"
                          th:title="#{slide8}" id="wows0_7"/>
                     <span th:text="#{descr_8}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide9.jpg" alt="bootstrap slider"
+                <li><img src="/images/data0/images/slide9.jpg" th:alt="#{descr_9}"
                          th:title="#{slide9}" id="wows0_8"/>
                     <span th:text="#{descr_9}" th:remove="tag"></span>
                 </li>
@@ -211,15 +211,24 @@
         </div>
         <div class="ws_bullets">
             <div>
-                <a href="#" title="slide1"><span><img src="/images/data0/tooltips/slide1.jpg" alt="slide1"/>1</span></a>
-                <a href="#" title="slide2"><span><img src="/images/data0/tooltips/slide2.jpg" alt="slide2"/>2</span></a>
-                <a href="#" title="slide3"><span><img src="/images/data0/tooltips/slide3.jpg" alt="slide3"/>3</span></a>
-                <a href="#" title="slide4"><span><img src="/images/data0/tooltips/slide4.jpg" alt="slide4"/>4</span></a>
-                <a href="#" title="slide5"><span><img src="/images/data0/tooltips/slide5.jpg" alt="slide5"/>5</span></a>
-                <a href="#" title="slide6"><span><img src="/images/data0/tooltips/slide6.jpg" alt="slide6"/>6</span></a>
-                <a href="#" title="slide7"><span><img src="/images/data0/tooltips/slide7.jpg" alt="slide7"/>7</span></a>
-                <a href="#" title="slide8"><span><img src="/images/data0/tooltips/slide8.jpg" alt="slide8"/>8</span></a>
-                <a href="#" title="slide9"><span><img src="/images/data0/tooltips/slide9.jpg" alt="slide9"/>9</span></a>
+                <a href="#" title="slide1"><span><img src="/images/data0/tooltips/slide1.jpg"
+                                                      th:alt="#{slide1}"/>1</span></a>
+                <a href="#" title="slide2"><span><img src="/images/data0/tooltips/slide2.jpg"
+                                                      th:alt="#{slide2}"/>2</span></a>
+                <a href="#" title="slide3"><span><img src="/images/data0/tooltips/slide3.jpg"
+                                                      th:alt="#{slide3}"/>3</span></a>
+                <a href="#" title="slide4"><span><img src="/images/data0/tooltips/slide4.jpg"
+                                                      th:alt="#{slide4}"/>4</span></a>
+                <a href="#" title="slide5"><span><img src="/images/data0/tooltips/slide5.jpg"
+                                                      th:alt="#{slide5}"/>5</span></a>
+                <a href="#" title="slide6"><span><img src="/images/data0/tooltips/slide6.jpg"
+                                                      th:alt="#{slide6}"/>6</span></a>
+                <a href="#" title="slide7"><span><img src="/images/data0/tooltips/slide7.jpg"
+                                                      th:alt="#{slide7}"/>7</span></a>
+                <a href="#" title="slide8"><span><img src="/images/data0/tooltips/slide8.jpg"
+                                                      th:alt="#{slide8}"/>8</span></a>
+                <a href="#" title="slide9"><span><img src="/images/data0/tooltips/slide9.jpg"
+                                                      th:alt="#{slide9}"/>9</span></a>
 
             </div>
         </div>
@@ -236,7 +245,12 @@
         <div class="container" id="header-info-container">
             <div class="row">
                 <div class="col-sm-12">
-
+                    <video width="100%" controls>
+                        <source src="/videos/main.mp4" type="video/mp4"/>
+                        We are sorry, but your browser doesn't support HTML5 videos
+                    </video>
+                </div>
+                <div class="col-sm-12">
                     <h1 th:text="#{main_header}"></h1>
                     <p th:text="#{main_info}"></p>
                     <hr/>
