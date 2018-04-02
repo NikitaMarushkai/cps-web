@@ -55,6 +55,7 @@ function initPageNumbers() {
 }
 
 function getPage(page_num, pid) {
+    showSpinner();
     //Clear existing data
     $('#rows').html('');
 
@@ -125,6 +126,7 @@ function getPage(page_num, pid) {
                 + '</div>'
                 + '</li>');
         });
+        hideSpinner();
     });
 }
 
@@ -167,6 +169,19 @@ function getNextPage(isNext, last) {
             setLocation('#' + prev);
         }
     }
+}
+
+function showSpinner() {
+    $("body").loadingModal({
+        text: 'Please wait, results are loading... ',
+        opacity: '0.9'
+    });
+    $("body").loadingModal('show');
+}
+
+function hideSpinner() {
+    $("body").loadingModal('hide');
+
 }
 
 $(document).ready(function () {
