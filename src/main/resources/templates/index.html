@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start':
-                new Date().getTime(), event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-PW4CD8B');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137864798-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137864798-1');
+    </script>
     <meta charset="UTF-8"/>
-    <title>Agricultural, construction parts on-line, CPS Belgium</title>
+    <title th:content="#{title}"></title>
     <meta name="description" th:content="#{meta_descr}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -131,7 +129,7 @@
 <header>
     <div class="jumbotron">
         <div class="container text-center">
-            <div class="knockout h1">CPS BELGIUM sprl</div>
+            <div class="knockout h1"><h1 th:text="#{main_title}"></h1></div>
             <div class="knockout p" th:text="#{top_header}"></div>
         </div>
     </div>
@@ -166,7 +164,9 @@
                             <li><a><span class="flag-icon flag-icon-fr"></span> Coming soon</a></li>
                         </ul>
                     </li>
-                    <li><div id="google_translate_element"></div></li>
+                    <li>
+                        <div id="google_translate_element"></div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -176,36 +176,42 @@
     <div id="wowslider-container0">
         <div class="ws_images">
             <ul>
-                <li><img src="/images/data0/images/slide1.jpg" th:alt="#{descr_1}" th:title="#{slide1}" id="wows0_0"/>
+                <li><img src="/images/data0/images/slide1.jpg" th:alt="#{descr_1}" th:title="#{slide_common}"/>
                     <span th:text="#{descr_1}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide2.jpg" th:alt="#{descr_2}" th:title="#{slide2}" id="wows0_1"/>
+                <li><img src="/images/data0/images/slide2.jpg" th:alt="#{descr_2}" th:title="#{slide_common}"/>
                     <span th:text="#{descr_2}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide3.jpg" th:alt="#{descr_3}" th:title="#{slide3}" id="wows0_2"/>
+                <li><img src="/images/data0/images/slide3.jpg" th:alt="#{descr_3}" th:title="#{slide_common}"/>
                     <span th:text="#{descr_3}" th:remove="tag"></span>
                 </li>
-                <li><img src="/images/data0/images/slide4.jpg" th:alt="#{descr_4}" th:title="#{slide4}" id="wows0_3"/>
+                <li><img src="/images/data0/images/slide3_1.jpg" th:alt="#{descr_3_1}" th:title="#{slide_common}"/>
+                    <span th:text="#{descr_3_1}" th:remove="tag"></span>
+                </li>
+                <li><img src="/images/data0/images/slide4.jpg" th:alt="#{descr_4}" th:title="#{slide_common}"/>
                     <span th:text="#{descr_4}" th:remove="tag"></span>
                 </li>
                 <li><img src="/images/data0/images/slide5.jpg" th:alt="#{descr_5}"
-                         th:title="#{slide5}" id="wows0_4"/>
+                         th:title="#{slide_common}"/>
                     <span th:text="#{descr_5}" th:remove="tag"></span>
                 </li>
                 <li><img src="/images/data0/images/slide6.jpg" th:alt="#{descr_6}"
-                         th:title="#{slide6}" id="wows0_5"/>
+                         th:title="#{slide_common}"/>
                     <span th:text="#{descr_6}" th:remove="tag"></span>
                 </li>
+                <li><img src="/images/data0/images/slide6_1.jpg" th:alt="#{descr_6_1}" th:title="#{slide_common}"/>
+                    <span th:text="#{descr_6_1}" th:remove="tag"></span>
+                </li>
                 <li><img src="/images/data0/images/slide7.jpg" th:alt="#{descr_7}"
-                         th:title="#{slide7}" id="wows0_6"/>
+                         th:title="#{slide_common}"/>
                     <span th:text="#{descr_7}" th:remove="tag"></span>
                 </li>
                 <li><img src="/images/data0/images/slide8.jpg" th:alt="#{descr_8}"
-                         th:title="#{slide8}" id="wows0_7"/>
+                         th:title="#{slide8}"/>
                     <span th:text="#{descr_8}" th:remove="tag"></span>
                 </li>
                 <li><img src="/images/data0/images/slide9.jpg" th:alt="#{descr_9}"
-                         th:title="#{slide9}" id="wows0_8"/>
+                         th:title="#{slide9}"/>
                     <span th:text="#{descr_9}" th:remove="tag"></span>
                 </li>
             </ul>
@@ -213,19 +219,23 @@
         <div class="ws_bullets">
             <div>
                 <a href="#" title="slide1"><span><img src="/images/data0/tooltips/slide1.jpg"
-                                                      th:alt="#{slide1}"/>1</span></a>
+                                                      th:alt="#{slide_common}"/>1</span></a>
                 <a href="#" title="slide2"><span><img src="/images/data0/tooltips/slide2.jpg"
-                                                      th:alt="#{slide2}"/>2</span></a>
+                                                      th:alt="#{slide_common}"/>2</span></a>
                 <a href="#" title="slide3"><span><img src="/images/data0/tooltips/slide3.jpg"
-                                                      th:alt="#{slide3}"/>3</span></a>
+                                                      th:alt="#{slide_common}"/>3</span></a>
+                <a href="#" title="slide3_1"><span><img src="/images/data0/tooltips/slide3_1.jpg"
+                                                        th:alt="#{slide_common}"/>3.1</span></a>
                 <a href="#" title="slide4"><span><img src="/images/data0/tooltips/slide4.jpg"
-                                                      th:alt="#{slide4}"/>4</span></a>
+                                                      th:alt="#{slide_common}"/>4</span></a>
                 <a href="#" title="slide5"><span><img src="/images/data0/tooltips/slide5.jpg"
-                                                      th:alt="#{slide5}"/>5</span></a>
+                                                      th:alt="#{slide_common}"/>5</span></a>
                 <a href="#" title="slide6"><span><img src="/images/data0/tooltips/slide6.jpg"
-                                                      th:alt="#{slide6}"/>6</span></a>
+                                                      th:alt="#{slide_common}"/>6</span></a>
+                <a href="#" title="slide6_1"><span><img src="/images/data0/tooltips/slide6_1.jpg"
+                                                        th:alt="#{slide_common}"/>6.1</span></a>
                 <a href="#" title="slide7"><span><img src="/images/data0/tooltips/slide7.jpg"
-                                                      th:alt="#{slide7}"/>7</span></a>
+                                                      th:alt="#{slide_common}"/>7</span></a>
                 <a href="#" title="slide8"><span><img src="/images/data0/tooltips/slide8.jpg"
                                                       th:alt="#{slide8}"/>8</span></a>
                 <a href="#" title="slide9"><span><img src="/images/data0/tooltips/slide9.jpg"
@@ -245,12 +255,6 @@
     <div class="background-image">
         <div class="container" id="header-info-container">
             <div class="row">
-                <div class="col-sm-12" style="text-align: center;">
-                    <video width="80%" controls>
-                        <source src="/videos/main.mp4" type="video/mp4"/>
-                        We are sorry, but your browser doesn't support HTML5 videos
-                    </video>
-                </div>
                 <div class="col-sm-12">
                     <h1 th:text="#{main_header}"></h1>
                     <p th:text="#{main_info}"></p>
@@ -277,7 +281,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="hovereffect">
-                        <a href="/category/construction/"><img src="/images/logos/main_page/CNHI-CONSTR.png"
+                        <a href="/category/construction/"><img src="/images/logos/main_page/CNH-CONSTR.png"
                                                                class="img-responsive img-thumbnail"
                                                                alt="construction parts"/></a>
                         <div class="overlay">
@@ -466,10 +470,14 @@
     <script src="/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en', multilanguagePage: true}, 'google_translate_element');
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                multilanguagePage: true
+            }, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </div>
 </body>
 </html>
