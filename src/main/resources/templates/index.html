@@ -15,7 +15,7 @@
         gtag('config', 'UA-137864798-1');
     </script>
     <meta charset="UTF-8"/>
-    <title th:content="#{title}"></title>
+    <title th:text="#{title}"></title>
     <meta name="description" th:content="#{meta_descr}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link href="/libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -129,8 +129,8 @@
 <header>
     <div class="jumbotron">
         <div class="container text-center">
-            <div class="knockout h1"><h1 th:text="#{main_title}"></h1></div>
-            <div class="knockout p" th:text="#{top_header}"></div>
+            <h1  class="knockout h1" th:text="#{main_title}"></h1>
+            <h2 class="knockout p" th:text="#{top_header}"></h2>
         </div>
     </div>
 
