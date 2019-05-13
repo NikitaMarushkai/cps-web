@@ -246,7 +246,7 @@ BELGIUM</span>
         </div>
         <div class="row descriptions">
             <!--/*@thymesVar id="contactform" type="com.belgium.cps.web.marushkai.entities.forms.ContactForm"*/-->
-            <form action="#" th:action="@{/mail}" th:object="${contactform}" method="post" class="form-horizontal">
+            <form action="#" th:action="@{/sendMail}" th:object="${contactform}" method="post" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-1">
                         <input type="text" required th:field="*{name}" class="form-control" id="name"

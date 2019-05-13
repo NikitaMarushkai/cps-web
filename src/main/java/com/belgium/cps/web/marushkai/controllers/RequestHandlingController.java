@@ -36,7 +36,7 @@ public class RequestHandlingController {
         this.contextRepository = contextRepository;
     }
 
-    @PostMapping("/mail")
+    @PostMapping("/sendMail")
     public ModelAndView processMailForm(Model model, @ModelAttribute ContactForm contactForm) {
         mailClient.prepareAndSend(contactForm);
         model.addAttribute("contactform", new ContactForm());
